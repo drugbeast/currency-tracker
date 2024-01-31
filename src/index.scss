@@ -1,0 +1,11 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+@font-face {
+  font-family: "PoppinsLight";
+  src: url('./assets/fonts/poppins/Poppins-Light.ttf') format("truetype");
+}
+
+.container {
+  width: 1260px;
+  display: flex;
+}

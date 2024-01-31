@@ -1,0 +1,21 @@
+html[data-theme='dark'] {
+  --background-color: #030304;
+  --text-color: #FFFFFF;
+  --switcher-color: #FFFFFF;
+}
+
+html[data-theme='light'] {
+  --background-color: #FFFFFF;
+  --text-color: #030304;
+  --switcher-color: #030304;
+}
+
+@mixin switcher($width, $height, $border-radius, $position) {
+  width: $width;
+  height: $height;
+  border: 2px solid var(--switcher-color);
+  border-radius: $border-radius;
+  background-color: transparent;
+  position: $position;
+  transition: transform 0.5s ease-out, border 1s ease-out;
+}

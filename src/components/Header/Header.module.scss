@@ -1,0 +1,50 @@
+@use "../../constants/constants.scss" as *;
+
+.header {
+  background: var(--background-color);
+  height: 103px;
+  color: var(--text-color);
+  font-family: "PoppinsLight";
+  display: flex;
+  justify-content: center;
+  transition: background 0.5s ease-out;
+  .headerInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav {
+      margin-left: 255px;
+      display: flex;
+      gap: 115px;
+      font-size: 20px;
+      .default {
+        transition: color 1s ease-out;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .default.active {
+        text-decoration: underline;
+      }
+    }
+    .circle {
+      @include switcher(50px, 26px, 15px, relative);
+      margin-left: 237px;
+      display: block;
+      cursor: pointer;
+    }
+    .circle:after {
+      content: "";
+      @include switcher(25px, 25px, 100%, absolute);
+      top: -1.5px;
+      left: -1.5px;
+    }
+    .switcher {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+    }
+    .switcher:checked + .circle:after{
+      transform: translateX(100%);
+    }
+  }
+}
