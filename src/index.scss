@@ -1,11 +1,22 @@
-@import '../node_modules/modern-normalize/modern-normalize.css';
+@import "../node_modules/modern-normalize/modern-normalize.css";
 
 @font-face {
   font-family: "PoppinsLight";
-  src: url('./assets/fonts/poppins/Poppins-Light.ttf') format("truetype");
+  src: url("./assets/fonts/poppins/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PoppinsSemiBold";
+  src: url("./assets/fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PoppinsRegular";
+  src: url("./assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
 }
 
 .container {
-  width: 1260px;
+  width: 1420px;
   display: flex;
+  margin: 0 auto;
 }

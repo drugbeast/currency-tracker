@@ -1,6 +1,60 @@
+import classes from './Footer.module.scss'
+import Logo from '../../assets/images/logo.svg'
+
 function Footer() {
+  const links = [
+    {
+      title: 'General',
+      first: 'Market',
+      second: 'Service',
+    },
+    {
+      title: 'Product',
+      first: 'Sparks',
+      second: 'Snaps',
+    },
+    {
+      title: 'Community',
+      first: 'Ideas',
+      second: 'Streams',
+    },
+  ]
+
   return (
-    <h1></h1>
+    <footer>
+      <div className="container">
+        <div className={classes.inner}>
+          <div className={classes.left}>
+            <div className={classes.logo}>
+              <Logo width={40} height={45} />
+              <span className={classes.logoText}>Modsen Currency Tracker</span>
+            </div>
+            <p className={classes.text}>
+              Since then, the company has grown organically to. Starsup is the
+              world's largest trading platform, with $12 billion worth of
+              currency trading and 500,000 tickets sold daily to tens of
+              thousands of traders worldwide.
+            </p>
+          </div>
+          <div className={classes.right}>
+            <div className={classes.right}>
+              {links.map((item, index) => (
+                <div className={classes.column} key={index}>
+                  <span className={classes.title}>{item.title}</span>
+                  <div className={classes.links}>
+                    <span className={classes.link}>{item.first}</span>
+                    <span className={classes.link}>{item.second}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={classes.copyinfo}>
+        Startsup &copy; 2023-2024, All Rights Reserved
+      </div>
+    </footer>
   )
 }
 

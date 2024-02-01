@@ -1,0 +1,64 @@
+@use "../../constants/constants.scss" as *;
+
+footer {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  p {
+    margin: 0;
+  }
+  .inner {
+    display: flex;
+    padding: 32px 64px;
+    gap: 105px;
+    .left {
+      width: 42%;
+      line-height: 150%;
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        .logoText {
+          font-family: "PoppinsSemiBold";
+          @include gradientText();
+          font-size: 26px;
+          position: relative;
+          top: 5px;
+        }
+      }
+      .text {
+        font-family: "PoppinsLight";
+        font-size: 24px;
+        line-height: 140%;
+        margin-top: 20px;
+      }
+    }
+    .right {
+      width: 60%;
+      display: flex;
+      gap: 152px;
+      font-family: "PoppinsRegular";
+      .title {
+        font-size: 28px;
+      }
+      .links {
+        margin-top: 32px;
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+        .link {
+          font-size: 24px;
+          color: var(--footer-text-color);
+        }
+      }
+    }
+  }
+}
+.copyinfo {
+  background-color: #030304;
+  font-family: "PoppinsRegular";
+  color: var(--footer-text-color);
+  margin-top: 56px;
+  padding-bottom: 32px;
+  text-align: center;
+  font-size: 24px;
+}

@@ -1,0 +1,39 @@
+@use "../../constants/constants.scss" as *;
+
+.banner {
+  background: var(--background-color);
+  .inner {
+    display: flex;
+    background: linear-gradient(0deg, #121212 11.77%, rgba(36, 121, 64, 0.18) 80.12%);
+    padding: 64px 328px 64px 72px;
+    gap: 72px;
+    p {
+      margin: 0;
+    }
+    position: relative;
+    .left {
+      padding-left: 32px;
+      .title {
+        font-family: "PoppinsSemiBold";
+        @include gradientText();
+        text-align: right;
+      }
+      .big {
+        font-size: 90px;
+      }
+      .small {
+        font-size: 76px;
+      }
+      .text {
+        color: var(--banner-text-color);
+        font-family: "PoppinsLight";
+        font-size: 25px;
+        text-align: center;
+        line-height: 48px;
+        position: absolute;
+        width: 72%;
+        margin-top: 16px;
+      }
+    }
+  }
+}

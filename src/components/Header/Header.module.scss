@@ -2,33 +2,44 @@
 
 .header {
   background: var(--background-color);
-  height: 103px;
+  padding: 32px 0;
   color: var(--text-color);
   font-family: "PoppinsLight";
   display: flex;
   justify-content: center;
   transition: background 0.5s ease-out;
-  .headerInner {
+  .inner {
     display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 64px;
     .nav {
-      margin-left: 255px;
+      margin-left: 144px;
       display: flex;
-      gap: 115px;
+      gap: 120px;
       font-size: 20px;
       .default {
         transition: color 1s ease-out;
         text-decoration: none;
         color: var(--text-color);
+        position: relative;
+      }
+      .default::after {
+        @include afterElement(0, 2px, var(--text-color));
+      }
+      .default:hover::after {
+        width: 100%;
       }
       .default.active {
-        text-decoration: underline;
+        padding-bottom: 5px;
+      }
+      .default.active::after {
+        @include afterElement(100%, 2px, var(--text-color));
       }
     }
     .circle {
       @include switcher(50px, 26px, 15px, relative);
-      margin-left: 237px;
       display: block;
       cursor: pointer;
     }
@@ -43,7 +54,7 @@
       height: 0;
       visibility: hidden;
     }
-    .switcher:checked + .circle:after{
+    .switcher:checked + .circle:after {
       transform: translateX(100%);
     }
   }

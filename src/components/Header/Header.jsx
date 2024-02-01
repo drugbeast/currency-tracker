@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/images/logo.svg'
-import classes from './Header.module.scss'
+import styles from './Header.module.scss'
 import { paths } from '../../constants/routes'
 import { useTheme } from '../../utils/useTheme'
+import { v4 as uuidv4 } from 'uuid'
 
 function Header() {
   const navs = [
@@ -27,21 +28,21 @@ function Header() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <header className={classes.header}>
+    <header className={styles.header}>
       <div className="container">
-        <div className={classes.headerInner}>
-          <NavLink to="/">
+        <div className={styles.inner}>
+          <NavLink to={paths.default}>
             <Logo width={40} height={41} />
           </NavLink>
-          <nav className={classes.nav}>
-            {navs.map((item, index) => (
+          <nav className={styles.nav}>
+            {navs.map(item => (
               <NavLink
-                key={index}
+                key={uuidv4()}
                 to={item.path}
                 className={({ isActive }) =>
                   isActive
-                    ? [classes.default, classes.active].join(' ')
-                    : classes.default
+                    ? [styles.default, styles.active].join(' ')
+                    : styles.default
                 }
               >
                 {item.title}
@@ -51,10 +52,10 @@ function Header() {
           <input
             type="checkbox"
             id="toggle-button"
-            className={classes.switcher}
+            className={styles.switcher}
             onChange={() => setTheme(theme == 'dark' ? 'light' : 'dark')}
           ></input>
-          <label htmlFor="toggle-button" className={classes.circle}></label>
+          <label htmlFor="toggle-button" className={styles.circle}></label>
         </div>
       </div>
     </header>
