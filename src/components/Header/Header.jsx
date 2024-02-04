@@ -53,6 +53,7 @@ function Header() {
             type="checkbox"
             id="toggle-button"
             className={styles.switcher}
+            checked={theme == 'light'}
             onChange={() => setTheme(theme == 'dark' ? 'light' : 'dark')}
           ></input>
           <label htmlFor="toggle-button" className={styles.circle}></label>

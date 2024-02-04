@@ -2,19 +2,17 @@
 
 .banner {
   background: var(--background-color);
+  transition: background 0.3s ease-out;
   .inner {
     display: flex;
-    background: linear-gradient(0deg, #121212 11.77%, rgba(36, 121, 64, 0.18) 80.12%);
-    padding: 64px 328px 64px 72px;
+    background: var(--gradient-color);
+    padding: 64px 328px 64px 88px;
     gap: 72px;
-    p {
-      margin: 0;
-    }
     position: relative;
     .left {
       padding-left: 32px;
       .title {
-        font-family: "PoppinsSemiBold";
+        font-family: "PoppinsSemiBold600";
         @include gradientText();
         text-align: right;
       }
@@ -26,7 +24,7 @@
       }
       .text {
         color: var(--banner-text-color);
-        font-family: "PoppinsLight";
+        font-family: "PoppinsLight300";
         font-size: 25px;
         text-align: center;
         line-height: 48px;

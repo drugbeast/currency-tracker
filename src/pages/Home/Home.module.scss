@@ -1,0 +1,49 @@
+@use "../../constants/constants.scss" as *;
+
+.currencies {
+  font-family: "PoppinsLight300";
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.3s ease-out; 
+  .inner {
+    padding: 56px 8px;
+    .updated {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      gap: 16px;
+      .biggest {
+        @include circle(50px, rgba(0, 188, 79, 0.02));
+        @include blinking(0.02, 0.22);
+      }
+      .big {
+        @include circle(33px, rgba(0, 188, 79, 0.4));
+      }
+      .little {
+        @include circle(16px, rgba(0, 188, 79, 1));
+      }
+      .updatedText {
+        color: var(--banner-text-color);
+        font-size: 32px;
+        text-align: center;
+        margin: 0;
+      }
+    }
+    .title {
+      font-family: "PoppinsLight300";
+      font-size: 32px;
+      padding-bottom: 24px;
+      margin-top: 72px;
+      border-bottom: 1px solid var(--card-border-color);
+      width: 42%;
+    }
+    .cards {
+      display: flex;
+      gap: 56px 184px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 48px;
+    }
+  }
+}

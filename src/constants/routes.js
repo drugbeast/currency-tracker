@@ -1,7 +1,7 @@
 import Layout from "../components/Layout"
 import Timeline from "../pages/Timeline"
 import BankCard from "../pages/BankCard"
-import Home from "../pages/Home"
+import Home from "../pages/Home/Home"
 import Contato from "../pages/Contato"
 
 export const paths = {

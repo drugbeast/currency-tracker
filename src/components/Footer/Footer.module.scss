@@ -1,14 +1,12 @@
 @use "../../constants/constants.scss" as *;
 
 footer {
-  background-color: var(--background-color);
+  background: var(--background-color);
   color: var(--text-color);
-  p {
-    margin: 0;
-  }
+  transition: background 0.3s ease-out;
   .inner {
     display: flex;
-    padding: 32px 64px;
+    padding: 40px 0;
     gap: 105px;
     .left {
       width: 42%;
@@ -18,7 +16,7 @@ footer {
         align-items: center;
         gap: 16px;
         .logoText {
-          font-family: "PoppinsSemiBold";
+          font-family: "PoppinsSemiBold600";
           @include gradientText();
           font-size: 26px;
           position: relative;
@@ -26,17 +24,17 @@ footer {
         }
       }
       .text {
-        font-family: "PoppinsLight";
+        font-family: "PoppinsLight300";
         font-size: 24px;
         line-height: 140%;
-        margin-top: 20px;
+        margin-top: 24px;
       }
     }
     .right {
       width: 60%;
       display: flex;
       gap: 152px;
-      font-family: "PoppinsRegular";
+      font-family: "PoppinsRegular400";
       .title {
         font-size: 28px;
       }
@@ -48,14 +46,15 @@ footer {
         .link {
           font-size: 24px;
           color: var(--footer-text-color);
+          cursor: pointer;
         }
       }
     }
   }
 }
 .copyinfo {
-  background-color: #030304;
-  font-family: "PoppinsRegular";
+  background-color: var(--background-color);
+  font-family: "PoppinsRegular400";
   color: var(--footer-text-color);
   margin-top: 56px;
   padding-bottom: 32px;

@@ -1,0 +1,26 @@
+@use "../../constants/constants.scss" as *;
+
+.card {
+  background-color: var(--card-background);
+  padding: 32px;
+  border: 1px solid var(--card-border-color);
+  width: 42%;
+  border-radius: 8px;
+  .inner {
+    display: flex;
+    gap: 24px;
+    .info {
+      display: flex;
+      flex-direction: column;
+      .title {
+        font-size: 35px;
+        font-family: "PoppinsRegular400";
+        color: var(--card-text);
+      }
+      .rate {
+        font-size: 32px;
+        color: #A7B2C3;
+      }
+    }
+  }
+}
