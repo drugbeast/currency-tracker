@@ -1,5 +1,3 @@
 {
-  "*.(js|jsx)": [
-    "yarn run lint"
-  ]
+  "*.(js|jsx)": ["yarn run prettier", "yarn run lint"]
 }
