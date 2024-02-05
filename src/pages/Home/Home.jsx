@@ -32,7 +32,7 @@ function Home() {
     }
   }, [])
 
-  localStorage.setItem('quotes', JSON.stringify(quotes))
+  localStorage.setItem("quotes", JSON.stringify(quotes))
   localStorage.setItem('lastUpdated', JSON.stringify(lastUpdated))
 
   const currencies = []
