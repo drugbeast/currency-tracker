@@ -1,10 +1,10 @@
-@use "../../constants/constants.scss" as *;
+@use '../../constants/constants.scss' as *;
 
 .header {
   background: var(--background-color);
   padding: 32px 0;
   color: var(--text-color);
-  font-family: "PoppinsLight300";
+  font-family: 'PoppinsLight300';
   display: flex;
   justify-content: center;
   transition: background 0.3s ease-out;
@@ -42,7 +42,7 @@
       cursor: pointer;
     }
     .circle:after {
-      content: "";
+      content: '';
       @include switcher(25px, 25px, 100%, absolute);
       top: -1.5px;
       left: -1.5px;

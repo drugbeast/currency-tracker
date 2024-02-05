@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom'
-import Logo from '../../assets/images/logo.svg'
-import styles from './Header.module.scss'
-import { paths } from '../../constants/routes'
-import { useTheme } from '../../utils/useTheme'
 import { v4 as uuidv4 } from 'uuid'
+
+import Logo from '../../assets/images/logo.svg'
+import { paths } from '../../constants/routes'
+import useTheme from '../../utils/useTheme'
+import styles from './Header.module.scss'
 
 function Header() {
   const navs = [
@@ -53,10 +54,10 @@ function Header() {
             type="checkbox"
             id="toggle-button"
             className={styles.switcher}
-            checked={theme == 'light'}
-            onChange={() => setTheme(theme == 'dark' ? 'light' : 'dark')}
-          ></input>
-          <label htmlFor="toggle-button" className={styles.circle}></label>
+            checked={theme === 'light'}
+            onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          />
+          <label htmlFor="toggle-button" className={styles.circle} />
         </div>
       </div>
     </header>

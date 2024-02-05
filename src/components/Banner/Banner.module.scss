@@ -1,4 +1,4 @@
-@use "../../constants/constants.scss" as *;
+@use '../../constants/constants.scss' as *;
 
 .banner {
   background: var(--background-color);
@@ -12,7 +12,7 @@
     .left {
       padding-left: 32px;
       .title {
-        font-family: "PoppinsSemiBold600";
+        font-family: 'PoppinsSemiBold600';
         @include gradientText();
         text-align: right;
       }
@@ -24,7 +24,7 @@
       }
       .text {
         color: var(--banner-text-color);
-        font-family: "PoppinsLight300";
+        font-family: 'PoppinsLight300';
         font-size: 25px;
         text-align: center;
         line-height: 48px;

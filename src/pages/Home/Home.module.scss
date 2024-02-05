@@ -1,10 +1,10 @@
-@use "../../constants/constants.scss" as *;
+@use '../../constants/constants.scss' as *;
 
 .currencies {
-  font-family: "PoppinsLight300";
+  font-family: 'PoppinsLight300';
   background: var(--background-color);
   color: var(--text-color);
-  transition: background 0.3s ease-out; 
+  transition: background 0.3s ease-out;
   .inner {
     padding: 56px 8px;
     .updated {
@@ -31,7 +31,7 @@
       }
     }
     .title {
-      font-family: "PoppinsLight300";
+      font-family: 'PoppinsLight300';
       font-size: 32px;
       padding-bottom: 24px;
       margin-top: 72px;

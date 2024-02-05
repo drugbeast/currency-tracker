@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
-import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
-import styles from './Home.module.scss'
 import axios from 'axios'
-import { icons } from '../../constants/icons'
-import { iconsNames } from '../../constants/icons'
+import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+
+import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
+import { icons, iconsNames } from '../../constants/icons'
+import styles from './Home.module.scss'
 
 function Home() {
   const quotesFromLS = localStorage.getItem('quotes')
@@ -26,7 +26,9 @@ function Home() {
         .then(response => {
           setLastUpdated(Date.now())
           setQuotes(response.data.rates)
+          return true
         })
+        .catch(e => e)
     }
   }, [])
 
@@ -34,25 +36,22 @@ function Home() {
   localStorage.setItem('lastUpdated', JSON.stringify(lastUpdated))
 
   const currencies = []
-  for (let quote in quotes) {
+  Object.keys(quotes).forEach(quote => {
     if (quote in icons) {
       currencies.push({
         icon: icons[quote]({ width: 80, height: 80 }),
-        rate: quote != 'BTC' ? quotes[quote].toFixed(2) : quotes[quote],
+        rate: quote !== 'BTC' ? quotes[quote].toFixed(2) : quotes[quote],
         title: iconsNames[quote],
       })
     }
-  }
+  })
 
-  const formatDate = lastUpdated => {
-    const date = new Date(lastUpdated)
+  const formatDate = last => {
+    const date = new Date(last)
     const isPm = date.getHours() > 12
-    return (
-      (isPm ? date.getHours() - 12 : date.getHours()) +
-      ':' +
-      date.getMinutes() +
-      (isPm ? 'pm' : 'am')
-    )
+    return `${
+      isPm ? date.getHours() - 12 : date.getHours()
+    }:${date.getMinutes()}${isPm ? 'pm' : 'am'}`
   }
 
   const stocks = [currencies[0], currencies[1]]
@@ -64,7 +63,7 @@ function Home() {
           <div className={styles.updated}>
             <div className={styles.biggest}>
               <div className={styles.big}>
-                <div className={styles.little}></div>
+                <div className={styles.little} />
               </div>
             </div>
             <span className={styles.updatedText}>

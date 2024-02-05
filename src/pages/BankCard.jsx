@@ -1,6 +1,5 @@
 function BankCard() {
-  return (<>Matvey</>)
+  return <>Matvey</>
 }
 
 export default BankCard
-

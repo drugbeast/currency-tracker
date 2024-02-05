@@ -1,14 +1,14 @@
-import Layout from "../components/Layout"
-import Timeline from "../pages/Timeline"
-import BankCard from "../pages/BankCard"
-import Home from "../pages/Home/Home"
-import Contato from "../pages/Contato"
+import Layout from '../components/Layout'
+import BankCard from '../pages/BankCard'
+import Contato from '../pages/Contato'
+import Home from '../pages/Home/Home'
+import Timeline from '../pages/Timeline'
 
 export const paths = {
-  default: '/', 
-  timeline: 'timeline', 
+  default: '/',
+  timeline: 'timeline',
   bankCard: 'bankCard',
-  contato: 'contato'
+  contato: 'contato',
 }
 
 export const routes = [
@@ -30,8 +30,8 @@ export const routes = [
       },
       {
         path: paths.contato,
-        element: <Contato />
-      }
+        element: <Contato />,
+      },
     ],
   },
 ]

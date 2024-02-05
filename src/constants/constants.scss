@@ -1,22 +1,30 @@
-html[data-theme="dark"] {
+html[data-theme='dark'] {
   --background-color: #030304;
   --text-color: #ffffff;
   --switcher-color: #ffffff;
   --banner-text-color: #d9d9d9;
   --footer-text-color: #898989;
-  --gradient-color: linear-gradient(0deg, #121212 11.77%, rgba(36, 121, 64, 0.18) 80.12%);
+  --gradient-color: linear-gradient(
+    0deg,
+    #121212 11.77%,
+    rgba(36, 121, 64, 0.18) 80.12%
+  );
   --card-border-color: #474747;
   --card-background: #202025;
-  --card-text: #D9D9D9;
+  --card-text: #d9d9d9;
 }
 
-html[data-theme="light"] {
+html[data-theme='light'] {
   --background-color: #ffffff;
   --text-color: #030304;
   --switcher-color: #030304;
   --banner-text-color: #000000;
   --footer-text-color: #b3b3b3;
-  --gradient-color: linear-gradient(0deg, #ffffff 11.77%, rgba(29, 251, 103, 0.1) 80.12%);
+  --gradient-color: linear-gradient(
+    0deg,
+    #ffffff 11.77%,
+    rgba(29, 251, 103, 0.1) 80.12%
+  );
   --card-border-color: #b3b3b3;
   --card-background: #ffffff;
   --card-text: #000000;
@@ -35,7 +43,7 @@ html[data-theme="light"] {
 }
 
 @mixin afterElement($width, $height, $background-color) {
-  content: "";
+  content: '';
   width: $width;
   position: absolute;
   height: $height;
@@ -46,7 +54,12 @@ html[data-theme="light"] {
 }
 
 @mixin gradientText() {
-  background: linear-gradient(90deg, #00ce2c 0.18%, #aedf23 49.3%, #a3dc00 99.88%);
+  background: linear-gradient(
+    90deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,10 +78,10 @@ html[data-theme="light"] {
 @mixin blinking($fromAlpha, $toAlpha) {
   @keyframes blinking {
     from {
-      background-color: rgba(0, 188, 79, $fromAlpha)
+      background-color: rgba(0, 188, 79, $fromAlpha);
     }
     to {
-      background-color: rgba(0, 188, 79, $toAlpha)
+      background-color: rgba(0, 188, 79, $toAlpha);
     }
   }
   animation: 1s infinite alternate blinking;

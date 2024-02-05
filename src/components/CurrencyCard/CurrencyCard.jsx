@@ -7,7 +7,7 @@ function CurrencyCard({ icon, rate, title }) {
         {icon}
         <div className={styles.info}>
           <span className={styles.title}>{title}</span>
-          <span className={styles.rate}>R$ {rate}</span>
+          <span className={styles.rate}>R&#36; {rate}</span>
         </div>
       </div>
     </div>

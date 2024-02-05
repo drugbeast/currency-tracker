@@ -1,4 +1,4 @@
-@use "../../constants/constants.scss" as *;
+@use '../../constants/constants.scss' as *;
 
 .card {
   background-color: var(--card-background);
@@ -14,12 +14,12 @@
       flex-direction: column;
       .title {
         font-size: 35px;
-        font-family: "PoppinsRegular400";
+        font-family: 'PoppinsRegular400';
         color: var(--card-text);
       }
       .rate {
         font-size: 32px;
-        color: #A7B2C3;
+        color: #a7b2c3;
       }
     }
   }
