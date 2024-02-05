@@ -7,7 +7,8 @@
     "dev": "webpack serve",
     "lint": "eslint ./src",
     "prettier": "prettier . --write",
-    "postinstall": "husky"
+    "prepare": "husky",
+    "test": "husky"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -26,7 +27,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "html-webpack-plugin": "^5.6.0",
-    "husky": "4",
     "lint-staged": "^15.2.1",
     "prettier": "3.2.5",
     "sass": "^1.70.0",
@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "husky": "^9.0.10",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
