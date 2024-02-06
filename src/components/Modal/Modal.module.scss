@@ -18,12 +18,12 @@
     display: flex;
     flex-direction: column;
     .title {
-      font-family: "PoppinsRegular400";
+      font-family: 'PoppinsRegular400';
       font-size: 32px;
       margin: 0 auto;
     }
     .text {
-      font-family: "PoppinsLight300";
+      font-family: 'PoppinsLight300';
       font-size: 24px;
     }
     .content {
@@ -32,13 +32,13 @@
       flex-direction: column;
       gap: 16px;
       .symbol {
-        font-family: "PoppinsSemibold600";
+        font-family: 'PoppinsSemibold600';
       }
     }
     .result {
       font-size: 80px;
       margin: 64px auto 0;
-      font-family: "PoppinsLight300";
+      font-family: 'PoppinsLight300';
     }
   }
 }
