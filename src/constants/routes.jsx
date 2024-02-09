@@ -2,7 +2,7 @@ import Layout from '../components/Layout'
 import BankCard from '../pages/BankCard'
 import Contato from '../pages/Contato'
 import Home from '../pages/Home/Home'
-import Timeline from '../pages/Timeline'
+import Timeline from '../pages/Timeline/Timeline'
 
 export const paths = {
   default: '/',
