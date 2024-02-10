@@ -7,11 +7,13 @@
   text-wrap: nowrap;
   margin-left: 16px;
   cursor: pointer;
-  .field.up, .field.down {
+  .field.up,
+  .field.down {
     font-size: 30px;
     font-weight: 400;
   }
-  .field.up::after, .field.down::after {
+  .field.up::after,
+  .field.down::after {
     content: '';
     width: 12px;
     height: 12px;
@@ -35,7 +37,7 @@
     color: #ffffff;
     position: absolute;
     transition: transform 0.3s ease-out;
-    border: 1px solid  var(--tertiary-text-color);
+    border: 1px solid var(--tertiary-text-color);
     background-color: var(--background-color);
     .option:hover {
       background-color: var(--tertiary-text-color);
@@ -54,13 +56,3 @@
     transform: scaleX(0);
   }
 }
-
-
-
-
-
-
-
-
-
-
