@@ -1,9 +1,9 @@
 .select {
-  color: #FFFFFF;
-  font-family: "PoppinsMedium500";
+  color: #ffffff;
+  font-family: 'PoppinsMedium500';
   width: 22%;
   position: relative;
-  text-wrap:nowrap;
+  text-wrap: nowrap;
   cursor: pointer;
 }
 
@@ -14,11 +14,11 @@
 }
 
 .field::after {
-  content: "";
+  content: '';
   width: 12px;
   height: 12px;
   display: block;
-  position: absolute; 
+  position: absolute;
   top: 30%;
   right: 10px;
   border-width: 0 3px 3px 0;
@@ -30,11 +30,11 @@
 .popEnabled {
   margin-top: 10px;
   width: 100%;
-  color: #FFFFFF;
-  position:absolute;
-  font-family: "PoppinsLight300";
+  color: #ffffff;
+  position: absolute;
+  font-family: 'PoppinsLight300';
   transition: all 1s ease-out;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   background-color: #000000;
 }
 
