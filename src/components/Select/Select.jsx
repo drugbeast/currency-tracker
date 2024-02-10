@@ -1,35 +1,52 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
-import { iconsNames } from '../../constants/icons'
+import currencies from '../../constants/currencies'
 import styles from './Select.module.scss'
 
-function Select() {
-  const [isPop, setPop] = useState(false)
+function Select(props) {
+  const { setCurrency } = props
+  const [isClicked, setClicked] = useState(false)
   const [selectedCurrency, setSelectedCurrency] = useState(
-    Object.values(iconsNames)[0],
+    Object.values(currencies)[0],
   )
 
   return (
-    <div className={styles.select}>
-      <div className={styles.field} onClick={() => setPop(!isPop)}>
+    <section className={styles.select}>
+      <div
+        className={
+          isClicked
+            ? [styles.field, styles.up].join(' ')
+            : [styles.field, styles.down].join(' ')
+        }
+        onClick={() => setClicked(!isClicked)}
+      >
         {selectedCurrency.length > 13
           ? `${selectedCurrency.substring(0, 12)}...`
           : selectedCurrency}
       </div>
-      <div className={isPop ? styles.popEnabled : styles.popDisabled}>
-        {Object.values(iconsNames).map(value => (
+      <div
+        className={
+          isClicked
+            ? [styles.pop, styles.enabled].join(' ')
+            : [styles.pop, styles.disabled].join(' ')
+        }
+      >
+        {Object.values(currencies).map(value => (
           <div
+            key={uuidv4()}
             className={styles.option}
             onClick={e => {
               setSelectedCurrency(e.target.textContent)
-              setPop(!isPop)
+              setClicked(!isClicked)
+              setCurrency(e.target.textContent)
             }}
           >
             {value}
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
 

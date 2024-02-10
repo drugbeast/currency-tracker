@@ -1,0 +1,58 @@
+html[data-theme='dark'] {
+  --background-color: #030304;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #d9d9d9;
+  --tertiary-text-color: #898989;
+  --arrow-color: #9e9e9e;
+  --crosshair-color: #ff971d;
+  --candlestick-green-color: #16c782;
+  --candlestick-red-color: #ea3943;
+  --logo-color: linear-gradient(
+    90.18deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
+  --banner-color: linear-gradient(
+    0deg,
+    #121212 11.77%,
+    rgba(36, 121, 64, 0.18) 80.12%
+  );
+  --biggest-updated-circle-color: rgba(0, 188, 79, 0.02);
+  --big-updated-circle-color: rgba(0, 188, 79, 0.4);
+  --little-updated-circle-color: rgba(0, 188, 79, 1);
+  --card-background-color: #202025;
+  --card-border-color: #474747;
+  --card-number-color: #a7b2c3;
+  --searchbar-color: #1b2028;
+  --modal-background-color: rgba(3, 3, 4, 0.5);
+}
+
+html[data-theme='light'] {
+  --background-color: #ffffff;
+  --primary-text-color: #030304;
+  --secondary-text-color: #0d0d12;
+  --tertiary-text-color: #404040;
+  --arrow-color: #302f2f;
+  --crosshair-color: #ff971d;
+  --candlestick-green-color: #16c782;
+  --candlestick-red-color: #ea3943;
+  --logo-color: linear-gradient(
+    90.18deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
+  --banner-color: linear-gradient(
+    0deg,
+    #f0e8e8 5.77%,
+    rgba(37, 201, 92, 0.18) 80.12%
+  );
+  --biggest-updated-circle-color: rgba(0, 188, 79, 0.02);
+  --big-updated-circle-color: rgba(0, 188, 79, 0.4);
+  --little-updated-circle-color: rgba(0, 188, 79, 1);
+  --card-background-color: #202025;
+  --card-border-color: #474747;
+  --card-number-color: #a7b2c3;
+  --searchbar-color: #2a2a2a;
+}

@@ -6,9 +6,9 @@ const candlestickPlugin = {
       data,
       scales: { y },
     } = chart
+
     ctx.save()
-    ctx.lineWidth = 2
-    ctx.strokeStyle = 'rgb(255, 255, 255)'
+    ctx.lineWidth = 1
 
     data.datasets[0].data.forEach((item, index) => {
       ctx.beginPath()
@@ -20,6 +20,11 @@ const candlestickPlugin = {
         chart.getDatasetMeta(0).data[index].x,
         y.getPixelForValue(data.datasets[0].data[index].h),
       )
+      if (item.c > item.o) {
+        ctx.strokeStyle = '#16C782'
+      } else {
+        ctx.strokeStyle = '#EA3943'
+      }
       ctx.stroke()
 
       ctx.beginPath()
@@ -31,6 +36,11 @@ const candlestickPlugin = {
         chart.getDatasetMeta(0).data[index].x,
         y.getPixelForValue(data.datasets[0].data[index].l),
       )
+      if (item.c > item.o) {
+        ctx.strokeStyle = '#16C782'
+      } else {
+        ctx.strokeStyle = '#EA3943'
+      }
       ctx.stroke()
     })
   },

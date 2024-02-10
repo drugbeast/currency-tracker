@@ -1,24 +1,26 @@
 @use '../../constants/constants.scss' as *;
 
 .updated {
-  font-family: 'PoppinsLight300';
+  padding-top: 72px;
+  background-color: var(--background-color);
+  font-weight: 300;
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: center;
   gap: 16px;
   .biggest {
-    @include circle(50px, rgba(0, 188, 79, 0.02));
+    @include circle(50px, var(--biggest-updated-circle-color));
     @include blinking(0.02, 0.22);
   }
   .big {
-    @include circle(33px, rgba(0, 188, 79, 0.4));
+    @include circle(33px, var(--big-updated-circle-color));
   }
   .little {
-    @include circle(16px, rgba(0, 188, 79, 1));
+    @include circle(16px, var(--little-updated-circle-color));
   }
   .updatedText {
-    color: var(--banner-text-color);
+    color: var(--secondary-text-color);
     font-size: 32px;
     text-align: center;
     margin: 0;

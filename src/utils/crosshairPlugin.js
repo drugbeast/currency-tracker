@@ -8,8 +8,8 @@ const crosshairPlugin = {
       scales: { y },
     } = chart
 
-    ctx.lineWidth = 2
-    ctx.strokeStyle = 'grey'
+    ctx.lineWidth = 1
+    ctx.strokeStyle = '#FF971D'
 
     if (this.crosshair) {
       ctx.save()
@@ -19,9 +19,9 @@ const crosshairPlugin = {
         ctx.lineTo(line.endX, line.endY)
         ctx.stroke()
       })
-      ctx.fillStyle = 'red'
+      ctx.fillStyle = '#FF971D'
       ctx.fillRect(0, this.crosshair[0].startY - 10, left, 20)
-      ctx.font = 'PoppinsRegular400'
+      ctx.font = 'Poppins'
 
       ctx.textAlign = 'center'
       ctx.fillStyle = 'white'
@@ -41,8 +41,8 @@ const crosshairPlugin = {
     const xCoor = args.event.x
     const yCoor = args.event.y
 
-    ctx.lineWidth = 2
-    ctx.strokeStyle = 'grey'
+    ctx.lineWidth = 1
+    ctx.strokeStyle = '#FF971D'
 
     if (!args.inChartArea && this.crosshair) {
       this.crosshair = undefined

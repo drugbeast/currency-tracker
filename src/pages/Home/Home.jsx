@@ -5,8 +5,7 @@ import { createContext, useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
-import LastUpdated from '../../components/LastUpdated/LastUpdated'
-import { iconsNames } from '../../constants/icons'
+import currencies from '../../constants/currencies'
 import styles from './Home.module.scss'
 
 export const CurrenciesContext = createContext([])
@@ -15,7 +14,7 @@ function Home() {
   const currenciesFromLS = localStorage.getItem('currencies')
   const lastUpdatedFromLS = localStorage.getItem('lastUpdated')
 
-  const [currencies, setCurrencies] = useState(
+  const [cardsCurrencies, setCardsCurrencies] = useState(
     currenciesFromLS != null ? JSON.parse(currenciesFromLS) : [],
   )
   const [lastUpdated, setLastUpdated] = useState(
@@ -23,16 +22,16 @@ function Home() {
   )
 
   useEffect(() => {
-    if (Date.now() - lastUpdatedFromLS > 10000000) {
+    if (Date.now() - lastUpdatedFromLS > 1000000000) {
       axios
         .get(
-          `https://api.currencybeacon.com/v1/latest?api_key=${process.env.REACT_APP_API_KEY}`,
+          `https://api.currencybeacon.com/v1/latest?api_key=${process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,
         )
         .then(response => {
           setLastUpdated(Date.now())
           const fetchedCurrencies = Object.keys(response.data.rates)
             .map(currency =>
-              currency in iconsNames
+              currency in currencies
                 ? {
                     rate:
                       currency !== 'BTC'
@@ -43,7 +42,7 @@ function Home() {
                 : null,
             )
             .filter(currency => currency != null)
-          setCurrencies(fetchedCurrencies)
+          setCardsCurrencies(fetchedCurrencies)
           localStorage.setItem('currencies', JSON.stringify(fetchedCurrencies))
           localStorage.setItem('lastUpdated', JSON.stringify(lastUpdated))
           return true
@@ -53,17 +52,15 @@ function Home() {
   }, [])
 
   return (
-    <div className={styles.currencies}>
+    <article className={styles.currencies}>
       <div className="container">
         <div className={styles.inner}>
-          <LastUpdated />
           <div className={styles.title}>Quotes</div>
-
-          <div className={styles.cards}>
-            {currencies.map(item => (
+          <section className={styles.cards}>
+            {cardsCurrencies.map(item => (
               <CurrenciesContext.Provider
                 value={{
-                  currencies,
+                  cardsCurrencies,
                   rate: item.rate,
                   symbol: item.symbol,
                 }}
@@ -72,10 +69,10 @@ function Home() {
                 <CurrencyCard />
               </CurrenciesContext.Provider>
             ))}
-          </div>
+          </section>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 

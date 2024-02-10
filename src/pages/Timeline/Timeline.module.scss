@@ -1,3 +1,6 @@
+@use '../../constants/themes.css' as *;
+
 .timeline {
+  padding: 64px 0;
   background: var(--background-color);
 }

@@ -3,7 +3,7 @@ import styles from './Banner.module.scss'
 
 function Banner() {
   return (
-    <div className={styles.banner}>
+    <section className={styles.banner}>
       <div className={styles.inner}>
         <div className={styles.left}>
           <p className={[styles.title, styles.small].join(' ')}>
@@ -20,7 +20,7 @@ function Banner() {
           <Logo width={300} height={312} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

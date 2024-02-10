@@ -12,7 +12,7 @@ function LastUpdated() {
   }
 
   return (
-    <div className={styles.updated}>
+    <section className={styles.updated}>
       <div className={styles.biggest}>
         <div className={styles.big}>
           <div className={styles.little} />
@@ -21,7 +21,7 @@ function LastUpdated() {
       <span className={styles.updatedText}>
         Last updated at {formatDate(lastUpdated)}
       </span>
-    </div>
+    </section>
   )
 }
 

@@ -1,18 +1,16 @@
 @use '../../constants/constants.scss' as *;
 
 .currencies {
-  font-family: 'PoppinsLight300';
+  font-weight: 300;
   background: var(--background-color);
-  color: var(--text-color);
+  color: var(--primary-text-color);
   transition: background 0.3s ease-out;
   .inner {
-    padding: 56px 8px;
+    padding: 64px 8px;
     .title {
-      font-family: 'PoppinsLight300';
       font-size: 32px;
       padding-bottom: 24px;
-      margin-top: 72px;
-      border-bottom: 1px solid var(--card-border-color);
+      border-bottom: 1px solid var(--card-number-color);
       width: 42%;
     }
     .cards {

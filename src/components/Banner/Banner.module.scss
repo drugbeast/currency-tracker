@@ -5,14 +5,14 @@
   transition: background 0.3s ease-out;
   .inner {
     display: flex;
-    background: var(--gradient-color);
+    background: var(--banner-color);
     padding: 64px 328px 64px 88px;
     gap: 72px;
     position: relative;
     .left {
       padding-left: 32px;
       .title {
-        font-family: 'PoppinsSemiBold600';
+        font-weight: 600;
         @include gradientText();
         text-align: right;
       }
@@ -23,8 +23,8 @@
         font-size: 76px;
       }
       .text {
-        color: var(--banner-text-color);
-        font-family: 'PoppinsLight300';
+        color: var(--secondary-text-color);
+        font-weight: 300;
         font-size: 25px;
         text-align: center;
         line-height: 48px;

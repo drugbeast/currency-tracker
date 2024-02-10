@@ -1,7 +1,7 @@
 .modal {
   height: 100vh;
   width: 100vw;
-  background-color: var(--modal-page-background);
+  background-color: var(--modal-background-color);
   position: fixed;
   top: 0;
   display: flex;
@@ -10,20 +10,20 @@
   .inner {
     width: 40%;
     height: 60%;
-    background-color: var(--card-background);
+    background-color: var(--card-background-color);
     border-radius: 8px;
     border: 1px solid var(--card-border-color);
-    color: var(--card-text);
+    color: var(--primary-text-color);
     padding: 64px 48px;
     display: flex;
     flex-direction: column;
     .title {
-      font-family: 'PoppinsRegular400';
+      font-weight: 400;
       font-size: 32px;
       margin: 0 auto;
     }
     .text {
-      font-family: 'PoppinsLight300';
+      font-weight: 300;
       font-size: 24px;
     }
     .content {
@@ -32,13 +32,13 @@
       flex-direction: column;
       gap: 16px;
       .symbol {
-        font-family: 'PoppinsSemibold600';
+        font-weight: 600;
       }
     }
     .result {
       font-size: 80px;
       margin: 64px auto 0;
-      font-family: 'PoppinsLight300';
+      font-weight: 300;
     }
   }
 }

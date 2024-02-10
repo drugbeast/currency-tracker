@@ -1,0 +1,22 @@
+@use '../../constants/themes.css' as *;
+
+.card {
+  margin-top: 120px;
+  display: flex;
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 0 32px;
+    .title {
+      font-weight: 400;
+      color: var(--secondary-text-color);
+      font-size: 35px;
+    }
+    .symbol {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--primary-text-color);
+    }
+  }
+}

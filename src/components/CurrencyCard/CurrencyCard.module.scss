@@ -2,7 +2,7 @@
 
 .card {
   cursor: pointer;
-  background-color: var(--card-background);
+  background-color: var(--card-background-color);
   padding: 32px;
   border: 1px solid var(--card-border-color);
   width: 42%;
@@ -15,12 +15,12 @@
       flex-direction: column;
       .title {
         font-size: 35px;
-        font-family: 'PoppinsRegular400';
+        font-weight: 400;
         color: var(--card-text);
       }
       .rate {
         font-size: 32px;
-        color: #a7b2c3;
+        color: var(--card-number-color);
       }
     }
   }

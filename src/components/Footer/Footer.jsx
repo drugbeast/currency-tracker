@@ -26,7 +26,7 @@ function Footer() {
     <footer>
       <div className="container">
         <div className={classes.inner}>
-          <div className={classes.left}>
+          <section className={classes.left}>
             <div className={classes.logo}>
               <Logo width={40} height={45} />
               <span className={classes.logoText}>Modsen Currency Tracker</span>
@@ -37,8 +37,8 @@ function Footer() {
               currency trading and 500,000 tickets sold daily to tens of
               thousands of traders worldwide.
             </p>
-          </div>
-          <div className={classes.right}>
+          </section>
+          <section className={classes.right}>
             <div className={classes.right}>
               {links.map(item => (
                 <div className={classes.column} key={uuidv4()}>
@@ -50,12 +50,12 @@ function Footer() {
                 </div>
               ))}
             </div>
-          </div>
+          </section>
         </div>
       </div>
-      <div className={classes.copyinfo}>
+      <section className={classes.copyinfo}>
         Startsup &copy; 2023-2024, All Rights Reserved
-      </div>
+      </section>
     </footer>
   )
 }

@@ -2,7 +2,7 @@
 
 footer {
   background: var(--background-color);
-  color: var(--text-color);
+  color: var(--primary-text-color);
   transition: background 0.3s ease-out;
   .inner {
     display: flex;
@@ -16,7 +16,7 @@ footer {
         align-items: center;
         gap: 16px;
         .logoText {
-          font-family: 'PoppinsSemiBold600';
+          font-weight: 600;
           @include gradientText();
           font-size: 26px;
           position: relative;
@@ -24,7 +24,7 @@ footer {
         }
       }
       .text {
-        font-family: 'PoppinsLight300';
+        font-weight: 300;
         font-size: 24px;
         line-height: 140%;
         margin-top: 24px;
@@ -34,7 +34,7 @@ footer {
       width: 60%;
       display: flex;
       gap: 152px;
-      font-family: 'PoppinsRegular400';
+      font-weight: 400;
       .title {
         font-size: 28px;
       }
@@ -45,7 +45,7 @@ footer {
         flex-direction: column;
         .link {
           font-size: 24px;
-          color: var(--footer-text-color);
+          color: var(--tertiary-text-color);
           cursor: pointer;
         }
       }
@@ -54,8 +54,8 @@ footer {
 }
 .copyinfo {
   background-color: var(--background-color);
-  font-family: 'PoppinsRegular400';
-  color: var(--footer-text-color);
+  font-weight: 400;
+  color: var(--tertiary-text-color);
   margin-top: 56px;
   padding-bottom: 32px;
   text-align: center;
