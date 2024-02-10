@@ -1,18 +1,23 @@
-@import '../node_modules/modern-normalize/modern-normalize.css';
+@import "../node_modules/modern-normalize/modern-normalize.css";
 
 @font-face {
-  font-family: 'PoppinsLight300';
-  src: url('./assets/fonts/poppins/Poppins-Light.ttf') format('truetype');
+  font-family: "PoppinsLight300";
+  src: url("./assets/fonts/poppins/Poppins-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'PoppinsSemiBold600';
-  src: url('./assets/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-family: "PoppinsSemiBold600";
+  src: url("./assets/fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'PoppinsRegular400';
-  src: url('./assets/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+  font-family: "PoppinsRegular400";
+  src: url("./assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "PoppinsMedium500";
+  src: url("./assets/fonts/poppins/Poppins-Medium.ttf") format("truetype");
 }
 
 p {

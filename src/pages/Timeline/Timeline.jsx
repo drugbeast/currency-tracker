@@ -1,6 +1,8 @@
 import { Component } from 'react'
 
 import BarChart from '../../components/Chart/BarChart'
+import LastUpdated from '../../components/LastUpdated/LastUpdated'
+import Select from '../../components/Select/Select'
 import styles from './Timeline.module.scss'
 
 class Timeline extends Component {
@@ -13,6 +15,8 @@ class Timeline extends Component {
     return (
       <div className={styles.timeline}>
         <div className="container">
+          <LastUpdated />
+          <Select />
           <BarChart />
         </div>
       </div>

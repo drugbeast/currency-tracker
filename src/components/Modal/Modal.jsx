@@ -47,7 +47,7 @@ function Modal() {
             </select>
           </div>
         </div>
-        <h1 className={styles.result}>{exchangeRate.toFixed(2)}</h1>
+        <h1 className={styles.result}>{exchangeRate.toFixed(3)}</h1>
       </div>
     </div>
   )

@@ -1,0 +1,26 @@
+@use '../../constants/constants.scss' as *;
+
+.updated {
+  font-family: 'PoppinsLight300';
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 16px;
+  .biggest {
+    @include circle(50px, rgba(0, 188, 79, 0.02));
+    @include blinking(0.02, 0.22);
+  }
+  .big {
+    @include circle(33px, rgba(0, 188, 79, 0.4));
+  }
+  .little {
+    @include circle(16px, rgba(0, 188, 79, 1));
+  }
+  .updatedText {
+    color: var(--banner-text-color);
+    font-size: 32px;
+    text-align: center;
+    margin: 0;
+  }
+}

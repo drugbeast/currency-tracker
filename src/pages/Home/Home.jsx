@@ -5,6 +5,7 @@ import { createContext, useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
+import LastUpdated from '../../components/LastUpdated/LastUpdated'
 import { iconsNames } from '../../constants/icons'
 import styles from './Home.module.scss'
 
@@ -51,28 +52,11 @@ function Home() {
     }
   }, [])
 
-  const formatDate = last => {
-    const date = new Date(last)
-    const isPm = date.getHours() > 12
-    return `${
-      isPm ? date.getHours() - 12 : date.getHours()
-    }:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}${isPm ? 'pm' : 'am'}`
-  }
-
   return (
     <div className={styles.currencies}>
       <div className="container">
         <div className={styles.inner}>
-          <div className={styles.updated}>
-            <div className={styles.biggest}>
-              <div className={styles.big}>
-                <div className={styles.little} />
-              </div>
-            </div>
-            <span className={styles.updatedText}>
-              Last updated at {formatDate(lastUpdated)}
-            </span>
-          </div>
+          <LastUpdated />
           <div className={styles.title}>Quotes</div>
 
           <div className={styles.cards}>
