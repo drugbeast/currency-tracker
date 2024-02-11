@@ -1,0 +1,15 @@
+@use '../../constants/constants.scss' as *;
+
+.block {
+  background-color: var(--background-color);
+  padding-top: 104px;
+  .inner {
+    font-weight: 400;
+    color: var(--primary-text-color);
+    .title {
+      font-weight: 400;
+      font-size: 38px;
+      text-align: center;
+    }
+  }
+}

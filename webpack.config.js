@@ -20,7 +20,10 @@ module.exports = {
           process.env.REACT_APP_CURRENCYBEACON_API_KEY,
         ),
         REACT_APP_ALPHAVANTAGE_API_KEY: JSON.stringify(
-          process.env.REACT_APP_CURRENCYBEACON_API_KEY,
+          process.env.REACT_APP_ALPHAVANTAGE_API_KEY,
+        ),
+        REACT_APP_MAPTILER_API_KEY: JSON.stringify(
+          process.env.REACT_APP_MAPTILER_API_KEY,
         ),
       },
     }),
@@ -48,7 +51,7 @@ module.exports = {
         use: [{ loader: '@svgr/webpack', options: { icon: true } }],
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sc|sa|c)ss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],

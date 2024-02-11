@@ -1,5 +1,5 @@
 import Layout from '../components/Layout'
-import BankCard from '../pages/BankCard'
+import BankCard from '../pages/BankCard/BankCard'
 import Contato from '../pages/Contato'
 import Home from '../pages/Home/Home'
 import Timeline from '../pages/Timeline/Timeline'
