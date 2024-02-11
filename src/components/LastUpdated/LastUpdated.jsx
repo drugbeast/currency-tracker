@@ -1,7 +1,11 @@
 import styles from './LastUpdated.module.scss'
 
 function LastUpdated() {
-  const lastUpdated = Number(localStorage.getItem('lastUpdated'))
+  let lastUpdated = Number(localStorage.getItem('lastUpdated'))
+  if (Date.now() - lastUpdated > 100000000) {
+    lastUpdated = Date.now()
+    localStorage.setItem('lastUpdated', lastUpdated)
+  }
 
   const formatDate = last => {
     const date = new Date(last)

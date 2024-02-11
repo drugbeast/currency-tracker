@@ -52,5 +52,15 @@
         border-bottom: 0;
       }
     }
+    .cards.disabled {
+      display: none;
+    }
+    .message {
+      font-weight: 400;
+      font-size: 20px;
+      position: absolute;
+      margin-top: 120px;
+      left: 14%;
+    }
   }
 }

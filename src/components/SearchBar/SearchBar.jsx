@@ -9,7 +9,11 @@ import styles from './SearchBar.module.scss'
 class SearchBar extends Component {
   constructor(props) {
     super(props)
-    this.state = { inputValue: '', currenciesAppeared: [] }
+    this.state = {
+      inputValue: '',
+      currenciesAppeared: [],
+      displayVariants: false,
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -28,7 +32,10 @@ class SearchBar extends Component {
         ? newCurrenciesAppeared.push(item)
         : null,
     )
-    this.setState({ currenciesAppeared: newCurrenciesAppeared })
+    this.setState({
+      currenciesAppeared: newCurrenciesAppeared,
+      displayVariants: true,
+    })
   }
 
   setInputValue = value => {
@@ -36,7 +43,7 @@ class SearchBar extends Component {
   }
 
   render() {
-    const { inputValue, currenciesAppeared } = this.state
+    const { inputValue, currenciesAppeared, displayVariants } = this.state
     const { setSearchValue } = this.props
     return (
       <section className={styles.bar}>
@@ -47,7 +54,7 @@ class SearchBar extends Component {
             className={styles.icon}
             onClick={() => {
               setSearchValue(inputValue)
-              this.setState({ currenciesAppeared: [] })
+              this.setState({ displayVariants: false })
             }}
           />
           <input
@@ -58,16 +65,22 @@ class SearchBar extends Component {
             onChange={e => this.setInputValue(e.target.value)}
             onKeyDown={e => {
               if (e.key === 'Escape') {
-                this.setState({ currenciesAppeared: [] })
+                this.setState({ displayVariants: false })
               }
               if (e.key === 'Enter') {
                 setSearchValue(inputValue)
-                this.setState({ currenciesAppeared: [] })
+                this.setState({ displayVariants: false })
               }
             }}
           />
           {currenciesAppeared.length !== 0 && (
-            <div className={styles.cards}>
+            <div
+              className={
+                displayVariants
+                  ? styles.cards
+                  : [styles.cards, styles.disabled].join(' ')
+              }
+            >
               {currenciesAppeared.map(item => (
                 <div
                   key={uuidv4()}
@@ -75,13 +88,18 @@ class SearchBar extends Component {
                   onClick={() => {
                     this.setInputValue(item[1])
                     setSearchValue(item[1])
-                    this.setState({ currenciesAppeared: [] })
+                    this.setState({ displayVariants: false })
                   }}
                 >
                   {item[1]}
                 </div>
               ))}
             </div>
+          )}
+          {currenciesAppeared.length === 0 && inputValue !== '' && (
+            <span className={styles.message}>
+              Oops... There is no such currency!
+            </span>
           )}
         </div>
       </section>

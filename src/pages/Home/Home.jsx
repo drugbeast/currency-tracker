@@ -22,7 +22,7 @@ function Home() {
   )
 
   useEffect(() => {
-    if (Date.now() - lastUpdatedFromLS > 1000000000) {
+    if (Date.now() - lastUpdatedFromLS > 100000000) {
       axios
         .get(
           `https://api.currencybeacon.com/v1/latest?api_key=${process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,

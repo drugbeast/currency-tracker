@@ -1,44 +1,72 @@
-.modal {
-  height: 100vh;
-  width: 100vw;
+.container {
+  height: 100%;
+  width: 100%;
   background-color: var(--modal-background-color);
   position: fixed;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  .inner {
+  .modal {
+    position: relative;
     width: 40%;
-    height: 60%;
     background-color: var(--card-background-color);
     border-radius: 8px;
     border: 1px solid var(--card-border-color);
     color: var(--primary-text-color);
-    padding: 64px 48px;
-    display: flex;
-    flex-direction: column;
-    .title {
-      font-weight: 400;
-      font-size: 32px;
-      margin: 0 auto;
-    }
-    .text {
-      font-weight: 300;
-      font-size: 24px;
-    }
-    .content {
-      margin-top: 32px;
+    padding: 64px 0;
+    .inner {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      .symbol {
-        font-weight: 600;
+      align-items: center;
+      overflow: hidden;
+      .title {
+        font-weight: 400;
+        font-size: 32px;
+        margin: 0 auto;
       }
-    }
-    .result {
-      font-size: 80px;
-      margin: 64px auto 0;
-      font-weight: 300;
+      .content {
+        margin-top: 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .symbol {
+          font-weight: 400;
+        }
+        .amount::-webkit-outer-spin-button,
+        .amount::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        .amount {
+          font-weight: 300;
+          outline: none;
+          padding: 8px;
+          border-radius: 5px;
+          border: 0;
+          margin-left: 16px;
+          width: 80%;
+        }
+        .selectBlock {
+          .select {
+            margin-left: 24px;
+            border-radius: 5px;
+            padding: 5px;
+            width: 80%;
+            outline: none;
+          }
+          .to {
+            font-weight: 300;
+          }
+        }
+      }
+      .result {
+        max-width: 90%;
+        font-size: 36px;
+        margin: 48px auto 0;
+        font-weight: 400;
+        text-align: center;
+      }
     }
   }
 }
