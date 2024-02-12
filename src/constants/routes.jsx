@@ -1,6 +1,6 @@
 import Layout from '../components/Layout'
 import BankCard from '../pages/BankCard/BankCard'
-import Contato from '../pages/Contato'
+import Contato from '../pages/Contato/Contato'
 import Home from '../pages/Home/Home'
 import Timeline from '../pages/Timeline/Timeline'
 
@@ -28,6 +28,12 @@ export const routes = [
         path: paths.default,
         element: <Home />,
       },
+    ],
+  },
+  {
+    path: paths.default,
+    element: <Contato />,
+    children: [
       {
         path: paths.contato,
         element: <Contato />,
