@@ -6,9 +6,7 @@ function Banner() {
     <section className={styles.banner}>
       <div className={styles.inner}>
         <div className={styles.left}>
-          <p className={[styles.title, styles.small].join(' ')}>
-            Modsen Currency
-          </p>
+          <p className={[styles.title, styles.small].join(' ')}>Modsen Currency</p>
           <p className={[styles.title, styles.big].join(' ')}>Tracker</p>
           <p className={styles.text}>
             Quotes for the dollar and other

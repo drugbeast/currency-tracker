@@ -34,8 +34,8 @@ function Footer() {
             <p className={classes.text}>
               Since then, the company has grown organically to. Starsup is the
               world&rsquo;s largest trading platform, with $12 billion worth of
-              currency trading and 500,000 tickets sold daily to tens of
-              thousands of traders worldwide.
+              currency trading and 500,000 tickets sold daily to tens of thousands
+              of traders worldwide.
             </p>
           </section>
           <section className={classes.right}>

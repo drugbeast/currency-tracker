@@ -28,8 +28,7 @@ class Contato extends Component {
                       <span className={styles.property}>City:</span> New York
                     </span>
                     <span className={styles.inf}>
-                      <span className={styles.property}>Phone:</span> (555)
-                      555-1234
+                      <span className={styles.property}>Phone:</span> (555) 555-1234
                     </span>
                     <span className={styles.inf}>
                       <span className={styles.property}>CEO:</span> Gerry Weber

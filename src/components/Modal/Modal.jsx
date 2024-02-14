@@ -12,9 +12,7 @@ function Result({ result }) {
     throw new Error('Oops... Negative Number! Please, remove the "-" sign.')
   }
   return (
-    <span className={styles.result}>
-      {result !== 0 ? result.toFixed(3) : 0}
-    </span>
+    <span className={styles.result}>{result !== 0 ? result.toFixed(3) : 0}</span>
   )
 }
 
