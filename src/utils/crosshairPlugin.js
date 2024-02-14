@@ -46,7 +46,6 @@ const crosshairPlugin = {
 
     if (!args.inChartArea && this.crosshair) {
       this.crosshair = undefined
-      // args.changed = true
     } else if (args.inChartArea) {
       this.crosshair = [
         { startX: left, startY: yCoor, endX: right, endY: yCoor },

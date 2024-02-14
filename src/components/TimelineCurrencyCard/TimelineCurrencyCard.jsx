@@ -1,19 +1,28 @@
 import { Component } from 'react'
 
-import currencies from '../../constants/currencies'
+import currenciesForChart from '../../constants/currenciesForChart'
 import icons from '../../constants/icons'
+import TimelineObservable from '../../utils/TimelineObservable'
 import styles from './TimelineCurrencyCard.module.scss'
 
 class TimelineCurrencyCard extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = { currency: Object.keys(currenciesForChart)[0] }
+  }
+
+  componentDidMount() {
+    TimelineObservable.subscribe(this)
+  }
+
+  update = observable => {
+    this.setState({ currency: observable.currency })
   }
 
   render() {
-    const { currency } = this.props
-    const symbol = Object.entries(currencies).filter(pair =>
-      pair[1] === currency ? pair[0] : null,
+    const { currency } = this.state
+    const symbol = Object.entries(currenciesForChart).filter(pair =>
+      pair[0] === currency ? pair[1] : null,
     )[0][0]
     return (
       <section className={styles.card}>

@@ -18,9 +18,9 @@ const candlestickPlugin = {
       )
       ctx.lineTo(
         chart.getDatasetMeta(0).data[index].x,
-        y.getPixelForValue(data.datasets[0].data[index].h),
+        y.getPixelForValue(data.datasets[0].data[index].high),
       )
-      if (item.c > item.o) {
+      if (item.close > item.open) {
         ctx.strokeStyle = '#16C782'
       } else {
         ctx.strokeStyle = '#EA3943'
@@ -34,9 +34,9 @@ const candlestickPlugin = {
       )
       ctx.lineTo(
         chart.getDatasetMeta(0).data[index].x,
-        y.getPixelForValue(data.datasets[0].data[index].l),
+        y.getPixelForValue(data.datasets[0].data[index].low),
       )
-      if (item.c > item.o) {
+      if (item.close > item.open) {
         ctx.strokeStyle = '#16C782'
       } else {
         ctx.strokeStyle = '#EA3943'

@@ -5,64 +5,46 @@ import { Component } from 'react'
 import { Bar } from 'react-chartjs-2'
 
 import chartConfig from '../../constants/chartConfig'
-// import currencies from '../../constants/currencies'
+import currenciesForChart from '../../constants/currenciesForChart'
+import TimelineObservable from '../../utils/TimelineObservable'
 import styles from './BarChart.module.scss'
-
-const DAYS = 30
 
 Chart.register(CategoryScale)
 
 class BarChart extends Component {
   constructor(props) {
     super(props)
-    this.state = { dataset: [] }
+    this.state = { dataset: [], currency: Object.keys(currenciesForChart)[0] }
   }
 
   componentDidMount() {
-    // const { currency } = this.props
+    TimelineObservable.subscribe(this)
     axios
-      .get(
-        // `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=USD&to_symbol=${Object.keys(currencies).filter(item => currencies[item] === currency ? item : null)}&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`,
-        'https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=EUR&to_symbol=USD&apikey=demo',
-      )
+      .get('http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/aud')
       .then(response => {
-        this.reformatTheData(response.data)
+        this.setState({ dataset: response.data })
+        TimelineObservable.notify(null, response.data)
         return true
       })
       .catch(e => e)
   }
 
-  componentDidUpdate(prevProps) {
-    const { currency } = this.props
-    if (prevProps.currency !== currency) {
+  componentDidUpdate(prevProps, prevState) {
+    const { currency } = this.state
+    if (prevState.currency !== currency) {
       axios
-        .get(
-          // `https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=USD&to_symbol=${Object.keys(currencies).filter(item => currencies[item] === currency ? item : null)}&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`,
-          'https://www.alphavantage.co/query?function=FX_DAILY&from_symbol=EUR&to_symbol=USD&apikey=demo',
-        )
+        .get('http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/cad')
         .then(response => {
-          this.reformatTheData(response.data)
+          this.setState({ dataset: response.data })
+          TimelineObservable.notify(null, response.data)
           return true
         })
         .catch(e => e)
     }
   }
 
-  reformatTheData = data => {
-    const newData = []
-    Object.entries(data['Time Series FX (Daily)']).forEach((item, index) => {
-      if (index < DAYS) {
-        newData.push({
-          date: item[0],
-          o: item[1]['1. open'],
-          h: item[1]['2. high'],
-          l: item[1]['3. low'],
-          c: item[1]['4. close'],
-          body: [Number(item[1]['1. open']), Number(item[1]['4. close'])],
-        })
-      }
-    })
-    this.setState({ dataset: newData })
+  update = observable => {
+    this.setState({ currency: observable.currency })
   }
 
   render() {

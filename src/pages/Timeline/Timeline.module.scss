@@ -3,4 +3,31 @@
 .timeline {
   padding: 64px 0;
   background: var(--background-color);
+  .cardAndButtons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 120px;
+    padding-right: 80px;
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      .button {
+        height: 40px;
+        width: fit-content;
+        outline: none;
+        border: none;
+        padding: 8px;
+        border-radius: 5px;
+        color: var(--primary-text-color);
+        cursor: pointer;
+      }
+      .button.edit {
+        background-color: var(--candlestick-green-color);
+      }
+      .button.remove {
+        background-color: var(--candlestick-red-color);
+      }
+    }
+  }
 }

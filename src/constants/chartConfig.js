@@ -12,7 +12,7 @@ const dataOptions = dataset => ({
       barPercentage: 0.7,
       categoryPercentage: 1.3,
       backgroundColor: ctx => {
-        if (ctx.raw.c > ctx.raw.o) {
+        if (ctx.raw.close > ctx.raw.open) {
           return '#16C782'
         }
         return '#EA3943'
@@ -50,7 +50,6 @@ const scalesOptions = {
     beginAtZero: true,
     ticks: {
       display: true,
-      stepSize: 0.001,
       padding: 50,
       font: {
         family: 'Poppins',
@@ -95,6 +94,9 @@ const layoutOptions = {
 const parsingOptions = {
   xAxisKey: 'date',
   yAxisKey: 'body',
+  options: {
+    animation: false,
+  },
 }
 
 const pluginsOptions = {

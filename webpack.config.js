@@ -33,6 +33,7 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
   },
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.js', '.jsx'],
   },

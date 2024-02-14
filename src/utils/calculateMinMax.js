@@ -1,6 +1,6 @@
 export const calculateMin = ctx => {
   const { data } = ctx.chart.data.datasets[0]
-  let min = data[0].o
+  let min = data[0].open
   data.forEach(item => {
     const value = Math.min.apply(
       null,
@@ -15,7 +15,7 @@ export const calculateMin = ctx => {
 
 export const calculateMax = ctx => {
   const { data } = ctx.chart.data.datasets[0]
-  let max = data[0].o
+  let max = data[0].open
   data.forEach(item => {
     const value = Math.max.apply(
       null,

@@ -1,29 +1,58 @@
 import { Component } from 'react'
+import { createPortal } from 'react-dom'
 
 import BarChart from '../../components/BarChart/BarChart'
+import ChartModal from '../../components/ChartModal/ChartModal'
 import Select from '../../components/Select/Select'
 import TimelineCurrencyCard from '../../components/TimelineCurrencyCard/TimelineCurrencyCard'
-import currencies from '../../constants/currencies'
 import styles from './Timeline.module.scss'
 
 class Timeline extends Component {
   constructor(props) {
     super(props)
-    this.state = { currency: Object.values(currencies)[0] }
+    this.state = { show: false, type: '' }
   }
 
-  setCurrency = value => {
-    this.setState({ currency: value })
+  setShow = () => {
+    this.setState({ show: false })
   }
 
   render() {
-    const { currency } = this.state
+    const { show, type } = this.state
     return (
       <article className={styles.timeline}>
         <section className="container">
-          <Select setCurrency={this.setCurrency} />
-          <TimelineCurrencyCard currency={currency} />
-          <BarChart currency={currency} />
+          <Select />
+          <section className={styles.cardAndButtons}>
+            <TimelineCurrencyCard />
+            <div className={styles.buttons}>
+              <button
+                type="button"
+                className={[styles.button, styles.edit].join(' ')}
+                onClick={() => {
+                  this.setState({ show: true, type: 'edit' })
+                }}
+              >
+                Edit day
+              </button>
+              <button
+                type="button"
+                className={[styles.button, styles.remove].join(' ')}
+                onClick={() => {
+                  this.setState({ show: true, type: 'remove' })
+                }}
+              >
+                Remove day
+              </button>
+            </div>
+          </section>
+          <BarChart />
+          {show
+            ? createPortal(
+                <ChartModal type={type} setShow={this.setShow} />,
+                document.body,
+              )
+            : null}
         </section>
       </article>
     )
