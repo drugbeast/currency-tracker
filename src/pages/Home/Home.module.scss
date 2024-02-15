@@ -1,4 +1,4 @@
-@use "../../constants/constants.scss" as *;
+@use '../../constants/constants.scss' as *;
 
 .currencies {
   font-weight: 300;
@@ -42,7 +42,7 @@
   .title {
     font-size: 22px;
   }
-} 
+}
 
 @media screen and (max-width: 768px) {
   .title {

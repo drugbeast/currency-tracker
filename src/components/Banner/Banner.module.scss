@@ -1,4 +1,4 @@
-@use "../../constants/constants.scss" as *;
+@use '../../constants/constants.scss' as *;
 
 .banner {
   background: var(--background-color);
@@ -63,7 +63,7 @@
     right: 32px;
   }
   .logo {
-    width:230px;
+    width: 230px;
     height: 242px;
   }
   .big {
@@ -87,7 +87,8 @@
   .left {
     left: 0;
   }
-  .big, .small {
+  .big,
+  .small {
     text-align: center;
   }
   .text {

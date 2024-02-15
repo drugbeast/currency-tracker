@@ -1,4 +1,4 @@
-@use "../../constants/constants.scss" as *;
+@use '../../constants/constants.scss' as *;
 
 .header {
   background-color: var(--background-color);
@@ -13,7 +13,7 @@
     position: relative;
     cursor: pointer;
     .part {
-      content: "";
+      content: '';
       position: absolute;
       width: 20px;
       height: 2px;
@@ -75,7 +75,7 @@
         cursor: pointer;
       }
       .circle:after {
-        content: "";
+        content: '';
         @include switcher(25px, 25px, 100%, absolute);
         top: -1.5px;
         left: -1.5px;
