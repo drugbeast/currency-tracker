@@ -1,0 +1,94 @@
+@use "../../constants/constants.scss" as *;
+
+.header {
+  background-color: var(--background-color);
+  .inner {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+  }
+  .burger {
+    position: relative;
+    cursor: pointer;
+    .part {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background-color: var(--primary-text-color);
+      top: 0;
+      right: 0;
+      transition: transform 0.3s ease-out;
+    }
+    .up {
+      margin-top: -8px;
+    }
+    .down {
+      margin-top: 8px;
+    }
+    .toLeft {
+      transform: rotate(-45deg);
+    }
+    .part.toLeft,
+    .part.toRight {
+      transition: transform 0.3s ease-out;
+    }
+    .toRight {
+      transform: rotate(45deg);
+    }
+    .centerDisabled {
+      display: none;
+    }
+    .centerEnabled {
+      display: block;
+    }
+  }
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 160px;
+  .menu {
+    background-color: orange;
+    padding: 20px 0;
+    .inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .circle {
+        @include switcher(50px, 26px, 15px, relative);
+        display: block;
+        cursor: pointer;
+      }
+      .circle:after {
+        content: "";
+        @include switcher(25px, 25px, 100%, absolute);
+        top: -1.5px;
+        left: -1.5px;
+      }
+
+      .switcher {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+      }
+      .switcher:checked + .circle:after {
+        transform: translateX(100%);
+      }
+    }
+  }
+}

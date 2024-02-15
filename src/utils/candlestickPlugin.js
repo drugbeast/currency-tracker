@@ -1,3 +1,5 @@
+import { candlestickGreen, candlestickRed } from '../constants/constants'
+
 const candlestickPlugin = {
   id: 'candlestickPlugin',
   beforeDatasetsDraw(chart) {
@@ -21,9 +23,9 @@ const candlestickPlugin = {
         y.getPixelForValue(data.datasets[0].data[index].high),
       )
       if (item.close > item.open) {
-        ctx.strokeStyle = '#16C782'
+        ctx.strokeStyle = candlestickGreen
       } else {
-        ctx.strokeStyle = '#EA3943'
+        ctx.strokeStyle = candlestickRed
       }
       ctx.stroke()
 
@@ -37,9 +39,9 @@ const candlestickPlugin = {
         y.getPixelForValue(data.datasets[0].data[index].low),
       )
       if (item.close > item.open) {
-        ctx.strokeStyle = '#16C782'
+        ctx.strokeStyle = candlestickGreen
       } else {
-        ctx.strokeStyle = '#EA3943'
+        ctx.strokeStyle = candlestickRed
       }
       ctx.stroke()
     })

@@ -1,24 +1,51 @@
-@use '../../constants/constants.scss' as *;
+@use "../../constants/constants.scss" as *;
 
 .currencies {
   font-weight: 300;
   background: var(--background-color);
   color: var(--primary-text-color);
   transition: background 0.3s ease-out;
-  .inner {
-    padding: 64px 8px;
-    .title {
-      font-size: 32px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--card-number-color);
-      width: 42%;
-    }
-    .cards {
-      display: flex;
-      gap: 56px 184px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-top: 48px;
-    }
+}
+
+.inner {
+  padding: 64px 8px;
+}
+
+.title {
+  font-size: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--card-number-color);
+  width: 42%;
+}
+
+.cards {
+  display: flex;
+  gap: 56px 184px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 48px;
+}
+
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 28px;
+  }
+  .cards {
+    gap: 32px 160px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cards {
+    gap: 32px 120px;
+  }
+  .title {
+    font-size: 22px;
+  }
+} 
+
+@media screen and (max-width: 768px) {
+  .title {
+    width: 100%;
   }
 }

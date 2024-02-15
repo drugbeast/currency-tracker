@@ -1,3 +1,5 @@
+import { crosshairColor, crosshairTextColor } from '../constants/constants'
+
 const crosshairPlugin = {
   id: 'crosshairPlugin',
   crosshair: undefined,
@@ -9,7 +11,7 @@ const crosshairPlugin = {
     } = chart
 
     ctx.lineWidth = 1
-    ctx.strokeStyle = '#FF971D'
+    ctx.strokeStyle = crosshairColor
 
     if (this.crosshair) {
       ctx.save()
@@ -19,12 +21,12 @@ const crosshairPlugin = {
         ctx.lineTo(line.endX, line.endY)
         ctx.stroke()
       })
-      ctx.fillStyle = '#FF971D'
+      ctx.fillStyle = crosshairColor
       ctx.fillRect(0, this.crosshair[0].startY - 10, left, 20)
       ctx.font = 'Poppins'
 
       ctx.textAlign = 'center'
-      ctx.fillStyle = 'white'
+      ctx.fillStyle = crosshairTextColor
       ctx.fillText(
         y.getValueForPixel(this.crosshair[0].startY).toFixed(3),
         left / 2,
@@ -42,7 +44,7 @@ const crosshairPlugin = {
     const yCoor = args.event.y
 
     ctx.lineWidth = 1
-    ctx.strokeStyle = '#FF971D'
+    ctx.strokeStyle = crosshairColor
 
     if (!args.inChartArea && this.crosshair) {
       this.crosshair = undefined

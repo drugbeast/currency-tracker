@@ -1,10 +1,9 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable indent */
 import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
+import { CACHING_PERIOD } from '../../constants/constants'
 import currencies from '../../constants/currencies'
 import styles from './Home.module.scss'
 
@@ -22,7 +21,7 @@ function Home() {
   )
 
   useEffect(() => {
-    if (Date.now() - lastUpdatedFromLS > 100000000) {
+    if (Date.now() - lastUpdatedFromLS > CACHING_PERIOD) {
       axios
         .get(
           `https://api.currencybeacon.com/v1/latest?api_key=${process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,

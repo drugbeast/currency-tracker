@@ -1,37 +1,97 @@
-@use '../../constants/constants.scss' as *;
+@use "../../constants/constants.scss" as *;
 
 .banner {
   background: var(--background-color);
   transition: background 0.3s ease-out;
+}
+
+.inner {
+  display: flex;
+  background: var(--banner-color);
+  padding: 64px 0;
+  justify-content: center;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  position: relative;
+  left: -160px;
+}
+
+.right {
+  position: relative;
+  right: 80px;
+}
+
+.title {
+  font-weight: 600;
+  @include gradientText();
+  text-align: right;
+}
+.big {
+  font-size: 90px;
+}
+.small {
+  font-size: 76px;
+}
+
+.text {
+  color: var(--secondary-text-color);
+  font-weight: 300;
+  font-size: 25px;
+  text-align: center;
+  line-height: 48px;
+  position: absolute;
+  right: -48px;
+  margin-top: 16px;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1280px) {
   .inner {
-    display: flex;
-    background: var(--banner-color);
-    padding: 64px 328px 64px 88px;
-    gap: 72px;
-    position: relative;
-    .left {
-      padding-left: 32px;
-      .title {
-        font-weight: 600;
-        @include gradientText();
-        text-align: right;
-      }
-      .big {
-        font-size: 90px;
-      }
-      .small {
-        font-size: 76px;
-      }
-      .text {
-        color: var(--secondary-text-color);
-        font-weight: 300;
-        font-size: 25px;
-        text-align: center;
-        line-height: 48px;
-        position: absolute;
-        width: 72%;
-        margin-top: 16px;
-      }
-    }
+    gap: 64px;
+  }
+  .left {
+    left: -96px;
+  }
+  .right {
+    right: 32px;
+  }
+  .logo {
+    width:230px;
+    height: 242px;
+  }
+  .big {
+    font-size: 72px;
+  }
+  .small {
+    font-size: 56px;
+  }
+  .text {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .inner {
+    padding: 64px 0 120px;
+  }
+  .right {
+    display: none;
+  }
+  .left {
+    left: 0;
+  }
+  .big, .small {
+    text-align: center;
+  }
+  .text {
+    left: 0;
+    margin-top: 8px;
   }
 }

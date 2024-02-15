@@ -2,6 +2,12 @@ import arrowPlugin from '../utils/arrowPlugin'
 import { calculateMax, calculateMin } from '../utils/calculateMinMax'
 import candlestickPlugin from '../utils/candlestickPlugin'
 import crosshairPlugin from '../utils/crosshairPlugin'
+import {
+  candlestickGreen,
+  candlestickRed,
+  crosshairTextColor,
+  gridLinesColor,
+} from './constants'
 
 const pluginsList = [candlestickPlugin, arrowPlugin, crosshairPlugin]
 
@@ -13,9 +19,9 @@ const dataOptions = dataset => ({
       categoryPercentage: 1.3,
       backgroundColor: ctx => {
         if (ctx.raw.close > ctx.raw.open) {
-          return '#16C782'
+          return candlestickGreen
         }
-        return '#EA3943'
+        return candlestickRed
       },
     },
   ],
@@ -34,7 +40,7 @@ const scalesOptions = {
         weight: 400,
         size: 16,
       },
-      color: '#FFFFFF',
+      color: crosshairTextColor,
     },
     ticks: {
       display: false,
@@ -56,14 +62,14 @@ const scalesOptions = {
         weight: 400,
         size: 16,
       },
-      color: '#FFFFFF',
+      color: crosshairTextColor,
       callback: (v, i) => (i % 2 === 0 ? v.toFixed(3) : ''),
     },
     min: ctx => calculateMin(ctx),
     max: ctx => calculateMax(ctx),
     grid: {
       display: true,
-      color: 'rgba(255, 255, 255, 0.1)',
+      color: gridLinesColor,
     },
   },
   x: {
@@ -76,11 +82,11 @@ const scalesOptions = {
         weight: 400,
         size: 16,
       },
-      color: '#FFFFFF',
+      color: crosshairTextColor,
     },
     ticks: { display: false },
     grid: {
-      color: 'rgba(255, 255, 255, 0.1)',
+      color: gridLinesColor,
     },
   },
 }

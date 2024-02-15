@@ -22,37 +22,41 @@ class Timeline extends Component {
     return (
       <article className={styles.timeline}>
         <section className="container">
-          <Select />
-          <section className={styles.cardAndButtons}>
-            <TimelineCurrencyCard />
-            <div className={styles.buttons}>
-              <button
-                type="button"
-                className={[styles.button, styles.edit].join(' ')}
-                onClick={() => {
-                  this.setState({ show: true, type: 'edit' })
-                }}
-              >
-                Edit day
-              </button>
-              <button
-                type="button"
-                className={[styles.button, styles.remove].join(' ')}
-                onClick={() => {
-                  this.setState({ show: true, type: 'remove' })
-                }}
-              >
-                Remove day
-              </button>
-            </div>
-          </section>
-          <BarChart />
-          {show
-            ? createPortal(
-                <ChartModal type={type} setShow={this.setShow} />,
-                document.body,
-              )
-            : null}
+          <div className={styles.inner}>
+            <Select />
+            <section className={styles.cardAndButtons}>
+              <TimelineCurrencyCard />
+              <div className={styles.buttons}>
+                <button
+                  type="button"
+                  className={[styles.button, styles.edit].join(' ')}
+                  onClick={() => {
+                    this.setState({ show: true, type: 'edit' })
+                  }}
+                >
+                  Edit day
+                </button>
+                <button
+                  type="button"
+                  className={[styles.button, styles.remove].join(' ')}
+                  onClick={() => {
+                    this.setState({ show: true, type: 'remove' })
+                  }}
+                >
+                  Remove day
+                </button>
+              </div>
+            </section>
+            <section className={styles.chartWrapper}>
+              <BarChart />
+            </section>
+            {show
+              ? createPortal(
+                  <ChartModal type={type} setShow={this.setShow} />,
+                  document.body,
+                )
+              : null}
+          </div>
         </section>
       </article>
     )

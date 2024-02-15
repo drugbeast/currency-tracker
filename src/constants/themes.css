@@ -27,6 +27,7 @@ html[data-theme='dark'] {
   --searchbar-color: #1b2028;
   --modal-background-color: rgba(3, 3, 4, 0.5);
   --error-message-color: #e01624;
+  --footer-line-color: #607D94;
 }
 
 html[data-theme='light'] {
@@ -57,4 +58,5 @@ html[data-theme='light'] {
   --card-number-color: #a7b2c3;
   --searchbar-color: #2a2a2a;
   --error-message-color: #e01624;
+  --footer-line-color: #607D94;
 }

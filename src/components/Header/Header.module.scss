@@ -1,59 +1,87 @@
-@use '../../constants/constants.scss' as *;
+@use "../../constants/constants.scss" as *;
 
 .header {
   background: var(--background-color);
   padding: 32px 0;
   color: var(--primary-text-color);
   font-weight: 300;
-  display: flex;
-  justify-content: center;
   transition: background 0.3s ease-out;
-  .inner {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    .nav {
-      margin-left: 144px;
-      display: flex;
-      gap: 120px;
-      font-size: 20px;
-      .default {
-        text-decoration: none;
-        color: var(--primary-text-color);
-        position: relative;
-      }
-      .default::after {
-        @include afterElement(0, 1px, var(--primary-text-color));
-      }
-      .default:hover::after {
-        width: 100%;
-      }
-      .default.active {
-        padding-bottom: 5px;
-      }
-      .default.active::after {
-        @include afterElement(100%, 1px, var(--primary-text-color));
-      }
-    }
-    .circle {
-      @include switcher(50px, 26px, 15px, relative);
-      display: block;
-      cursor: pointer;
-    }
-    .circle:after {
-      content: '';
-      @include switcher(25px, 25px, 100%, absolute);
-      top: -1.5px;
-      left: -1.5px;
-    }
-    .switcher {
-      width: 0;
-      height: 0;
-      visibility: hidden;
-    }
-    .switcher:checked + .circle:after {
-      transform: translateX(100%);
-    }
+}
+
+.inner {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  margin-left: 144px;
+  display: flex;
+  gap: 120px;
+  font-size: 20px;
+}
+
+.default {
+  text-decoration: none;
+  color: var(--primary-text-color);
+  position: relative;
+}
+.default::after {
+  @include afterElement(0, 1px, var(--primary-text-color));
+}
+.default:hover::after {
+  width: 100%;
+}
+.default.active {
+  padding-bottom: 5px;
+}
+.default.active::after {
+  @include afterElement(100%, 1px, var(--primary-text-color));
+}
+
+.circle {
+  @include switcher(50px, 26px, 15px, relative);
+  display: block;
+  cursor: pointer;
+}
+.circle:after {
+  content: "";
+  @include switcher(25px, 25px, 100%, absolute);
+  top: -1.5px;
+  left: -1.5px;
+}
+
+.switcher {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.switcher:checked + .circle:after {
+  transform: translateX(100%);
+}
+
+@media screen and (max-width: 1240px) {
+  .nav {
+    gap: 64px;
+    margin-left: 96px;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    font-size: 18px;
+    margin-left: 48px;
+  }
+
+  .circle {
+    @include switcher(45px, 22px, 15px, relative);
+  }
+  .circle::after {
+    @include switcher(22px, 22px, 100%, absolute);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
 }

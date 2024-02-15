@@ -27,7 +27,7 @@ class TimelineCurrencyCard extends Component {
     return (
       <section className={styles.card}>
         <div className={styles.left}>
-          {icons[symbol]({ width: 80, height: 80 })}
+          {icons[symbol]({ className: styles.icon })}
         </div>
         <div className={styles.right}>
           <p className={styles.title}>{currency}</p>

@@ -26,7 +26,7 @@ function CurrencyCard() {
     <section className={styles.card} onClick={() => setClicked(true)}>
       {isClicked && createPortal(<Modal />, document.body)}
       <div className={styles.inner}>
-        {icons[symbol]({ width: 80, height: 80 })}
+        {icons[symbol]({ className: styles.icon })}
         <div className={styles.info}>
           <span className={styles.title}>{currencies[symbol]}</span>
           <span className={styles.rate}>R&#36; {rate}</span>

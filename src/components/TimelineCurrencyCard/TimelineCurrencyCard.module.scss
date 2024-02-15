@@ -1,21 +1,38 @@
-@use '../../constants/themes.css' as *;
+@use "../../constants/themes.css" as *;
 
 .card {
   display: flex;
-  .right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0 0 0 32px;
-    .title {
-      font-weight: 400;
-      color: var(--secondary-text-color);
-      font-size: 35px;
-    }
-    .symbol {
-      font-weight: 500;
-      font-size: 16px;
-      color: var(--primary-text-color);
-    }
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 0 0 32px;
+}
+.title {
+  font-weight: 400;
+  color: var(--secondary-text-color);
+  font-size: 35px;
+}
+.symbol {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--primary-text-color);
+}
+.icon {
+  width: 80px;
+  height: 80px;
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .icon {
+    width: 64px;
+    height: 64px;
   }
 }

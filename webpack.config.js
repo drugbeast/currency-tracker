@@ -19,9 +19,6 @@ module.exports = {
         REACT_APP_CURRENCYBEACON_API_KEY: JSON.stringify(
           process.env.REACT_APP_CURRENCYBEACON_API_KEY,
         ),
-        REACT_APP_ALPHAVANTAGE_API_KEY: JSON.stringify(
-          process.env.REACT_APP_ALPHAVANTAGE_API_KEY,
-        ),
         REACT_APP_MAPTILER_API_KEY: JSON.stringify(
           process.env.REACT_APP_MAPTILER_API_KEY,
         ),
