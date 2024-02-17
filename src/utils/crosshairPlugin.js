@@ -1,6 +1,6 @@
-import { crosshairColor, crosshairTextColor } from '../constants/constants'
+import { colors } from '../constants/chartConfig'
 
-const crosshairPlugin = {
+const crosshairPlugin = theme => ({
   id: 'crosshairPlugin',
   crosshair: undefined,
   afterDatasetsDraw(chart) {
@@ -11,7 +11,7 @@ const crosshairPlugin = {
     } = chart
 
     ctx.lineWidth = 1
-    ctx.strokeStyle = crosshairColor
+    ctx.strokeStyle = colors[theme].crosshairColor
 
     if (this.crosshair) {
       ctx.save()
@@ -21,12 +21,12 @@ const crosshairPlugin = {
         ctx.lineTo(line.endX, line.endY)
         ctx.stroke()
       })
-      ctx.fillStyle = crosshairColor
+      ctx.fillStyle = colors[theme].crosshairColor
       ctx.fillRect(0, this.crosshair[0].startY - 10, left, 20)
       ctx.font = 'Poppins'
 
       ctx.textAlign = 'center'
-      ctx.fillStyle = crosshairTextColor
+      ctx.fillStyle = colors[theme].crosshairTextColor
       ctx.fillText(
         y.getValueForPixel(this.crosshair[0].startY).toFixed(3),
         left / 2,
@@ -44,7 +44,7 @@ const crosshairPlugin = {
     const yCoor = args.event.y
 
     ctx.lineWidth = 1
-    ctx.strokeStyle = crosshairColor
+    ctx.strokeStyle = colors[theme].crosshairColor
 
     if (!args.inChartArea && this.crosshair) {
       this.crosshair = undefined
@@ -55,6 +55,6 @@ const crosshairPlugin = {
       ]
     }
   },
-}
+})
 
 export default crosshairPlugin

@@ -7,7 +7,7 @@
 
 .inner {
   display: flex;
-  background: var(--banner-color);
+  background: var(--banner-background-color);
   padding: 64px 0;
   justify-content: center;
   position: relative;
@@ -33,6 +33,7 @@
   @include gradientText();
   text-align: right;
 }
+
 .big {
   font-size: 90px;
 }
@@ -41,7 +42,7 @@
 }
 
 .text {
-  color: var(--secondary-text-color);
+  color: var(--theme-color-2);
   font-weight: 300;
   font-size: 25px;
   text-align: center;
@@ -56,22 +57,28 @@
   .inner {
     gap: 64px;
   }
+
   .left {
     left: -96px;
   }
+
   .right {
     right: 32px;
   }
+
   .logo {
     width: 230px;
     height: 242px;
   }
+
   .big {
     font-size: 72px;
   }
+
   .small {
     font-size: 56px;
   }
+
   .text {
     font-size: 22px;
   }
@@ -81,16 +88,20 @@
   .inner {
     padding: 64px 0 120px;
   }
+
   .right {
     display: none;
   }
+
   .left {
     left: 0;
   }
+
   .big,
   .small {
     text-align: center;
   }
+  
   .text {
     left: 0;
     margin-top: 8px;

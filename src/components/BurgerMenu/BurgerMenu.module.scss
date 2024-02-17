@@ -1,94 +1,154 @@
-@use '../../constants/constants.scss' as *;
+@use "../../constants/constants.scss" as *;
 
 .header {
   background-color: var(--background-color);
-  .inner {
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 90px;
-  }
-  .burger {
-    position: relative;
-    cursor: pointer;
-    .part {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 2px;
-      background-color: var(--primary-text-color);
-      top: 0;
-      right: 0;
-      transition: transform 0.3s ease-out;
-    }
-    .up {
-      margin-top: -8px;
-    }
-    .down {
-      margin-top: 8px;
-    }
-    .toLeft {
-      transform: rotate(-45deg);
-    }
-    .part.toLeft,
-    .part.toRight {
-      transition: transform 0.3s ease-out;
-    }
-    .toRight {
-      transform: rotate(45deg);
-    }
-    .centerDisabled {
-      display: none;
-    }
-    .centerEnabled {
-      display: block;
-    }
-  }
+  position: sticky;
+  color: var(--theme-color-1);
+  font-weight: 300;
+  transition:
+    background 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.header.sticky {
+  box-shadow: 0 5px 25px var(--theme-color-14);
+}
+
+.inner {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90px;
+}
+
+.burger {
+  position: relative;
+  cursor: pointer;
+}
+
+.part {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: var(--theme-color-1);
+  top: 0;
+  right: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.up {
+  margin-top: -8px;
+}
+
+.down {
+  margin-top: 8px;
+}
+
+.toLeft {
+  transform: rotate(-45deg);
+}
+
+.part.toLeft,
+.part.toRight {
+  transition: transform 0.3s ease-out;
+}
+
+.toRight {
+  transform: rotate(45deg);
+}
+
+.centerDisabled {
+  display: none;
+}
+
+.centerEnabled {
+  display: block;
 }
 
 .wrapper {
   width: 100%;
   height: 100vh;
   position: fixed;
-  top: 100px;
+  top: 80px;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--background-color);
   padding: 160px;
-  .menu {
-    background-color: orange;
-    padding: 20px 0;
-    .inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      .nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-      }
-      .circle {
-        @include switcher(50px, 26px, 15px, relative);
-        display: block;
-        cursor: pointer;
-      }
-      .circle:after {
-        content: '';
-        @include switcher(25px, 25px, 100%, absolute);
-        top: -1.5px;
-        left: -1.5px;
-      }
+  z-index: 1000;
+  transition: background-color 0.3s ease-out;
+}
 
-      .switcher {
-        width: 0;
-        height: 0;
-        visibility: hidden;
-      }
-      .switcher:checked + .circle:after {
-        transform: translateX(100%);
-      }
-    }
+.menu {
+  z-index: 10000;
+}
+
+.burgerInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.default {
+  text-decoration: none;
+  color: var(--theme-color-1);
+  position: relative;
+  font-size: 32px;
+}
+.default::after {
+  @include afterElement(0, 2px, var(--theme-color-1));
+}
+.default:hover::after {
+  width: 100%;
+}
+.default.active {
+  padding-bottom: 5px;
+}
+.default.active::after {
+  @include afterElement(100%, 2px, var(--theme-color-1));
+}
+
+.circle {
+  @include switcher(50px, 26px, 15px, relative);
+  display: block;
+  cursor: pointer;
+}
+
+.circle:after {
+  content: "";
+  @include switcher(25px, 25px, 100%, absolute);
+  top: -1.5px;
+  left: -1.5px;
+}
+
+.switcher {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.switcher:checked + .circle:after {
+  transform: translateX(100%);
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    padding: 160px 110px;
+  }
+  .default {
+    font-size: 30px
   }
 }

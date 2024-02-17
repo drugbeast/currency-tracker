@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import axios from 'axios'
 import { CategoryScale } from 'chart.js'
 import Chart from 'chart.js/auto'
@@ -7,6 +8,7 @@ import { Bar } from 'react-chartjs-2'
 import chartConfig from '../../constants/chartConfig'
 import currenciesForChart from '../../constants/currenciesForChart'
 import TimelineObservable from '../../utils/TimelineObservable'
+import { ThemeContext } from '../Theme'
 import styles from './BarChart.module.scss'
 
 Chart.register(CategoryScale)
@@ -18,12 +20,18 @@ class BarChart extends Component {
   }
 
   componentDidMount() {
+    const { currency } = this.state
     TimelineObservable.subscribe(this)
     axios
-      .get('http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/aud')
+      .get(
+        `http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
+      )
       .then(response => {
-        this.setState({ dataset: response.data })
-        TimelineObservable.notify(null, response.data)
+        const reformattedData = response.data.map(item => {
+          return { ...item, body: [item.close, item.open] }
+        })
+        this.setState({ dataset: reformattedData })
+        TimelineObservable.notify(null, reformattedData)
         return true
       })
       .catch(e => e)
@@ -33,10 +41,15 @@ class BarChart extends Component {
     const { currency } = this.state
     if (prevState.currency !== currency) {
       axios
-        .get('http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/cad')
+        .get(
+          `http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
+        )
         .then(response => {
-          this.setState({ dataset: response.data })
-          TimelineObservable.notify(null, response.data)
+          const reformattedData = response.data.map(item => {
+            return { ...item, body: [item.close, item.open] }
+          })
+          this.setState({ dataset: reformattedData })
+          TimelineObservable.notify(null, reformattedData)
           return true
         })
         .catch(e => e)
@@ -49,12 +62,15 @@ class BarChart extends Component {
 
   render() {
     const { dataset } = this.state
+    const { theme } = this.context
     return (
       <section className={styles.chart}>
-        {dataset.length > 0 && <Bar {...chartConfig(dataset)} />}
+        {dataset.length > 0 && <Bar {...chartConfig(dataset, theme)} />}
       </section>
     )
   }
 }
+
+BarChart.contextType = ThemeContext
 
 export default BarChart

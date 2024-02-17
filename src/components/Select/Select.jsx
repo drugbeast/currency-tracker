@@ -10,7 +10,7 @@ class Select extends Component {
     super(props)
     this.state = {
       isClicked: false,
-      selectedCurrency: Object.values(currenciesForChart)[0],
+      selectedCurrency: Object.keys(currenciesForChart)[0],
     }
   }
 
@@ -50,11 +50,14 @@ class Select extends Component {
               key={uuidv4()}
               className={styles.option}
               onClick={e => {
+                const selected = Object.entries(currenciesForChart).filter(item =>
+                  item[1] === e.target.textContent ? item[0] : null,
+                )[0][0]
                 this.setState({
-                  selectedCurrency: e.target.textContent,
+                  selectedCurrency: selected,
                   isClicked: !isClicked,
                 })
-                TimelineObservable.notify(e.target.textContent, null)
+                TimelineObservable.notify(selected, null)
               }}
             >
               {value}

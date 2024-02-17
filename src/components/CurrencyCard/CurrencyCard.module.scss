@@ -2,9 +2,9 @@
 
 .card {
   cursor: pointer;
-  background-color: var(--card-background-color);
+  background-color: var(--theme-color-8);
   padding: 32px;
-  border: 1px solid var(--card-border-color);
+  border: 1px solid var(--theme-color-9);
   width: 42%;
   border-radius: 8px;
 }
@@ -25,7 +25,7 @@
 }
 .rate {
   font-size: 32px;
-  color: var(--card-number-color);
+  color: var(--theme-color-10);
 }
 .icon {
   height: 80px;

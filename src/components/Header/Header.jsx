@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 
 import Logo from '../../assets/images/logo.svg'
 import { paths } from '../../constants/routes'
-import useTheme from '../../utils/useTheme'
+import useResize from '../../utils/useResize'
+import useScroll from '../../utils/useScroll'
 import BurgerMenu from '../BurgerMenu/BurgerMenu'
+import { ThemeContext } from '../Theme'
 import styles from './Header.module.scss'
 
 function Header() {
@@ -28,22 +30,20 @@ function Header() {
     },
   ]
 
-  const { theme, setTheme } = useTheme()
-  const [screenWidth, setScreenWidth] = useState(window.screen.availWidth)
-
-  const handleResize = e => {
-    setScreenWidth(e.currentTarget.screen.availWidth)
-  }
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const { theme, setTheme } = useContext(ThemeContext)
+  const screenWidth = useResize()
+  const scrollY = useScroll()
 
   return (
     <>
-      {screenWidth > 769 && (
-        <header className={styles.header}>
+      {screenWidth.width > 769 && (
+        <header
+          className={
+            scrollY.value > 80
+              ? [styles.header, styles.sticky].join(' ')
+              : styles.header
+          }
+        >
           <div className="container">
             <div className={styles.inner}>
               <NavLink to={paths.default}>
@@ -71,12 +71,12 @@ function Header() {
                 checked={theme === 'light'}
                 onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               />
-              <label htmlFor="toggle-button" className={styles.circle} />{' '}
+              <label htmlFor="toggle-button" className={styles.circle} />
             </div>
           </div>
         </header>
       )}
-      {screenWidth < 769 && <BurgerMenu navs={navs} />}
+      {screenWidth.width <= 768 && <BurgerMenu navs={navs} />}
     </>
   )
 }

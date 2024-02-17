@@ -1,25 +1,34 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 
 import Logo from '../../assets/images/logo.svg'
 import { paths } from '../../constants/routes'
-import useTheme from '../../utils/useTheme'
+import useScroll from '../../utils/useScroll'
+import { ThemeContext } from '../Theme'
 import styles from './BurgerMenu.module.scss'
 
 function BurgerMenu(props) {
-  const { theme, setTheme } = useTheme()
-  const [isCross, setIsCross] = useState(false)
+  const { theme, setTheme } = useContext(ThemeContext)
+  const [isCross, setCross] = useState(false)
+  const scrollY = useScroll()
   const { navs } = props
+
   return (
     <>
-      <header className={styles.header}>
+      <header
+        className={
+          scrollY.value > 80
+            ? [styles.header, styles.sticky].join(' ')
+            : styles.header
+        }
+      >
         <div className="container">
           <div className={styles.inner}>
             <NavLink to={paths.default} className={styles.logo}>
               <Logo width={40} height={41} />
             </NavLink>
-            <div className={styles.burger} onClick={() => setIsCross(!isCross)}>
+            <div className={styles.burger} onClick={() => setCross(!isCross)}>
               <span
                 className={
                   isCross
@@ -45,14 +54,15 @@ function BurgerMenu(props) {
           </div>
         </div>
       </header>
+
       {isCross && (
         <section className={styles.wrapper}>
           <div className={styles.menu}>
-            <div className={styles.inner}>
+            <div className={styles.burgerInner}>
               <nav className={styles.nav}>
                 {navs.map(item => (
                   <NavLink
-                    onClick={() => setIsCross(!isCross)}
+                    onClick={() => setCross(!isCross)}
                     key={uuidv4()}
                     to={item.path}
                     className={({ isActive }) =>

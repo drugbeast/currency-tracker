@@ -1,6 +1,6 @@
-import { candlestickGreen, candlestickRed } from '../constants/constants'
+import { colors } from '../constants/chartConfig'
 
-const candlestickPlugin = {
+const candlestickPlugin = theme => ({
   id: 'candlestickPlugin',
   beforeDatasetsDraw(chart) {
     const {
@@ -10,7 +10,7 @@ const candlestickPlugin = {
     } = chart
 
     ctx.save()
-    ctx.lineWidth = 1
+    ctx.lineWidth = 3
 
     data.datasets[0].data.forEach((item, index) => {
       ctx.beginPath()
@@ -23,9 +23,9 @@ const candlestickPlugin = {
         y.getPixelForValue(data.datasets[0].data[index].high),
       )
       if (item.close > item.open) {
-        ctx.strokeStyle = candlestickGreen
+        ctx.strokeStyle = colors[theme].candlestickGreen
       } else {
-        ctx.strokeStyle = candlestickRed
+        ctx.strokeStyle = colors[theme].candlestickRed
       }
       ctx.stroke()
 
@@ -39,13 +39,13 @@ const candlestickPlugin = {
         y.getPixelForValue(data.datasets[0].data[index].low),
       )
       if (item.close > item.open) {
-        ctx.strokeStyle = candlestickGreen
+        ctx.strokeStyle = colors[theme].candlestickGreen
       } else {
-        ctx.strokeStyle = candlestickRed
+        ctx.strokeStyle = colors[theme].candlestickRed
       }
       ctx.stroke()
     })
   },
-}
+})
 
 export default candlestickPlugin

@@ -1,0 +1,18 @@
+.cross {
+  cursor: pointer;
+  .crossPart {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--theme-color-1);
+    top: 40px;
+    right: 40px;
+  }
+  .toLeft {
+    transform: rotate(-45deg);
+  }
+  .toRight {
+    transform: rotate(45deg);
+  }
+}

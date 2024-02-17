@@ -3,7 +3,7 @@
 .currencies {
   font-weight: 300;
   background: var(--background-color);
-  color: var(--primary-text-color);
+  color: var(--theme-color-1);
   transition: background 0.3s ease-out;
 }
 
@@ -14,7 +14,7 @@
 .title {
   font-size: 32px;
   padding-bottom: 24px;
-  border-bottom: 1px solid var(--card-number-color);
+  border-bottom: 1px solid var(--theme-color-10);
   width: 42%;
 }
 

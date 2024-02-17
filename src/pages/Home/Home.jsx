@@ -1,13 +1,14 @@
 import axios from 'axios'
-import { createContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { v4 as uuidv4 } from 'uuid'
 
 import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
-import { CACHING_PERIOD } from '../../constants/constants'
+import Modal from '../../components/Modal/Modal'
 import currencies from '../../constants/currencies'
 import styles from './Home.module.scss'
 
-export const CurrenciesContext = createContext([])
+const CACHING_PERIOD = 100000000
 
 function Home() {
   const currenciesFromLS = localStorage.getItem('currencies')
@@ -19,6 +20,8 @@ function Home() {
   const [lastUpdated, setLastUpdated] = useState(
     lastUpdatedFromLS != null ? JSON.parse(lastUpdatedFromLS) : Date.now(),
   )
+  const [cardClicked, setCardClicked] = useState({ symbol: '', rate: 0 })
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     if (Date.now() - lastUpdatedFromLS > CACHING_PERIOD) {
@@ -52,21 +55,28 @@ function Home() {
 
   return (
     <article className={styles.currencies}>
+      {show
+        ? createPortal(
+            <Modal
+              setShow={setShow}
+              cardClicked={cardClicked}
+              cardsCurrencies={cardsCurrencies}
+            />,
+            document.body,
+          )
+        : null}
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.title}>Quotes</div>
           <section className={styles.cards}>
             {cardsCurrencies.map(item => (
-              <CurrenciesContext.Provider
-                value={{
-                  cardsCurrencies,
-                  rate: item.rate,
-                  symbol: item.symbol,
-                }}
+              <CurrencyCard
+                setCardClicked={setCardClicked}
+                setShow={setShow}
+                symbol={item.symbol}
+                rate={item.rate}
                 key={uuidv4()}
-              >
-                <CurrencyCard />
-              </CurrenciesContext.Provider>
+              />
             ))}
           </section>
         </div>

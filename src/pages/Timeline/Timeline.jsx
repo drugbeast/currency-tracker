@@ -47,17 +47,15 @@ class Timeline extends Component {
                 </button>
               </div>
             </section>
-            <section className={styles.chartWrapper}>
-              <BarChart />
-            </section>
-            {show
-              ? createPortal(
-                  <ChartModal type={type} setShow={this.setShow} />,
-                  document.body,
-                )
-              : null}
           </div>
         </section>
+        {show
+          ? createPortal(
+              <ChartModal type={type} setShow={this.setShow} />,
+              document.body,
+            )
+          : null}
+        <BarChart />
       </article>
     )
   }

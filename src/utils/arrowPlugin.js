@@ -1,4 +1,6 @@
-const arrowPlugin = {
+import { colors } from '../constants/chartConfig'
+
+const arrowPlugin = theme => ({
   id: 'arrowPlugin',
   afterDatasetsDraw(chart) {
     const {
@@ -9,7 +11,7 @@ const arrowPlugin = {
     ctx.save()
     ctx.beginPath()
     ctx.lineWidth = 1
-    ctx.strokeStyle = '#FFFFFF'
+    ctx.strokeStyle = colors[theme].axesColor
 
     ctx.moveTo(left - 1, top + 3)
     ctx.lineTo(left + 5, top + 10)
@@ -25,6 +27,6 @@ const arrowPlugin = {
     ctx.stroke()
     ctx.closePath()
   },
-}
+})
 
 export default arrowPlugin

@@ -9,20 +9,24 @@
   width: 100%;
   justify-content: center;
   gap: 16px;
+  transition: background 0.3s ease-out;
 }
 
 .biggest {
   @include circle(50px, var(--biggest-updated-circle-color));
   @include blinking(0.02, 0.22);
 }
+
 .big {
   @include circle(33px, var(--big-updated-circle-color));
 }
+
 .little {
   @include circle(16px, var(--little-updated-circle-color));
 }
+
 .updatedText {
-  color: var(--secondary-text-color);
+  color: var(--theme-color-2);
   font-size: 32px;
   text-align: center;
   margin: 0;
@@ -32,6 +36,7 @@
   .updated {
     padding-top: 48px;
   }
+  
   .updatedText {
     font-size: 26px;
   }

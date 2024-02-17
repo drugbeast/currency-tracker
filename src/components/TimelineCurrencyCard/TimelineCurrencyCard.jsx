@@ -22,7 +22,7 @@ class TimelineCurrencyCard extends Component {
   render() {
     const { currency } = this.state
     const symbol = Object.entries(currenciesForChart).filter(pair =>
-      pair[0] === currency ? pair[1] : null,
+      pair[0] === currency ? pair[0] : null,
     )[0][0]
     return (
       <section className={styles.card}>

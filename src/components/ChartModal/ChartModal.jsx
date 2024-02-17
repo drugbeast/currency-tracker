@@ -3,6 +3,7 @@ import { Component, createRef } from 'react'
 
 import currenciesForChart from '../../constants/currenciesForChart'
 import TimelineObservable from '../../utils/TimelineObservable'
+import Cross from '../Cross/Cross'
 import styles from './ChartModal.module.scss'
 
 class ChartModal extends Component {
@@ -68,15 +69,16 @@ class ChartModal extends Component {
     return (
       <>
         {type === 'edit' && (
-          <div className={styles.wrapper}>
+          <>
+            <div className={styles.wrapper} onClick={() => setShow(false)} />
             <div className={styles.window}>
-              <div className={styles.cross} onClick={() => setShow(false)}>
-                <span className={[styles.crossPart, styles.toLeft].join(' ')} />
-                <span className={[styles.crossPart, styles.toRight].join(' ')} />
-              </div>
+              <Cross setShow={setShow} />
               <div className={styles.inner}>
                 <p className={styles.title}>Edit</p>
-                <form className={styles.form} onSubmit={this.handleEdit}>
+                <form
+                  className={[styles.form, styles.edit].join(' ')}
+                  onSubmit={this.handleEdit}
+                >
                   <label htmlFor="day">Day</label>
                   <input
                     type="number"
@@ -85,6 +87,7 @@ class ChartModal extends Component {
                     name="day"
                     onChange={e => this.setState({ day: e.target.value })}
                     value={day}
+                    className={styles.input}
                   />
                   <label htmlFor="open">Open</label>
                   <input
@@ -92,6 +95,7 @@ class ChartModal extends Component {
                     name="open"
                     ref={this.openRef}
                     defaultValue={dataset[day] ? dataset[day].open : null}
+                    className={styles.input}
                   />
                   <label htmlFor="high">High</label>
                   <input
@@ -99,6 +103,7 @@ class ChartModal extends Component {
                     name="high"
                     ref={this.highRef}
                     defaultValue={dataset[day] ? dataset[day].high : null}
+                    className={styles.input}
                   />
                   <label htmlFor="close">Close</label>
                   <input
@@ -106,6 +111,7 @@ class ChartModal extends Component {
                     name="close"
                     ref={this.closeRef}
                     defaultValue={dataset[day] ? dataset[day].close : null}
+                    className={styles.input}
                   />
                   <label htmlFor="low">Low</label>
                   <input
@@ -113,6 +119,7 @@ class ChartModal extends Component {
                     name="low"
                     ref={this.lowRef}
                     defaultValue={dataset[day] ? dataset[day].low : null}
+                    className={styles.input}
                   />
                   <button type="submit" className={styles.button}>
                     edit
@@ -120,28 +127,29 @@ class ChartModal extends Component {
                 </form>
               </div>
             </div>
-          </div>
+          </>
         )}
 
         {type === 'remove' && (
-          <div className={styles.wrapper}>
-            <div className={styles.window}>
-              <div className={styles.cross} onClick={() => setShow(false)}>
-                <span className={[styles.crossPart, styles.toLeft].join(' ')} />
-                <span className={[styles.crossPart, styles.toRight].join(' ')} />
-              </div>
+          <>
+            <div className={styles.wrapper} onClick={() => setShow(false)} />
+            <div className={[styles.window, styles.remove].join(' ')}>
+              <Cross setShow={setShow} />
               <div className={styles.inner}>
                 <p className={styles.title}>Edit</p>
-                <form className={styles.form} onSubmit={this.handleRemove}>
+                <form
+                  className={[styles.form, styles.remove].join(' ')}
+                  onSubmit={this.handleRemove}
+                >
                   <label htmlFor="open">Day</label>
-                  <input type="number" name="day" />
+                  <input type="number" name="day" className={styles.input} />
                   <button type="submit" className={styles.button}>
                     delete
                   </button>
                 </form>
               </div>
             </div>
-          </div>
+          </>
         )}
       </>
     )

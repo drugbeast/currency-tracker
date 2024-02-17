@@ -30,6 +30,8 @@
 
 body {
   font-family: 'Poppins';
+  background-color: var(--background-color);
+  transition: background 0.3s ease-out;
 }
 
 p,
