@@ -24,7 +24,7 @@ class BarChart extends Component {
     TimelineObservable.subscribe(this)
     axios
       .get(
-        `http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
+        `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
       )
       .then(response => {
         const reformattedData = response.data.map(item => {
@@ -42,7 +42,7 @@ class BarChart extends Component {
     if (prevState.currency !== currency) {
       axios
         .get(
-          `http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
+          `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
         )
         .then(response => {
           const reformattedData = response.data.map(item => {
