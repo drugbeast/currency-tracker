@@ -56,8 +56,8 @@ function Header() {
                     to={item.path}
                     className={({ isActive }) =>
                       isActive
-                        ? [styles.default, styles.active].join(' ')
-                        : styles.default
+                        ? [styles.disabled, styles.active].join(' ')
+                        : styles.disabled
                     }
                   >
                     {item.title}

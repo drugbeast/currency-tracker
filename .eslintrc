@@ -23,7 +23,6 @@
     "eslint-plugin-import/no-cycle": "off",
     "eqeqeq": "error",
     "import/no-cycle": "off",
-    "import/no-extraneous-dependencies": "error",
     "react/jsx-filename-extension": "warn",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-curly-newline": "off",
@@ -40,6 +39,7 @@
     "react/no-unused-class-component-methods": "off",
     "prefer-destructuring": "off",
     "react/jsx-indent": "off",
-    "indent": "off"
+    "indent": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

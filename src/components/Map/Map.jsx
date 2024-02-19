@@ -29,7 +29,7 @@ class Map extends Component {
     })
 
     banks.forEach(item =>
-      new maptilersdk.Marker({ color: '#FF0000' })
+      new maptilersdk.Marker({ color: '#ff0000' })
         .setLngLat([item.lng, item.lat])
         .addTo(this.card.current),
     )
@@ -62,7 +62,7 @@ class Map extends Component {
         Object.entries(item.currencies).some(currency =>
           currency[0].toLowerCase().includes(searchValue.toLowerCase()) ||
           currency[1].toLowerCase().includes(searchValue.toLowerCase())
-            ? new maptilersdk.Marker({ color: '#FF0000' })
+            ? new maptilersdk.Marker({ color: '#ff0000' })
                 .setLngLat([item.lng, item.lat])
                 .addTo(this.card.current)
             : null,

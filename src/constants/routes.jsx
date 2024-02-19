@@ -1,8 +1,12 @@
+import { lazy, Suspense } from 'react'
+
 import Layout from '../components/Layout'
-import BankCard from '../pages/BankCard/BankCard'
-import Contato from '../pages/Contato/Contato'
-import Home from '../pages/Home/Home'
+import Loader from '../components/Loader/Loader'
 import Timeline from '../pages/Timeline/Timeline'
+
+const BankCard = lazy(() => import('../pages/BankCard/BankCard'))
+const Home = lazy(() => import('../pages/Home/Home'))
+const Contato = lazy(() => import('../pages/Contato/Contato'))
 
 export const paths = {
   default: '/',
@@ -32,7 +36,11 @@ export const routes = [
   },
   {
     path: paths.default,
-    element: <Contato />,
+    element: (
+      <Suspense fallback={<Loader />}>
+        <Contato />
+      </Suspense>
+    ),
     children: [
       {
         path: paths.contato,

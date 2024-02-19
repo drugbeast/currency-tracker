@@ -1,9 +1,11 @@
+import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import Banner from './Banner/Banner'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import LastUpdated from './LastUpdated/LastUpdated'
+import Loader from './Loader/Loader'
 
 function Layout() {
   return (
@@ -11,9 +13,11 @@ function Layout() {
       <Header />
       <Banner />
       <LastUpdated />
-      <main>
-        <Outlet />
-      </main>
+      <Suspense fallback={<Loader />}>
+        <main>
+          <Outlet />
+        </main>
+      </Suspense>
       <Footer />
     </>
   )

@@ -2,9 +2,9 @@ const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  mode: 'development',
   entry: path.resolve(__dirname, 'src', 'index.jsx'),
   output: {
     filename: 'bundle.js',
@@ -24,13 +24,8 @@ module.exports = {
         ),
       },
     }),
+    new MiniCssExtractPlugin(),
   ],
-  devServer: {
-    port: 3000,
-    hot: true,
-    historyApiFallback: true,
-  },
-  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -50,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.(sc|sa|c)ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
   },

@@ -1,11 +1,15 @@
-import { Component } from 'react'
+import { Component, lazy, Suspense } from 'react'
 import { createPortal } from 'react-dom'
 
-import BarChart from '../../components/BarChart/BarChart'
-import ChartModal from '../../components/ChartModal/ChartModal'
+// import BarChart from '../../components/BarChart/BarChart'
+// import ChartModal from '../../components/ChartModal/ChartModal'
+import Loader from '../../components/Loader/Loader'
 import Select from '../../components/Select/Select'
 import TimelineCurrencyCard from '../../components/TimelineCurrencyCard/TimelineCurrencyCard'
 import styles from './Timeline.module.scss'
+
+const BarChart = lazy(() => import('../../components/BarChart/BarChart'))
+const ChartModal = lazy(() => import('../../components/ChartModal/ChartModal'))
 
 class Timeline extends Component {
   constructor(props) {
@@ -49,12 +53,14 @@ class Timeline extends Component {
             </section>
           </div>
         </section>
-        {show
-          ? createPortal(
-              <ChartModal type={type} setShow={this.setShow} />,
-              document.body,
-            )
-          : null}
+        <Suspense fallback={<Loader />}>
+          {show
+            ? createPortal(
+                <ChartModal type={type} setShow={this.setShow} />,
+                document.body,
+              )
+            : null}
+        </Suspense>
         <BarChart />
       </article>
     )

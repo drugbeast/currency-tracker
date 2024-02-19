@@ -1,14 +1,16 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { v4 as uuidv4 } from 'uuid'
 
 import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
-import Modal from '../../components/Modal/Modal'
+import Loader from '../../components/Loader/Loader'
 import currencies from '../../constants/currencies'
 import styles from './Home.module.scss'
 
-const CACHING_PERIOD = 100000000
+const Modal = lazy(() => import('../../components/Modal/Modal'))
+
+const CACHING_PERIOD = 10
 
 function Home() {
   const currenciesFromLS = localStorage.getItem('currencies')
@@ -55,16 +57,18 @@ function Home() {
 
   return (
     <article className={styles.currencies}>
-      {show
-        ? createPortal(
-            <Modal
-              setShow={setShow}
-              cardClicked={cardClicked}
-              cardsCurrencies={cardsCurrencies}
-            />,
-            document.body,
-          )
-        : null}
+      <Suspense fallback={<Loader />}>
+        {show
+          ? createPortal(
+              <Modal
+                setShow={setShow}
+                cardClicked={cardClicked}
+                cardsCurrencies={cardsCurrencies}
+              />,
+              document.body,
+            )
+          : null}
+      </Suspense>
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.title}>Quotes</div>

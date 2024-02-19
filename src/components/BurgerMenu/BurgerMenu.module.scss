@@ -102,22 +102,22 @@
   gap: 16px;
 }
 
-.default {
+.disabled {
   text-decoration: none;
   color: var(--theme-color-1);
   position: relative;
   font-size: 32px;
 }
-.default::after {
+.disabled::after {
   @include afterElement(0, 2px, var(--theme-color-1));
 }
-.default:hover::after {
+.disabled:hover::after {
   width: 100%;
 }
-.default.active {
+.disabled.active {
   padding-bottom: 5px;
 }
-.default.active::after {
+.disabled.active::after {
   @include afterElement(100%, 2px, var(--theme-color-1));
 }
 
@@ -148,7 +148,7 @@
   .wrapper {
     padding: 160px 110px;
   }
-  .default {
+  .disabled {
     font-size: 30px;
   }
 }
