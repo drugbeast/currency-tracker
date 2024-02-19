@@ -33,7 +33,7 @@ class ChartModal extends Component {
     const { day, currency } = this.state
     axios
       .put(
-        `http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}/${day}`,
+        `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}/${day}`,
         {
           id: day,
           date: new Date(Date.now()).toDateString(),
@@ -52,7 +52,7 @@ class ChartModal extends Component {
     const { day, currency } = this.state
     axios
       .delete(
-        `http://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}/${day}`,
+        `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}/${day}`,
       )
       .then(response => response)
       .catch(error => error)
