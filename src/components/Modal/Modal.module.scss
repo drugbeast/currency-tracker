@@ -85,7 +85,9 @@
   font-weight: 400;
   text-align: center;
   overflow-x: scroll;
-  overflow-y: hidden;
+}
+.result::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {

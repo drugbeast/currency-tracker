@@ -1,13 +1,16 @@
 .cross {
   cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
   .crossPart {
-    content: '';
-    position: absolute;
     width: 20px;
     height: 2px;
     background-color: var(--theme-color-1);
-    top: 40px;
-    right: 40px;
+    display: block;
+    position: absolute;
   }
   .toLeft {
     transform: rotate(-45deg);

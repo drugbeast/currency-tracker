@@ -1,8 +1,9 @@
+import { CACHING_PERIOD as PERIOD } from '../../pages/Home/Home'
 import styles from './LastUpdated.module.scss'
 
 function LastUpdated() {
   let lastUpdated = Number(localStorage.getItem('lastUpdated'))
-  if (Date.now() - lastUpdated > 100000000) {
+  if (Date.now() - lastUpdated > PERIOD) {
     lastUpdated = Date.now()
     localStorage.setItem('lastUpdated', lastUpdated)
   }

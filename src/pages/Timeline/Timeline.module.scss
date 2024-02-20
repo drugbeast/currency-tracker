@@ -22,6 +22,10 @@
         border-radius: 5px;
         color: var(--theme-color-1);
         cursor: pointer;
+        transition: opacity 0.3s ease-out;
+      }
+      .button:hover {
+        opacity: 0.8;
       }
       .button.edit {
         background-color: var(--theme-color-6);

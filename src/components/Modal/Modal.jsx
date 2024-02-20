@@ -13,9 +13,7 @@ function Result({ result }) {
   if (result < 0) {
     throw new Error('Oops... Negative Number! Please, remove the "-" sign.')
   }
-  return (
-    <span className={styles.result}>{result === 0 ? 0 : result.toFixed(3)}</span>
-  )
+  return <span className={styles.result}>{result === 0 ? 0 : result}</span>
 }
 
 function Modal({ setShow, cardClicked, cardsCurrencies }) {

@@ -1,9 +1,10 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable max-len */
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import Logo from '../../assets/images/logo.svg'
+import useResize from '../../utils/useResize'
 import styles from './Footer.module.scss'
 
 function Footer() {
@@ -25,22 +26,8 @@ function Footer() {
     },
   ]
 
-  const [screenWidth, setScreenWidth] = useState(window.screen.availWidth)
-
-  const handleResize = e => {
-    setScreenWidth(e.currentTarget.screen.availWidth)
-  }
-
-  const [isUp, setIsUp] = useState({
-    general: false,
-    product: false,
-    community: false,
-  })
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const screenWidth = useResize()
+  const [isUp, setIsUp] = useState(false)
 
   return (
     <footer>
@@ -62,7 +49,7 @@ function Footer() {
             <div className={styles.right}>
               {links.map(item => (
                 <div className={styles.column} key={uuidv4()}>
-                  {screenWidth < 641 && (
+                  {screenWidth.width < 641 && (
                     <div className={styles.titleBlock}>
                       <span className={styles.title}>{item.title}</span>
                       <div
@@ -82,8 +69,14 @@ function Footer() {
                       />
                     </div>
                   )}
-                  {screenWidth > 641 && (
-                    <span className={styles.title}>{item.title}</span>
+                  {screenWidth.width > 641 && (
+                    <>
+                      <span className={styles.title}>{item.title}</span>
+                      <div className={styles.links}>
+                        <span className={styles.link}>{item.first}</span>
+                        <span className={styles.link}>{item.second}</span>
+                      </div>
+                    </>
                   )}
                   {(isUp[item.title.toLowerCase()] || screenWidth > 640) && (
                     <div className={styles.links}>

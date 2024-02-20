@@ -4,7 +4,7 @@ export const calculateMin = ctx => {
   data.forEach(item => {
     const value = Math.min.apply(
       null,
-      Object.values(item).filter(v => !Number.isNaN(Number(v))),
+      Object.values(item).filter(v => item.id !== v && !Number.isNaN(Number(v))),
     )
     if (value < min) {
       min = value
@@ -19,7 +19,7 @@ export const calculateMax = ctx => {
   data.forEach(item => {
     const value = Math.max.apply(
       null,
-      Object.values(item).filter(v => !Number.isNaN(Number(v))),
+      Object.values(item).filter(v => item.id !== v && !Number.isNaN(Number(v))),
     )
     if (value > max) {
       max = value

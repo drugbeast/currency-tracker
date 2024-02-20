@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import axios from 'axios'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -10,7 +11,7 @@ import styles from './Home.module.scss'
 
 const Modal = lazy(() => import('../../components/Modal/Modal'))
 
-const CACHING_PERIOD = 10
+export const CACHING_PERIOD = 10000000000
 
 function Home() {
   const currenciesFromLS = localStorage.getItem('currencies')
@@ -20,13 +21,16 @@ function Home() {
     currenciesFromLS != null ? JSON.parse(currenciesFromLS) : [],
   )
   const [lastUpdated, setLastUpdated] = useState(
-    lastUpdatedFromLS != null ? JSON.parse(lastUpdatedFromLS) : Date.now(),
+    lastUpdatedFromLS != null ? JSON.parse(lastUpdatedFromLS) : 0,
   )
   const [cardClicked, setCardClicked] = useState({ symbol: '', rate: 0 })
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (Date.now() - lastUpdatedFromLS > CACHING_PERIOD) {
+    if (
+      Date.now() - lastUpdatedFromLS > CACHING_PERIOD ||
+      cardsCurrencies.length === 0
+    ) {
       axios
         .get(
           `https://api.currencybeacon.com/v1/latest?api_key=${process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,
