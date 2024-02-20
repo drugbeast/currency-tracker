@@ -11,7 +11,7 @@ import styles from './Home.module.scss'
 
 const Modal = lazy(() => import('../../components/Modal/Modal'))
 
-export const CACHING_PERIOD = 10000000000
+export const CACHING_PERIOD = 1000000000
 
 function Home() {
   const currenciesFromLS = localStorage.getItem('currencies')
