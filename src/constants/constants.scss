@@ -51,8 +51,8 @@
 }
 
 @mixin form($gap, $mt) {
-    display: flex;
-    flex-direction: column;
-    margin-top: $mt;
-    gap: $gap;
+  display: flex;
+  flex-direction: column;
+  margin-top: $mt;
+  gap: $gap;
 }
