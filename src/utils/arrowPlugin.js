@@ -1,6 +1,6 @@
-import { colors } from '../constants/chartConfig'
+import colors from '../constants/chartColors'
 
-const arrowPlugin = theme => ({
+const arrowPlugin = (theme) => ({
   id: 'arrowPlugin',
   afterDatasetsDraw(chart) {
     const {

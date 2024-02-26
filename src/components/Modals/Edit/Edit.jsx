@@ -24,11 +24,7 @@ class Edit extends Component {
     })
   }
 
-  update = observable => {
-    this.setState({ dataset: observable.dataset, currency: observable.currency })
-  }
-
-  handleEdit = e => {
+  handleEdit = (e) => {
     e.preventDefault()
     const { day, currency, dataset } = this.state
     const itemsToInsert = {
@@ -44,10 +40,10 @@ class Edit extends Component {
         `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}/${day + 1}`,
         itemsToInsert,
       )
-      .then(response => response)
-      .catch(error => error)
+      .then((response) => response)
+      .catch((error) => error)
       .finally(() => location.reload())
-      .catch(error => error)
+      .catch((error) => error)
   }
 
   render() {
@@ -62,7 +58,7 @@ class Edit extends Component {
             min={1}
             max={31}
             name="day"
-            onChange={e => this.setState({ day: e.target.value - 1 })}
+            onChange={(e) => this.setState({ day: e.target.value - 1 })}
             value={day + 1}
             className="edit-input"
           />
@@ -70,7 +66,7 @@ class Edit extends Component {
           <Input
             type="number"
             name="open"
-            onChange={e => {
+            onChange={(e) => {
               const itemToChange = {
                 ...dataset[day],
                 open: Number(e.target.value),
@@ -90,7 +86,7 @@ class Edit extends Component {
           <Input
             type="number"
             name="high"
-            onChange={e => {
+            onChange={(e) => {
               const itemToChange = {
                 ...dataset[day],
                 high: Number(e.target.value),
@@ -110,7 +106,7 @@ class Edit extends Component {
           <Input
             type="number"
             name="close"
-            onChange={e => {
+            onChange={(e) => {
               const itemToChange = {
                 ...dataset[day],
                 close: Number(e.target.value),
@@ -130,7 +126,7 @@ class Edit extends Component {
           <Input
             type="number"
             name="low"
-            onChange={e => {
+            onChange={(e) => {
               const itemToChange = {
                 ...dataset[day],
                 low: Number(e.target.value),

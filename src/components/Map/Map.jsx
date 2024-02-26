@@ -1,5 +1,3 @@
-/* eslint-disable indent */
-/* eslint-disable operator-linebreak */
 import '@maptiler/sdk/dist/maptiler-sdk.css'
 
 import * as maptilersdk from '@maptiler/sdk'
@@ -28,7 +26,7 @@ class Map extends Component {
       zoom,
     })
 
-    banks.forEach(item =>
+    banks.forEach((item) =>
       new maptilersdk.Marker({ color: '#ff0000' })
         .setLngLat([item.lng, item.lat])
         .addTo(this.card.current),
@@ -58,8 +56,8 @@ class Map extends Component {
         zoom,
       })
 
-      banks.forEach(item => {
-        Object.entries(item.currencies).some(currency =>
+      banks.forEach((item) => {
+        Object.entries(item.currencies).some((currency) =>
           currency[0].toLowerCase().includes(searchValue.toLowerCase()) ||
           currency[1].toLowerCase().includes(searchValue.toLowerCase())
             ? new maptilersdk.Marker({ color: '#ff0000' })

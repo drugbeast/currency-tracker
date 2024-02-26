@@ -4,7 +4,6 @@
 !/docs/*.js
 !/docs/tools/
 /jsdoc/**
-/templates/**
 /tests/bench/**
 /tests/fixtures/**
 /tests/performance/**

@@ -10,26 +10,6 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public', 'index.html'),
-      favicon: './src/assets/images/logo.svg',
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        REACT_APP_CURRENCYBEACON_API_KEY: JSON.stringify(
-          process.env.REACT_APP_CURRENCYBEACON_API_KEY,
-        ),
-        REACT_APP_MAPTILER_API_KEY: JSON.stringify(
-          process.env.REACT_APP_MAPTILER_API_KEY,
-        ),
-      },
-    }),
-    new MiniCssExtractPlugin(),
-  ],
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
   module: {
     rules: [
       {
@@ -49,5 +29,25 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+      favicon: './src/assets/images/logo.svg',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        REACT_APP_CURRENCYBEACON_API_KEY: JSON.stringify(
+          process.env.REACT_APP_CURRENCYBEACON_API_KEY,
+        ),
+        REACT_APP_MAPTILER_API_KEY: JSON.stringify(
+          process.env.REACT_APP_MAPTILER_API_KEY,
+        ),
+      },
+    }),
+    new MiniCssExtractPlugin(),
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 }

@@ -1,10 +1,10 @@
-export const calculateMin = ctx => {
+export const calculateMin = (ctx) => {
   const { data } = ctx.chart.data.datasets[0]
   let min = data[0].open
-  data.forEach(item => {
+  data.forEach((item) => {
     const value = Math.min.apply(
       null,
-      Object.values(item).filter(v => item.id !== v && !Number.isNaN(Number(v))),
+      Object.values(item).filter((v) => item.id !== v && !Number.isNaN(Number(v))),
     )
     if (value < min) {
       min = value
@@ -13,13 +13,13 @@ export const calculateMin = ctx => {
   return min - min * 0.015
 }
 
-export const calculateMax = ctx => {
+export const calculateMax = (ctx) => {
   const { data } = ctx.chart.data.datasets[0]
   let max = data[0].open
-  data.forEach(item => {
+  data.forEach((item) => {
     const value = Math.max.apply(
       null,
-      Object.values(item).filter(v => item.id !== v && !Number.isNaN(Number(v))),
+      Object.values(item).filter((v) => item.id !== v && !Number.isNaN(Number(v))),
     )
     if (value > max) {
       max = value

@@ -8,7 +8,8 @@ import ErrorFallback from '../../Core/ErrorFallback/ErrorFallback'
 import Input from '../../Core/Input/Input'
 import styles from './Converter.module.scss'
 
-function Converter({ currency }) {
+function Converter(props) {
+  const { currency } = props
   const rates = JSON.parse(localStorage.getItem('rates'))
 
   const [selectedCurrency, setSelectedCurrency] = useState('')
@@ -16,7 +17,7 @@ function Converter({ currency }) {
   const [result, setResult] = useState(amount)
 
   useEffect(() => {
-    rates.forEach(item => {
+    rates.forEach((item) => {
       if (item.symbol === selectedCurrency) {
         setResult((item.rate * amount) / currency.rate)
       }
@@ -33,7 +34,7 @@ function Converter({ currency }) {
             min="0"
             type="number"
             className="amount"
-            onChange={e => setAmount(e.target.value)}
+            onChange={(e) => setAmount(e.target.value)}
             value={amount}
           />
         </section>
@@ -41,13 +42,13 @@ function Converter({ currency }) {
           <span className={styles.to}>to:</span>
           <select
             value={selectedCurrency}
-            onChange={e => {
+            onChange={(e) => {
               setSelectedCurrency(e.target.value)
             }}
             className={styles.select}
           >
             <option value="first">Select, please</option>
-            {Object.entries(currencies).map(name =>
+            {Object.entries(currencies).map((name) =>
               name[0] !== currency.symbol ? (
                 <option key={uuidv4()} value={name[0]}>
                   {name[0]} ({name[1]})

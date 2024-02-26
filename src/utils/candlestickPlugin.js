@@ -1,6 +1,6 @@
-import { colors } from '../constants/chartConfig'
+import colors from '../constants/chartColors'
 
-const candlestickPlugin = theme => ({
+const candlestickPlugin = (theme) => ({
   id: 'candlestickPlugin',
   beforeDatasetsDraw(chart) {
     const {

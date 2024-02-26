@@ -18,7 +18,7 @@ class Select extends Component {
     TimelineObservable.subscribe(this)
   }
 
-  update = observable => {
+  update = (observable) => {
     this.setState({ selectedCurrency: observable.currency })
   }
 
@@ -45,13 +45,13 @@ class Select extends Component {
               : [styles.pop, styles.disabled].join(' ')
           }
         >
-          {Object.values(currenciesForChart).map(value => (
+          {Object.values(currenciesForChart).map((value) => (
             <div
               key={uuidv4()}
               className={styles.option}
-              onClick={e => {
-                const selected = Object.entries(currenciesForChart).filter(item =>
-                  item[1] === e.target.textContent ? item[0] : null,
+              onClick={(e) => {
+                const selected = Object.entries(currenciesForChart).filter(
+                  (item) => (item[1] === e.target.textContent ? item[0] : null),
                 )[0][0]
                 this.setState({
                   selectedCurrency: selected,

@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -33,10 +32,10 @@ function Home() {
         .get(
           `https://api.currencybeacon.com/v1/latest?api_key=${window.Cypress ? 'fQhSOyA6tVQsX8jn2VoWyFeAdI1c4efJ' : process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,
         )
-        .then(response => {
+        .then((response) => {
           setLastUpdated(Date.now())
           const fetchedCurrencies = Object.keys(response.data.rates)
-            .map(currency =>
+            .map((currency) =>
               currency in currencies
                 ? {
                     rate:
@@ -47,13 +46,13 @@ function Home() {
                   }
                 : null,
             )
-            .filter(currency => currency != null)
+            .filter((currency) => currency != null)
           setCardsCurrencies(fetchedCurrencies)
           localStorage.setItem('rates', JSON.stringify(fetchedCurrencies))
           localStorage.setItem('lastUpdated', JSON.stringify(lastUpdated))
           return true
         })
-        .catch(e => e)
+        .catch((e) => e)
     }
   }, [])
 
@@ -69,7 +68,7 @@ function Home() {
         <div className={styles.inner}>
           <div className={styles.title}>Quotes</div>
           <section className={styles.cards}>
-            {cardsCurrencies.map(item => (
+            {cardsCurrencies.map((item) => (
               <CurrencyCard
                 setCardClicked={setCardClicked}
                 setShow={setShow}

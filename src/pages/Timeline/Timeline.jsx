@@ -50,7 +50,7 @@ class Timeline extends Component {
             </section>
           </div>
         </section>
-        {show
+        {show === true
           ? createPortal(
               <Modal type={type} setShow={this.setShow} />,
               document.body,

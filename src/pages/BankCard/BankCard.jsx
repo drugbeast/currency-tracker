@@ -10,11 +10,12 @@ class BankCard extends Component {
     this.state = { searchValue: '', doSearch: false }
   }
 
-  setSearchValue = value => {
+  setSearchValue = (value) => {
     this.setState({ searchValue: value })
   }
 
   render() {
+    const { searchValue, doSearch } = this.state
     return (
       <article className={styles.block}>
         <div className="container">
@@ -23,7 +24,7 @@ class BankCard extends Component {
             <SearchBar setSearchValue={this.setSearchValue} />
           </section>
         </div>
-        <Map {...this.state} />
+        <Map searchValue={searchValue} doSearch={doSearch} />
       </article>
     )
   }

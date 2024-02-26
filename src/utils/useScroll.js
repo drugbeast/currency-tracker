@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 function useScroll() {
   const [scrollValue, setScrollValue] = useState(0)
 
-  const handleScroll = e => {
+  const handleScroll = (e) => {
     setScrollValue(e.currentTarget.scrollY)
   }
 

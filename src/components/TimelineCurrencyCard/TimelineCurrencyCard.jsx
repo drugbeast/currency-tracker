@@ -15,13 +15,13 @@ class TimelineCurrencyCard extends Component {
     TimelineObservable.subscribe(this)
   }
 
-  update = observable => {
+  update = (observable) => {
     this.setState({ currency: observable.currency })
   }
 
   render() {
     const { currency } = this.state
-    const symbol = Object.entries(currenciesForChart).filter(pair =>
+    const symbol = Object.entries(currenciesForChart).filter((pair) =>
       pair[0] === currency ? pair[0] : null,
     )[0][0]
     return (

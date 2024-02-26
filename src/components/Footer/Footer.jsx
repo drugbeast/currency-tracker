@@ -47,7 +47,7 @@ function Footer() {
           </section>
           <section className={styles.right}>
             <div className={styles.right}>
-              {links.map(item => (
+              {links.map((item) => (
                 <div className={styles.column} key={uuidv4()}>
                   {screenWidth.width < 641 && (
                     <div className={styles.titleBlock}>
@@ -59,7 +59,7 @@ function Footer() {
                             : styles.arrow
                         }
                         onClick={() =>
-                          setIsUp(prevIsUp => {
+                          setIsUp((prevIsUp) => {
                             const newPrevIsUp = { ...prevIsUp }
                             newPrevIsUp[item.title.toLowerCase()] =
                               !prevIsUp[item.title.toLowerCase()]

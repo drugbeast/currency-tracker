@@ -1,6 +1,6 @@
-import { colors } from '../constants/chartConfig'
+import colors from '../constants/chartColors'
 
-const crosshairPlugin = theme => ({
+const crosshairPlugin = (theme) => ({
   id: 'crosshairPlugin',
   crosshair: undefined,
   afterDatasetsDraw(chart) {
@@ -16,7 +16,7 @@ const crosshairPlugin = theme => ({
     if (this.crosshair) {
       ctx.save()
       ctx.beginPath()
-      this.crosshair.forEach(line => {
+      this.crosshair.forEach((line) => {
         ctx.moveTo(line.startX, line.startY)
         ctx.lineTo(line.endX, line.endY)
         ctx.stroke()

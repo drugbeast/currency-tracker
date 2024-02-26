@@ -17,21 +17,17 @@ class Delete extends Component {
     this.setState({ currency: TimelineObservable.currency })
   }
 
-  update = observable => {
-    this.setState({ currency: observable.currency })
-  }
-
-  handleDelete = e => {
+  handleDelete = (e) => {
     e.preventDefault()
     const { day, currency } = this.state
     axios
       .delete(
         `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}/${day + 1}`,
       )
-      .then(response => response)
-      .catch(error => error)
+      .then((response) => response)
+      .catch((error) => error)
       .finally(() => location.reload())
-      .catch(error => error)
+      .catch((error) => error)
   }
 
   render() {
@@ -48,7 +44,7 @@ class Delete extends Component {
             max={31}
             className="edit-input"
             value={day + 1}
-            onChange={e => this.setState({ day: e.target.value - 1 })}
+            onChange={(e) => this.setState({ day: e.target.value - 1 })}
           />
           <Button type="submit" className="edit-button">
             delete

@@ -9,15 +9,15 @@ import Won from '../assets/images/won.svg'
 import Yen from '../assets/images/yen.svg'
 
 const icons = {
-  AUD: props => <AustralianDollar {...props} />,
-  BTC: props => <Bitcoin {...props} />,
-  CAD: props => <CanadianDollar {...props} />,
-  USD: props => <Dollar {...props} />,
-  EUR: props => <Euro {...props} />,
-  TRY: props => <Libra {...props} />,
-  ARS: props => <PesoArgentino {...props} />,
-  KRW: props => <Won {...props} />,
-  JPY: props => <Yen {...props} />,
+  AUD: (props) => <AustralianDollar {...props} />,
+  BTC: (props) => <Bitcoin {...props} />,
+  CAD: (props) => <CanadianDollar {...props} />,
+  USD: (props) => <Dollar {...props} />,
+  EUR: (props) => <Euro {...props} />,
+  TRY: (props) => <Libra {...props} />,
+  ARS: (props) => <PesoArgentino {...props} />,
+  KRW: (props) => <Won {...props} />,
+  JPY: (props) => <Yen {...props} />,
 }
 
 export default icons

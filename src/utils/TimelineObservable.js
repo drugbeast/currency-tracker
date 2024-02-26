@@ -18,7 +18,7 @@ class TimelineObservable {
     if (dataset) {
       this.dataset = dataset
     }
-    this.observers.forEach(observer => observer.update(this))
+    this.observers.forEach((observer) => observer.update(this))
   }
 }
 

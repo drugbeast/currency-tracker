@@ -8,7 +8,7 @@ function LastUpdated() {
     localStorage.setItem('lastUpdated', lastUpdated)
   }
 
-  const formatDate = last => {
+  const formatDate = (last) => {
     const date = new Date(last)
     const isPm = date.getHours() > 12
     return `${

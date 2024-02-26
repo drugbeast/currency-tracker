@@ -2,29 +2,9 @@ import arrowPlugin from '../utils/arrowPlugin'
 import { calculateMax, calculateMin } from '../utils/calculateMinMax'
 import candlestickPlugin from '../utils/candlestickPlugin'
 import crosshairPlugin from '../utils/crosshairPlugin'
+import colors from './chartColors'
 
-export const colors = {
-  dark: {
-    candlestickGreen: '#16c782',
-    candlestickRed: '#ea3943',
-    gridLinesColor: 'rgba(255, 255, 255, 0.1)',
-    crosshairColor: '#ff971d',
-    crosshairTextColor: '#ffffff',
-    axesTextColor: '#ffffff',
-    axesColor: '#8f8e8d',
-  },
-  light: {
-    candlestickGreen: '#16c782',
-    candlestickRed: '#ea3943',
-    gridLinesColor: 'rgba(0, 0, 0, 0.1)',
-    crosshairColor: '#ff971d',
-    crosshairTextColor: '#ffffff',
-    axesTextColor: '#000000',
-    axesColor: '#8f8e8d',
-  },
-}
-
-const pluginsList = theme => [
+const pluginsList = (theme) => [
   candlestickPlugin(theme),
   arrowPlugin(theme),
   crosshairPlugin(theme),
@@ -36,7 +16,7 @@ const dataOptions = (dataset, theme) => ({
       data: dataset,
       barPercentage: 0.7,
       categoryPercentage: 1.3,
-      backgroundColor: ctx => {
+      backgroundColor: (ctx) => {
         if (ctx.raw.close > ctx.raw.open) {
           return colors[theme].candlestickGreen
         }
@@ -46,7 +26,7 @@ const dataOptions = (dataset, theme) => ({
   ],
 })
 
-const scalesOptions = theme => ({
+const scalesOptions = (theme) => ({
   y1: {
     position: 'left',
     beginAtZero: true,
@@ -64,8 +44,8 @@ const scalesOptions = theme => ({
     ticks: {
       display: false,
     },
-    min: ctx => calculateMin(ctx),
-    max: ctx => calculateMax(ctx),
+    min: (ctx) => calculateMin(ctx),
+    max: (ctx) => calculateMax(ctx),
     grid: {
       display: false,
     },
@@ -82,10 +62,10 @@ const scalesOptions = theme => ({
         size: 16,
       },
       color: colors[theme].axesTextColor,
-      callback: v => v.toFixed(3),
+      callback: (v) => v.toFixed(3),
     },
-    min: ctx => calculateMin(ctx),
-    max: ctx => calculateMax(ctx),
+    min: (ctx) => calculateMin(ctx),
+    max: (ctx) => calculateMax(ctx),
     grid: {
       display: true,
       color: colors[theme].gridLinesColor,

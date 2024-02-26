@@ -50,7 +50,7 @@ function Header() {
                 <Logo width={40} height={41} />
               </NavLink>
               <nav className={styles.nav}>
-                {navs.map(item => (
+                {navs.map((item) => (
                   <NavLink
                     key={uuidv4()}
                     to={item.path}

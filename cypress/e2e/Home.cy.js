@@ -1,6 +1,3 @@
-/* eslint-disable promise/catch-or-return */
-// const currencies = require('../../src/constants/currencies')
-
 describe('Visit pages', () => {
   it('should visit home page', () => {
     cy.visit('/')

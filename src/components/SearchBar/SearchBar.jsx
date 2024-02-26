@@ -1,4 +1,3 @@
-/* eslint-disable operator-linebreak */
 import { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -26,7 +25,7 @@ class SearchBar extends Component {
   checkTheOccurence = () => {
     const { inputValue } = this.state
     const newCurrenciesAppeared = []
-    Object.entries(currencies).filter(item =>
+    Object.entries(currencies).filter((item) =>
       item[0].toLowerCase().includes(inputValue.toLowerCase()) ||
       item[1].toLowerCase().includes(inputValue.toLowerCase())
         ? newCurrenciesAppeared.push(item)
@@ -38,7 +37,7 @@ class SearchBar extends Component {
     })
   }
 
-  setInputValue = value => {
+  setInputValue = (value) => {
     this.setState({ inputValue: value })
   }
 
@@ -62,8 +61,8 @@ class SearchBar extends Component {
             className={styles.input}
             placeholder="Currency search..."
             value={inputValue}
-            onChange={e => this.setInputValue(e.target.value)}
-            onKeyDown={e => {
+            onChange={(e) => this.setInputValue(e.target.value)}
+            onKeyDown={(e) => {
               if (e.key === 'Escape') {
                 this.setState({ displayVariants: false })
               }
@@ -81,7 +80,7 @@ class SearchBar extends Component {
                   : [styles.cards, styles.disabled].join(' ')
               }
             >
-              {currenciesAppeared.map(item => (
+              {currenciesAppeared.map((item) => (
                 <div
                   key={uuidv4()}
                   className={styles.card}

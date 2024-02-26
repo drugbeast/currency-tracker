@@ -60,7 +60,7 @@ function BurgerMenu(props) {
           <div className={styles.menu}>
             <div className={styles.burgerInner}>
               <nav className={styles.nav}>
-                {navs.map(item => (
+                {navs.map((item) => (
                   <NavLink
                     onClick={() => setCross(!isCross)}
                     key={uuidv4()}

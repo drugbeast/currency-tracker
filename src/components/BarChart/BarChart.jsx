@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import axios from 'axios'
 import { CategoryScale } from 'chart.js'
 import Chart from 'chart.js/auto'
@@ -26,15 +25,16 @@ class BarChart extends Component {
       .get(
         `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
       )
-      .then(response => {
-        const reformattedData = response.data.map(item => {
-          return { ...item, body: [item.close, item.open] }
-        })
+      .then((response) => {
+        const reformattedData = response.data.map((item) => ({
+          ...item,
+          body: [item.close, item.open],
+        }))
         this.setState({ dataset: reformattedData })
         TimelineObservable.notify(null, reformattedData)
         return true
       })
-      .catch(e => e)
+      .catch((e) => e)
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -44,19 +44,20 @@ class BarChart extends Component {
         .get(
           `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}`,
         )
-        .then(response => {
-          const reformattedData = response.data.map(item => {
-            return { ...item, body: [item.close, item.open] }
-          })
+        .then((response) => {
+          const reformattedData = response.data.map((item) => ({
+            ...item,
+            body: [item.close, item.open],
+          }))
           this.setState({ dataset: reformattedData })
           TimelineObservable.notify(null, reformattedData)
           return true
         })
-        .catch(e => e)
+        .catch((e) => e)
     }
   }
 
-  update = observable => {
+  update = (observable) => {
     this.setState({ currency: observable.currency })
   }
 

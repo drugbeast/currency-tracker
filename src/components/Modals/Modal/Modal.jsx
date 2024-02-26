@@ -8,7 +8,7 @@ import Message from '../Message/Message'
 import styles from './Modal.module.scss'
 
 function Modal({ type, setShow, currency }) {
-  const handlePressEscape = e => {
+  const handlePressEscape = (e) => {
     if (e.key === 'Escape') {
       setShow(false)
     }
