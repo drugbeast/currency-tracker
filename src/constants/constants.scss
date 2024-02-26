@@ -49,3 +49,10 @@
   }
   animation: 1s infinite alternate blinking;
 }
+
+@mixin form($gap, $mt) {
+    display: flex;
+    flex-direction: column;
+    margin-top: $mt;
+    gap: $gap;
+}

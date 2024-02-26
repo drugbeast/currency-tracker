@@ -1,20 +1,18 @@
 /* eslint-disable operator-linebreak */
 import axios from 'axios'
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { v4 as uuidv4 } from 'uuid'
 
 import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
-import Loader from '../../components/Loader/Loader'
+import Modal from '../../components/Modals/Modal/Modal'
 import currencies from '../../constants/currencies'
 import styles from './Home.module.scss'
-
-const Modal = lazy(() => import('../../components/Modal/Modal'))
 
 export const CACHING_PERIOD = 1000000000
 
 function Home() {
-  const currenciesFromLS = localStorage.getItem('currencies')
+  const currenciesFromLS = localStorage.getItem('rates')
   const lastUpdatedFromLS = localStorage.getItem('lastUpdated')
 
   const [cardsCurrencies, setCardsCurrencies] = useState(
@@ -33,7 +31,7 @@ function Home() {
     ) {
       axios
         .get(
-          `https://api.currencybeacon.com/v1/latest?api_key=${process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,
+          `https://api.currencybeacon.com/v1/latest?api_key=${window.Cypress ? 'fQhSOyA6tVQsX8jn2VoWyFeAdI1c4efJ' : process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,
         )
         .then(response => {
           setLastUpdated(Date.now())
@@ -44,14 +42,14 @@ function Home() {
                     rate:
                       currency !== 'BTC'
                         ? response.data.rates[currency].toFixed(2)
-                        : response.data.rates[currency],
+                        : Number(response.data.rates[currency]),
                     symbol: currency,
                   }
                 : null,
             )
             .filter(currency => currency != null)
           setCardsCurrencies(fetchedCurrencies)
-          localStorage.setItem('currencies', JSON.stringify(fetchedCurrencies))
+          localStorage.setItem('rates', JSON.stringify(fetchedCurrencies))
           localStorage.setItem('lastUpdated', JSON.stringify(lastUpdated))
           return true
         })
@@ -61,18 +59,12 @@ function Home() {
 
   return (
     <article className={styles.currencies}>
-      <Suspense fallback={<Loader />}>
-        {show
-          ? createPortal(
-              <Modal
-                setShow={setShow}
-                cardClicked={cardClicked}
-                cardsCurrencies={cardsCurrencies}
-              />,
-              document.body,
-            )
-          : null}
-      </Suspense>
+      {show
+        ? createPortal(
+            <Modal type="converter" setShow={setShow} currency={cardClicked} />,
+            document.body,
+          )
+        : null}
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.title}>Quotes</div>

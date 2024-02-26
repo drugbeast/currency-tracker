@@ -13,6 +13,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
+      favicon: './src/assets/images/logo.svg',
     }),
     new webpack.DefinePlugin({
       'process.env': {

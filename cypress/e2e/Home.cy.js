@@ -33,7 +33,7 @@ describe('count cards', () => {
     cy.request(
       `https://api.currencybeacon.com/v1/latest?api_key=${Cypress.env('CURRENCYBEACON_API_KEY')}`,
     )
-    cy.get('.VfPjk0mtrcVtih9dr2OA').should('have.length', 8)
+    cy.get('.VfPjk0mtrcVtih9dr2OA').should('have.length', 9)
   })
 })
 

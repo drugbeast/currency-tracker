@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import currenciesForChart from '../../constants/currenciesForChart'
-import TimelineObservable from '../../utils/TimelineObservable'
+import currenciesForChart from '../../../constants/currenciesForChart'
+import TimelineObservable from '../../../utils/TimelineObservable'
 import styles from './Select.module.scss'
 
 class Select extends Component {

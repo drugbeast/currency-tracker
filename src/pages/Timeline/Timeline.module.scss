@@ -1,40 +1,22 @@
-@use '../../constants/themes.css' as *;
+@use "../../constants/themes.css" as *;
 
 .timeline {
   padding: 64px 0;
   background: var(--background-color);
   transition: background-color 0.3s ease-out;
   overflow: hidden;
-  .cardAndButtons {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 120px;
-    .buttons {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      .button {
-        height: 40px;
-        width: fit-content;
-        outline: none;
-        border: none;
-        padding: 8px;
-        border-radius: 5px;
-        color: var(--theme-color-1);
-        cursor: pointer;
-        transition: opacity 0.3s ease-out;
-      }
-      .button:hover {
-        opacity: 0.8;
-      }
-      .button.edit {
-        background-color: var(--theme-color-6);
-      }
-      .button.remove {
-        background-color: var(--theme-color-7);
-      }
-    }
-  }
+}
+
+.cardAndButtons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 120px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 @media screen and (max-width: 640px) {

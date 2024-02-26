@@ -1,0 +1,38 @@
+.title {
+  font-weight: 400;
+  font-size: 32px;
+  margin: 0 auto;
+}
+
+.content {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.symbol {
+  font-weight: 400;
+}
+
+.select {
+  margin-left: 29px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 80%;
+  outline: none;
+}
+
+.to {
+  font-weight: 300;
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .result {
+    font-size: 32px;
+  }
+}

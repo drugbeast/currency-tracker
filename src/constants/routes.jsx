@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 
+import Loader from '../components/Core/Loader/Loader'
 import Layout from '../components/Layout'
-import Loader from '../components/Loader/Loader'
 import Timeline from '../pages/Timeline/Timeline'
 
 const BankCard = lazy(() => import('../pages/BankCard/BankCard'))

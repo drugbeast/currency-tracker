@@ -1,44 +1,25 @@
-import { Component, lazy, Suspense } from 'react'
+import { Component } from 'react'
 import { createPortal } from 'react-dom'
 
-import Loader from '../../components/Loader/Loader'
-import Select from '../../components/Select/Select'
+import BarChart from '../../components/BarChart/BarChart'
+import Button from '../../components/Core/Button/Button'
+import Select from '../../components/Core/Select/Select'
+import Modal from '../../components/Modals/Modal/Modal'
 import TimelineCurrencyCard from '../../components/TimelineCurrencyCard/TimelineCurrencyCard'
-import TimelineObservable from '../../utils/TimelineObservable'
 import styles from './Timeline.module.scss'
-
-const BarChart = lazy(() => import('../../components/BarChart/BarChart'))
-const ChartModal = lazy(() => import('../../components/ChartModal/ChartModal'))
-const MessageModal = lazy(
-  () => import('../../components/MessageModal/MessageModal'),
-)
 
 class Timeline extends Component {
   constructor(props) {
     super(props)
-    this.state = { show: false, type: '', showMessageModal: false }
-  }
-
-  componentDidMount() {
-    TimelineObservable.subscribe(this)
-  }
-
-  update = observable => {
-    if (observable.dataset.length === 30) {
-      this.setState({ showMessageModal: true })
-    }
+    this.state = { show: false, type: '' }
   }
 
   setShow = () => {
     this.setState({ show: false })
   }
 
-  setShowMessageModal = () => {
-    this.setState({ showMessageModal: false })
-  }
-
   render() {
-    const { show, type, showMessageModal } = this.state
+    const { show, type } = this.state
     return (
       <article className={styles.timeline}>
         <section className="container">
@@ -47,44 +28,34 @@ class Timeline extends Component {
             <section className={styles.cardAndButtons}>
               <TimelineCurrencyCard />
               <div className={styles.buttons}>
-                <button
-                  type="button"
-                  className={[styles.button, styles.edit].join(' ')}
+                <Button
+                  className="timeline-page-edit-button"
                   onClick={() => {
                     this.setState({ show: true, type: 'edit' })
                   }}
+                  type="edit"
                 >
                   Edit day
-                </button>
-                <button
-                  type="button"
-                  className={[styles.button, styles.remove].join(' ')}
+                </Button>
+                <Button
+                  className="timeline-page-edit-button"
                   onClick={() => {
-                    this.setState({ show: true, type: 'remove' })
+                    this.setState({ show: true, type: 'delete' })
                   }}
+                  type="delete"
                 >
-                  Remove day
-                </button>
+                  Delete day
+                </Button>
               </div>
             </section>
           </div>
         </section>
-        <Suspense fallback={<Loader />}>
-          {show
-            ? createPortal(
-                <ChartModal type={type} setShow={this.setShow} />,
-                document.body,
-              )
-            : null}
-        </Suspense>
-        <Suspense fallback={<Loader />}>
-          {showMessageModal
-            ? createPortal(
-                <MessageModal setShowMessageModal={this.setShowMessageModal} />,
-                document.body,
-              )
-            : null}
-        </Suspense>
+        {show
+          ? createPortal(
+              <Modal type={type} setShow={this.setShow} />,
+              document.body,
+            )
+          : null}
         <BarChart />
       </article>
     )

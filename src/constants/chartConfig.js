@@ -75,14 +75,14 @@ const scalesOptions = theme => ({
     beginAtZero: true,
     ticks: {
       display: true,
-      padding: 50,
+      padding: window.innerWidth < 768 ? 30 : 50,
       font: {
         family: 'Poppins',
         weight: 400,
         size: 16,
       },
       color: colors[theme].axesTextColor,
-      callback: (v, i) => (i % 2 === 0 ? v.toFixed(3) : ''),
+      callback: v => v.toFixed(3),
     },
     min: ctx => calculateMin(ctx),
     max: ctx => calculateMax(ctx),
@@ -134,6 +134,7 @@ const chartConfig = (dataset, theme) => ({
   plugins: pluginsList(theme),
   data: dataOptions(dataset, theme),
   options: {
+    maintainAspectRatio: false,
     layout: layoutOptions,
     scales: scalesOptions(theme),
     parsing: parsingOptions,

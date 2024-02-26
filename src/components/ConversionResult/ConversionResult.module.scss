@@ -1,0 +1,11 @@
+.result {
+  max-width: 80%;
+  font-size: 36px;
+  margin: 48px auto 0;
+  font-weight: 400;
+  text-align: center;
+  overflow-x: scroll;
+}
+.result::-webkit-scrollbar {
+  display: none;
+}
