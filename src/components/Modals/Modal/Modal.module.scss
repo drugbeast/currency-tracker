@@ -1,12 +1,14 @@
-.container {
-  height: 100vh;
+@use '../../../constants/mixins.scss' as *;
+
+.wrapper {
+  height: 100%;
   width: 100%;
   background-color: var(--theme-color-12);
   position: fixed;
-  top: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 50px;
+
+  @include flex(center, center);
+
   transition: background-color 0.3s ease-out;
 }
 
@@ -26,16 +28,16 @@
 }
 
 .inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex(stretch, center, 0, column);
+
   overflow: hidden;
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (max-width: 1280px) {
   .container {
     top: 60px;
   }
+  
   .window {
     padding: 32px 48px;
   }

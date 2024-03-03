@@ -1,3 +1,5 @@
+@use '../../../constants/mixins.scss' as *;
+
 .title {
   font-weight: 400;
   font-size: 32px;
@@ -6,9 +8,8 @@
 
 .content {
   margin-top: 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  
+  @include flex(stretch, stretch, 16px, column);
 }
 
 .symbol {
@@ -16,7 +17,7 @@
 }
 
 .select {
-  margin-left: 29px;
+  margin-left: 10%;
   border-radius: 5px;
   padding: 5px;
   width: 80%;
@@ -25,6 +26,23 @@
 
 .to {
   font-weight: 300;
+}
+
+.amount::-webkit-outer-spin-button,
+.edit-input::-webkit-outer-spin-button,
+.edit-input::-webkit-inner-spin-button
+.amount::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.amount {
+  font-weight: 300;
+  outline: none;
+  padding: 8px;
+  border-radius: 5px;
+  border: 0;
+  margin-left: 8px;
+  width: 80%;
 }
 
 @media screen and (max-width: 1024px) {

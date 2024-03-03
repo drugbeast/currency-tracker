@@ -1,4 +1,4 @@
-@use '../../constants/themes.css' as *;
+@use '../../constants/mixins.scss' as *;
 
 .timeline {
   padding: 64px 0;
@@ -8,22 +8,41 @@
 }
 
 .cardAndButtons {
-  display: flex;
-  justify-content: space-between;
+  @include flex(space-between);
+
   padding-top: 120px;
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  gap: 24px;
+  @include flex(stretch, center, 24px);
+}
+
+.button {
+  height: 40px;
+  width: fit-content;
+  outline: none;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  color: var(--theme-color-1);
+  cursor: pointer;
+  transition: opacity 0.3s ease-out;
+}
+.button:hover {
+  opacity: 0.8;
+}
+.button.edit {
+  background-color: var(--theme-color-6);
+}
+.button.delete {
+  background-color: var(--theme-color-7);
+}
+.button.add {
+  background-color: var(--theme-color-5);
 }
 
 @media screen and (max-width: 640px) {
   .cardAndButtons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
+    @include flex(stretch, center, 64px, column);
   }
 }

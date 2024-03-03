@@ -1,12 +1,12 @@
-import AustralianDollar from '../assets/images/australianDollar.svg'
-import Bitcoin from '../assets/images/bitcoin.svg'
-import CanadianDollar from '../assets/images/canadianDollar.svg'
-import Dollar from '../assets/images/dollar.svg'
-import Euro from '../assets/images/euro.svg'
-import Libra from '../assets/images/libra.svg'
-import PesoArgentino from '../assets/images/pesoArgentino.svg'
-import Won from '../assets/images/won.svg'
-import Yen from '../assets/images/yen.svg'
+import AustralianDollar from 'Assets/images/australianDollar.svg'
+import Bitcoin from 'Assets/images/bitcoin.svg'
+import CanadianDollar from 'Assets/images/canadianDollar.svg'
+import Dollar from 'Assets/images/dollar.svg'
+import Euro from 'Assets/images/euro.svg'
+import Libra from 'Assets/images/libra.svg'
+import PesoArgentino from 'Assets/images/pesoArgentino.svg'
+import Won from 'Assets/images/won.svg'
+import Yen from 'Assets/images/yen.svg'
 
 const icons = {
   AUD: (props) => <AustralianDollar {...props} />,

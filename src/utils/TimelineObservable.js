@@ -1,8 +1,8 @@
-import currenciesForChart from '../constants/currenciesForChart'
+import { CURRENCIES_FOR_CHART } from 'Constants/constants'
 
 class TimelineObservable {
   constructor() {
-    this.currency = Object.keys(currenciesForChart)[0]
+    this.currency = Object.keys(CURRENCIES_FOR_CHART)[0]
     this.dataset = []
     this.observers = []
   }

@@ -1,46 +1,70 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import CurrencyCard from 'Components/Home/CurrencyCard/CurrencyCard'
+import Modal from 'Components/Modals/Modal/Modal'
+import {
+  CACHING_PERIOD,
+  CURRENCIES_SECOND_FORM,
+  ENVS,
+  MODAL_TYPES,
+  RATES_FOR_TESTS,
+} from 'Constants/constants'
+import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { v4 as uuidv4 } from 'uuid'
 
-import CurrencyCard from '../../components/CurrencyCard/CurrencyCard'
-import Modal from '../../components/Modals/Modal/Modal'
-import currencies from '../../constants/currencies'
 import styles from './Home.module.scss'
-
-export const CACHING_PERIOD = 1000000000
 
 function Home() {
   const currenciesFromLS = localStorage.getItem('rates')
   const lastUpdatedFromLS = localStorage.getItem('lastUpdated')
 
+  const getInitialValueForCardsCurrencies = () => {
+    if (currenciesFromLS != null && !window.Cypress) {
+      return JSON.parse(currenciesFromLS)
+    }
+    if (window.Cypress) {
+      return RATES_FOR_TESTS
+    }
+    return []
+  }
+
   const [cardsCurrencies, setCardsCurrencies] = useState(
-    currenciesFromLS != null ? JSON.parse(currenciesFromLS) : [],
+    getInitialValueForCardsCurrencies(),
   )
   const [lastUpdated, setLastUpdated] = useState(
     lastUpdatedFromLS != null ? JSON.parse(lastUpdatedFromLS) : 0,
   )
   const [cardClicked, setCardClicked] = useState({ symbol: '', rate: 0 })
   const [show, setShow] = useState(false)
+  const [error, setError] = useState({})
+
+  const onCardClick = useCallback((currencyInformation) => {
+    setCardClicked(currencyInformation)
+  }, [])
+
+  const isShow = useCallback((isShown) => {
+    setShow(isShown)
+  }, [])
 
   useEffect(() => {
     if (
       Date.now() - lastUpdatedFromLS > CACHING_PERIOD ||
-      cardsCurrencies.length === 0
+      (cardsCurrencies.length === 0 && !window.Cypress)
     ) {
       axios
-        .get(
-          `https://api.currencybeacon.com/v1/latest?api_key=${window.Cypress ? 'fQhSOyA6tVQsX8jn2VoWyFeAdI1c4efJ' : process.env.REACT_APP_CURRENCYBEACON_API_KEY}`,
-        )
+        .get(`${ENVS.currencybeacon_request}`, {
+          params: {
+            api_key: `${ENVS.currencybeacon_api_key}`,
+          },
+        })
         .then((response) => {
           setLastUpdated(Date.now())
           const fetchedCurrencies = Object.keys(response.data.rates)
             .map((currency) =>
-              currency in currencies
+              currency in CURRENCIES_SECOND_FORM
                 ? {
                     rate:
                       currency !== 'BTC'
-                        ? response.data.rates[currency].toFixed(2)
+                        ? Number(response.data.rates[currency]).toFixed(2)
                         : Number(response.data.rates[currency]),
                     symbol: currency,
                   }
@@ -52,15 +76,23 @@ function Home() {
           localStorage.setItem('lastUpdated', JSON.stringify(lastUpdated))
           return true
         })
-        .catch((e) => e)
+        .catch((requestError) => setError(requestError))
     }
   }, [])
+
+  if (error.message) {
+    throw new Error(`${error.message}. Please, try again later.`)
+  }
 
   return (
     <article className={styles.currencies}>
       {show
         ? createPortal(
-            <Modal type="converter" setShow={setShow} currency={cardClicked} />,
+            <Modal
+              type={MODAL_TYPES.converter}
+              onModalClose={isShow}
+              currency={cardClicked}
+            />,
             document.body,
           )
         : null}
@@ -68,13 +100,13 @@ function Home() {
         <div className={styles.inner}>
           <div className={styles.title}>Quotes</div>
           <section className={styles.cards}>
-            {cardsCurrencies.map((item) => (
+            {cardsCurrencies.map((item, index) => (
               <CurrencyCard
-                setCardClicked={setCardClicked}
-                setShow={setShow}
+                setCardClicked={onCardClick}
+                setShow={isShow}
                 symbol={item.symbol}
                 rate={item.rate}
-                key={uuidv4()}
+                key={index}
               />
             ))}
           </section>

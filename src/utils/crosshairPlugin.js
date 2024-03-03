@@ -1,4 +1,4 @@
-import colors from '../constants/chartColors'
+import { colors } from 'Constants/chart/chartColors'
 
 const crosshairPlugin = (theme) => ({
   id: 'crosshairPlugin',

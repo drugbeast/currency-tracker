@@ -1,3 +1,5 @@
+@use '../../constants/mixins.scss' as *;
+
 .content {
   background-color: var(--background-color);
   color: var(--theme-color-1);
@@ -5,10 +7,8 @@
 }
 
 .information {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
+  @include flex(center, center, 32px);
+  
   padding: 200px 0;
 }
 
@@ -17,16 +17,14 @@
 }
 
 .contacts {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  @include flex(stretch, stretch, 8px, column);
 }
 
 .inf {
   font-weight: 300;
 }
 
-.property {
+.informationPart {
   font-weight: 500;
 }
 

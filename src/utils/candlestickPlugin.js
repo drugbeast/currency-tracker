@@ -1,4 +1,4 @@
-import colors from '../constants/chartColors'
+import { colors } from 'Constants/chart/chartColors'
 
 const candlestickPlugin = (theme) => ({
   id: 'candlestickPlugin',

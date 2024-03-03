@@ -1,3 +1,5 @@
+import { SPREAD } from 'Constants/constants'
+
 export const calculateMin = (ctx) => {
   const { data } = ctx.chart.data.datasets[0]
   let min = data[0].open
@@ -10,7 +12,7 @@ export const calculateMin = (ctx) => {
       min = value
     }
   })
-  return min - min * 0.015
+  return min - min * SPREAD
 }
 
 export const calculateMax = (ctx) => {
@@ -25,5 +27,5 @@ export const calculateMax = (ctx) => {
       max = value
     }
   })
-  return max + max * 0.015
+  return max + max * SPREAD
 }

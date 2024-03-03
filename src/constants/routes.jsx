@@ -1,41 +1,35 @@
+import Loader from 'Components/Core/Loader/Loader'
+import Layout from 'Components/Layout/Layout'
+import Timeline from 'Pages/Timeline/Timeline'
 import { lazy, Suspense } from 'react'
 
-import Loader from '../components/Core/Loader/Loader'
-import Layout from '../components/Layout'
-import Timeline from '../pages/Timeline/Timeline'
+import { PATHS } from './constants'
 
-const BankCard = lazy(() => import('../pages/BankCard/BankCard'))
-const Home = lazy(() => import('../pages/Home/Home'))
-const Contato = lazy(() => import('../pages/Contato/Contato'))
-
-export const paths = {
-  default: '/',
-  timeline: 'timeline',
-  bankCard: 'bankCard',
-  contato: 'contato',
-}
+const BankCard = lazy(() => import('Pages/BankCard/BankCard'))
+const Home = lazy(() => import('Pages/Home/Home'))
+const Contato = lazy(() => import('Pages/Contato/Contato'))
 
 export const routes = [
   {
-    path: paths.default,
+    path: PATHS.default,
     element: <Layout />,
     children: [
       {
-        path: paths.timeline,
+        path: PATHS.timeline,
         element: <Timeline />,
       },
       {
-        path: paths.bankCard,
+        path: PATHS.bankCard,
         element: <BankCard />,
       },
       {
-        path: paths.default,
+        path: PATHS.default,
         element: <Home />,
       },
     ],
   },
   {
-    path: paths.default,
+    path: PATHS.default,
     element: (
       <Suspense fallback={<Loader />}>
         <Contato />
@@ -43,7 +37,7 @@ export const routes = [
     ),
     children: [
       {
-        path: paths.contato,
+        path: PATHS.contato,
         element: <Contato />,
       },
     ],

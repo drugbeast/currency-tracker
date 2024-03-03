@@ -1,0 +1,185 @@
+@use '../../../constants/mixins.scss' as *;
+
+.header {
+  background: var(--background-color);
+  padding: 32px 0;
+  color: var(--theme-color-1);
+  font-weight: 300;
+  transition:
+    background 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.header.sticky {
+  box-shadow: 0 5px 25px var(--theme-color-14);
+}
+
+.inner {
+  width: 100%;
+
+  @include flex(space-between, center);
+
+  font-size: 20px;
+}
+
+.wrapperInner {
+  @include flex;
+}
+
+.nav {
+  @include flex(stretch, stretch, 120px);
+  margin-right: 240px;
+}
+
+.burger {
+  position: relative;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: none;
+}
+
+.part {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: var(--theme-color-1);
+  top: 0;
+  right: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.up {
+  margin-top: 8px;
+}
+
+.down {
+  margin-top: 16px;
+}
+
+.toLeft {
+  transform: rotate(-45deg);
+}
+
+.part.toLeft,
+.part.toRight {
+  transition: transform 0.3s ease-out;
+}
+
+.toRight {
+  transform: rotate(45deg);
+}
+
+.centerDisabled {
+  display: none;
+}
+
+.centerEnabled {
+  display: block;
+}
+
+.disabled {
+  text-decoration: none;
+  color: var(--theme-color-1);
+  position: relative;
+}
+.disabled::after {
+  @include afterElement(0, 1px, var(--theme-color-1));
+}
+.disabled:hover::after {
+  width: 100%;
+}
+.disabled.active {
+  padding-bottom: 5px;
+}
+.disabled.active::after {
+  @include afterElement(100%, 1px, var(--theme-color-1));
+}
+
+.circle {
+  @include switcher(50px, 26px, 15px, relative);
+
+  display: block;
+  cursor: pointer;
+}
+.circle:after {
+  content: '';
+
+  @include switcher(25px, 25px, 100%, absolute);
+  
+  top: -1.5px;
+  left: -1.5px;
+}
+
+.switcher {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.switcher:checked + .circle:after {
+  transform: translateX(100%);
+}
+
+@media screen and (max-width: 1280px) {
+  .nav {
+    gap: 64px;
+    margin-right: 196px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    font-size: 18px;
+    margin-right: 96px;
+  }
+
+  .circle {
+    @include switcher(44px, 22px, 15px, relative);
+  }
+  .circle::after {
+    @include switcher(22px, 22px, 100%, absolute);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    background-color: var(--background-color);
+    padding: 160px 120px;
+    z-index: 10;
+    transition: background-color 0.3s ease-out;
+  }
+
+  .wrapperDisabled {
+    display: none;
+  }
+
+  .nav {
+    flex-direction: column;
+    margin-right: 0;
+    gap: 16px;
+  }
+
+  .nav a {
+    text-align: center;
+  }
+
+  .wrapperInner {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}

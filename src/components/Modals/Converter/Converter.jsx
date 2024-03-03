@@ -1,16 +1,15 @@
+import { CURRENCIES_SECOND_FORM, RATES_FOR_TESTS } from 'Constants/constants'
 import { useEffect, useState } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
-import { v4 as uuidv4 } from 'uuid'
 
-import currencies from '../../../constants/currencies'
-import ConversionResult from '../../ConversionResult/ConversionResult'
-import ErrorFallback from '../../Core/ErrorFallback/ErrorFallback'
-import Input from '../../Core/Input/Input'
+import ConversionResult from '../../Core/ConversionResult/ConversionResult'
+import ErrorBoundary from '../../Core/ErrorBoundary/ErrorBoundary'
 import styles from './Converter.module.scss'
 
 function Converter(props) {
   const { currency } = props
-  const rates = JSON.parse(localStorage.getItem('rates'))
+  const rates = !window.Cypress
+    ? JSON.parse(localStorage.getItem('rates'))
+    : RATES_FOR_TESTS
 
   const [selectedCurrency, setSelectedCurrency] = useState('')
   const [amount, setAmount] = useState(0)
@@ -24,41 +23,49 @@ function Converter(props) {
     })
   }, [amount, selectedCurrency])
 
+  const handleSetAmount = (e) => {
+    setAmount(e.target.value)
+  }
+
+  const handleSelectedCurrency = (e) => {
+    setSelectedCurrency(e.target.value)
+  }
+
   return (
     <>
       <span className={styles.title}>Converter</span>
-      <section className={styles.content}>
+      <section className={styles.content} data-cy="converter-modal-wrapper">
         <section className={styles.user}>
           <span className={styles.symbol}>{currency.symbol}:</span>
-          <Input
-            min="0"
+          <input
             type="number"
-            className="amount"
-            onChange={(e) => setAmount(e.target.value)}
+            className={styles.amount}
+            onChange={handleSetAmount}
             value={amount}
+            data-cy="converter-input"
           />
         </section>
         <div className={styles.selectBlock}>
           <span className={styles.to}>to:</span>
           <select
             value={selectedCurrency}
-            onChange={(e) => {
-              setSelectedCurrency(e.target.value)
-            }}
+            onChange={handleSelectedCurrency}
             className={styles.select}
+            data-cy="converter-select"
           >
             <option value="first">Select, please</option>
-            {Object.entries(currencies).map((name) =>
-              name[0] !== currency.symbol ? (
-                <option key={uuidv4()} value={name[0]}>
-                  {name[0]} ({name[1]})
-                </option>
-              ) : null,
+            {Object.entries(CURRENCIES_SECOND_FORM).map(
+              (name, index) =>
+                name[0] !== currency.symbol && (
+                  <option value={name[0]} key={index}>
+                    {name[0]} ({name[1]})
+                  </option>
+                ),
             )}
           </select>
         </div>
       </section>
-      <ErrorBoundary FallbackComponent={ErrorFallback} resetKeys={[amount]}>
+      <ErrorBoundary result={result}>
         <ConversionResult result={result} currency={selectedCurrency} />
       </ErrorBoundary>
     </>

@@ -1,0 +1,66 @@
+@mixin switcher($width, $height, $border-radius, $position) {
+  width: $width;
+  height: $height;
+  border: 2px solid var(--theme-color-1);
+  border-radius: $border-radius;
+  background-color: transparent;
+  position: $position;
+  transition:
+    transform 0.5s ease-out,
+    border 1s ease-out;
+}
+
+@mixin afterElement($width, $height, $background-color) {
+  content: '';
+  width: $width;
+  position: absolute;
+  height: $height;
+  bottom: 0;
+  left: 0;
+  background-color: $background-color;
+  transition: width 0.5s ease-out;
+}
+
+@mixin gradientText() {
+  background: var(--logo-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin circle($size, $color) {
+  width: $size;
+  height: $size;
+  background-color: $color;
+  border-radius: $size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin blinking($fromAlpha, $toAlpha) {
+  @keyframes blinking {
+    from {
+      background-color: rgba(0, 188, 79, $fromAlpha);
+    }
+    to {
+      background-color: rgba(0, 188, 79, $toAlpha);
+    }
+  }
+  animation: 1s infinite alternate blinking;
+}
+
+@mixin form($gap, $mt) {
+  display: flex;
+  flex-direction: column;
+  margin-top: $mt;
+  gap: $gap;
+}
+
+@mixin flex($justify:stretch, $align:stretch, $gap:0px, $direction:row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-direction: $direction;
+}

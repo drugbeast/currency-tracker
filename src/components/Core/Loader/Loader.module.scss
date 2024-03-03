@@ -1,8 +1,10 @@
-.block {
+@use '../../../constants/mixins.scss' as *;
+
+.wrapper {
   color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  @include flex(center, center);
+  
   height: 100%;
   padding: 100px 0;
 }

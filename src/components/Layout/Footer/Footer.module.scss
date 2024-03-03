@@ -1,0 +1,197 @@
+@use '../../../constants/mixins.scss' as *;
+
+footer {
+  background: var(--background-color);
+  color: var(--theme-color-1);
+  transition: background 0.3s ease-out;
+}
+
+.inner {
+  @include flex(stretch, stretch, 144px);
+
+  padding: 40px 0;
+}
+
+.left {
+  line-height: 150%;
+}
+
+.logo {
+  @include flex(stretch, center, 16px);
+}
+
+.logoText {
+  font-weight: 600;
+
+  @include gradientText();
+
+  font-size: 26px;
+  position: relative;
+  top: 5px;
+}
+
+.text {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 140%;
+  margin-top: 24px;
+}
+
+.right {
+  @include flex(stretch, stretch, 120px);
+
+  font-weight: 400;
+}
+
+.title {
+  font-size: 28px;
+}
+
+.links {
+  margin-top: 32px;
+
+  @include flex(stretch, stretch, 24px, column);
+}
+
+.link {
+  font-size: 24px;
+  color: var(--theme-color-3);
+  cursor: pointer;
+}
+
+.copyinfo {
+  background-color: var(--background-color);
+  font-weight: 400;
+  color: var(--theme-color-3);
+  margin-top: 56px;
+  padding-bottom: 32px;
+  text-align: center;
+  font-size: 24px;
+  transition: background 0.3s ease-out;
+}
+
+@media screen and (max-width: 1280px) {
+  .inner {
+    gap: 64px;
+  }
+
+  .logoText {
+    font-size: 24px;
+  }
+
+  .right {
+    gap: 80px;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .link {
+    font-size: 22px;
+  }
+
+  .copyinfo {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .logo {
+    height: 32px;
+  }
+
+  .logoText {
+    font-size: 20px;
+  }
+
+  .right {
+    gap: 32px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .copyinfo {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inner {
+    @include flex(stretch, stretch, 40px, column);
+  }
+
+  .text {
+    display: none;
+  }
+
+  .logo {
+    @include flex(center);
+  }
+
+  .logoText {
+    font-size: 24px;
+  }
+
+  .right {
+    justify-content: center;
+    gap: 64px;
+  }
+
+  .copyinfo {
+    margin-top: 24px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .inner {
+    gap: 56px;
+  }
+
+  .right {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .column {
+    @include flex(stretch, stretch, 0, column);
+  }
+
+  .titleBlock {
+    border-bottom: 1px solid var(--theme-color-10);
+    width: 100%;
+    padding-bottom: 16px;
+    
+    @include flex(space-between, center);
+  }
+
+  .arrow {
+    width: 15px;
+    height: 15px;
+    border-width: 0 0 2px 2px;
+    border-style: solid;
+    border-color: var(--theme-color-1);
+    transform: rotate(-45deg);
+    border-radius: 1px;
+    position: relative;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  .arrow.up {
+    transform: rotate(135deg);
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+  }
+}

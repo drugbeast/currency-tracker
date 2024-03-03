@@ -1,7 +1,7 @@
+import Map from 'Components/BankCard/Map/Map'
+import SearchBar from 'Components/BankCard/SearchBar/SearchBar'
 import { Component } from 'react'
 
-import Map from '../../components/Map/Map'
-import SearchBar from '../../components/SearchBar/SearchBar'
 import styles from './BankCard.module.scss'
 
 class BankCard extends Component {
@@ -17,7 +17,7 @@ class BankCard extends Component {
   render() {
     const { searchValue, doSearch } = this.state
     return (
-      <article className={styles.block}>
+      <article className={styles.wrapper}>
         <div className="container">
           <section className={styles.inner}>
             <p className={styles.title}>Search currency in the bank</p>

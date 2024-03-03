@@ -1,11 +1,11 @@
 import styles from './Cross.module.scss'
 
 function Cross(props) {
-  const { setShow } = props
+  const { onModalClose } = props
   return (
-    <div className={styles.cross} onClick={() => setShow(false)}>
-      <span className={[styles.crossPart, styles.toLeft].join(' ')} />
-      <span className={[styles.crossPart, styles.toRight].join(' ')} />
+    <div className={styles.cross} onClick={onModalClose} data-cy="cross">
+      <span className={`${styles.crossPart} ${styles.toLeft}`} />
+      <span className={`${styles.crossPart} ${styles.toRight}`} />
     </div>
   )
 }

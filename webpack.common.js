@@ -43,11 +43,24 @@ module.exports = {
         REACT_APP_MAPTILER_API_KEY: JSON.stringify(
           process.env.REACT_APP_MAPTILER_API_KEY,
         ),
+        REACT_APP_CURRENCYBEACON_REQUEST: JSON.stringify(
+          process.env.REACT_APP_CURRENCYBEACON_REQUEST,
+        ),
+        REACT_APP_MOCKAPI_REQUEST: JSON.stringify(
+          process.env.REACT_APP_MOCKAPI_REQUEST,
+        ),
       },
     }),
     new MiniCssExtractPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      Components: path.resolve(__dirname, 'src/components'),
+      Constants: path.resolve(__dirname, 'src/constants'),
+      Utils: path.resolve(__dirname, 'src/utils'),
+      Assets: path.resolve(__dirname, 'src/assets'),
+      Pages: path.resolve(__dirname, 'src/pages'),
+    },
   },
 }

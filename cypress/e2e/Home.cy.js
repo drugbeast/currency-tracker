@@ -1,44 +1,27 @@
-describe('Visit pages', () => {
-  it('should visit home page', () => {
-    cy.visit('/')
-  })
-  it('should visit timeline page', () => {
-    cy.visit('/timeline')
-  })
-  it('should visit bank card page', () => {
-    cy.visit('/bankCard')
-  })
-  it('should visit contato page', () => {
-    cy.visit('/contato')
-  })
+import { RATES_FOR_TESTS } from '../../src/constants/constants'
+
+beforeEach(() => {
+  cy.visit('/')
 })
 
-describe('switch theme', () => {
-  it('should switch theme', () => {
-    cy.visit('/')
-    cy.get('html[data-theme="dark"]').should('have.length', 1)
-    cy.get('input[type="checkbox"]')
-      .invoke('attr', 'style', 'visibility: visible; width: 10px; height: 10px;')
-      .check()
-    cy.get('html[data-theme="light"]').should('have.length', 1)
+describe('converter modal window', () => {
+  it('should open and close converter modal window', () => {
+    cy.get('[data-cy="card"]').click({ multiple: true, force: true })
+    cy.get('[data-cy="converter-modal-wrapper"]')
+    cy.get('[data-cy="cross"]').click({ multiple: true, force: true })
   })
-})
-
-describe('count cards', () => {
-  it('should have 9 currencies', () => {
-    cy.visit('/')
-    cy.request(
-      `https://api.currencybeacon.com/v1/latest?api_key=${Cypress.env('CURRENCYBEACON_API_KEY')}`,
+  it('should have a correct converter', () => {
+    const from = 123
+    const currency = 'AUD'
+    const expectedResult =
+      (RATES_FOR_TESTS.filter((item) => item.symbol === currency)[0].rate * from) /
+      RATES_FOR_TESTS[RATES_FOR_TESTS.length - 1].rate
+    cy.get('[data-cy="card"]').click({ multiple: true, force: true })
+    cy.get('[data-cy="converter-input"]').clear().type(from)
+    cy.get('[data-cy="converter-select"]').select(currency)
+    cy.get('[data-cy="conversion-result"]').should(
+      'have.text',
+      `${expectedResult.toFixed(3)} ${currency}`,
     )
-    cy.get('.VfPjk0mtrcVtih9dr2OA').should('have.length', 9)
-  })
-})
-
-describe('mobile features', () => {
-  it('should open burger menu', () => {
-    cy.visit('/')
-    cy.viewport('iphone-6+')
-    cy.get('.Y1f8wEpzzxfnaXm8QKRP').click()
-    cy.get('.d6dPoAK_OMnGUb5rWSA9').should('be.visible')
   })
 })

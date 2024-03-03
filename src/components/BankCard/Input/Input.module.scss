@@ -1,0 +1,24 @@
+.input {
+  border-radius: 5px;
+  width: 450px;
+  height: 65px;
+  background-color: var(--theme-color-11);
+  font-weight: 400;
+  color: var(--theme-color-4);
+  outline: none;
+  padding: 24px 64px 24px 24px;
+  transition:
+    border-color 0.3s ease-out,
+    background-color 0.3s ease-out;
+  border: 1px solid transparent;
+}
+
+.input:focus {
+  border: 1px solid var(--theme-color-9);
+}
+
+@media screen and (max-width: 640px) {
+  .input {
+    width: 350px;
+  }
+}

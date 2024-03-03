@@ -1,0 +1,65 @@
+@use '../../../constants/mixins.scss' as *;
+
+.card {
+  cursor: pointer;
+  background-color: var(--theme-color-8);
+  padding: 32px;
+  border: 1px solid var(--theme-color-9);
+  width: 42%;
+  border-radius: 8px;
+}
+.inner {
+  @include flex(stretch, stretch, 24px);
+}
+.info {
+  @include flex(center, stretch, 4px, column);
+
+}
+.title {
+  font-size: 35px;
+  font-weight: 400;
+  color: var(--card-text);
+}
+.rate {
+  font-size: 32px;
+  color: var(--theme-color-10);
+}
+.icon {
+  height: 80px;
+  width: 80px;
+}
+
+@media screen and (max-width: 1280px) {
+  .title {
+    font-size: 26px;
+  }
+  .rate {
+    font-size: 24px;
+  }
+  .icon {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    padding: 16px;
+  }
+  .title {
+    font-size: 20px;
+  }
+  .rate {
+    font-size: 20px;
+  }
+  .icon {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}

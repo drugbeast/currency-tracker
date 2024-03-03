@@ -1,6 +1,6 @@
-@use '../../constants/constants.scss' as *;
+@use '../../constants/mixins.scss' as *;
 
-.block {
+.wrapper {
   background-color: var(--background-color);
   transition: background-color 0.3s ease-out;
   padding-top: 104px;

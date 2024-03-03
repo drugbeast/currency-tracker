@@ -1,0 +1,60 @@
+@use '../../../constants/mixins.scss' as *;
+
+.bar {
+  margin-top: 24px;
+
+  @include flex(stretch, center, 0, column);
+}
+
+.inner {
+  @include flex(stretch, stretch, 0, column);
+
+  position: relative;
+}
+
+.icon {
+  position: relative;
+  left: 90%;
+  top: 48px;
+  cursor: pointer;
+}
+
+.cards {
+  position: absolute;
+  top: 98%;
+  background-color: var(--theme-color-11);
+  width: 100%;
+  
+  @include flex(stretch, stretch, 0, column);
+
+  z-index: 1000;
+  border-radius: 0 0 5px 5px;
+}
+
+.card {
+  padding: 8px;
+  border-bottom: 1px solid var(--theme-color-9);
+  text-align: center;
+  cursor: pointer;
+}
+.card:hover {
+  background-color: red;
+}
+.card:first-of-type {
+  border-top: 1px solid var(--theme-color-9);
+}
+.card:last-of-type {
+  border-bottom: 0;
+}
+
+.cards.disabled {
+  display: none;
+}
+
+.message {
+  font-weight: 400;
+  font-size: 20px;
+  position: absolute;
+  margin-top: 120px;
+  left: 14%;
+}

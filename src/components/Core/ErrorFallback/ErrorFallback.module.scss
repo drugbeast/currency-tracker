@@ -1,3 +1,19 @@
+@use '../../../constants/mixins.scss' as *;
+
+.section {
+  @include flex(stretch, center, 16px, column);
+}
+
+.reset {
+  background-color: transparent;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--error-message-color);
+  color: var(--error-message-color);
+  font-weight: 300;
+  width: 20%;
+}
+
 .message {
   font-weight: 300;
   font-size: 16px;

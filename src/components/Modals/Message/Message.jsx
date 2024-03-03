@@ -2,9 +2,9 @@ import styles from './Message.module.scss'
 
 function Message() {
   return (
-    <div className={styles.inner}>
-      <h1 className={styles.title}>Your chart was builded on 1-month dataset!</h1>
-    </div>
+    <h1 className={styles.title} data-cy="timeline-modal-message-title">
+      Your chart was builded on 1-month dataset!
+    </h1>
   )
 }
 

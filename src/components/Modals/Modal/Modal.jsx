@@ -1,16 +1,18 @@
+import { MODAL_TYPES } from 'Constants/constants'
 import { useEffect } from 'react'
 
 import Cross from '../../Core/Cross/Cross'
+import Add from '../Add/Add'
 import Converter from '../Converter/Converter'
-import Delete from '../Delete/Delete'
 import Edit from '../Edit/Edit'
 import Message from '../Message/Message'
 import styles from './Modal.module.scss'
 
-function Modal({ type, setShow, currency }) {
+function Modal(props) {
+  const { type, onModalClose, currency } = props
   const handlePressEscape = (e) => {
     if (e.key === 'Escape') {
-      setShow(false)
+      onModalClose()
     }
   }
 
@@ -20,14 +22,14 @@ function Modal({ type, setShow, currency }) {
   }, [])
 
   return (
-    <article className={styles.container}>
+    <article className={styles.wrapper}>
       <section className={styles.window}>
-        <Cross setShow={setShow} />
+        <Cross onModalClose={() => onModalClose()} />
         <div className={styles.inner}>
-          {type === 'converter' && <Converter currency={currency} />}
-          {type === 'edit' && <Edit />}
-          {type === 'delete' && <Delete />}
-          {type === 'message' && <Message />}
+          {type === MODAL_TYPES.converter && <Converter currency={currency} />}
+          {type === MODAL_TYPES.edit && <Edit />}
+          {type === MODAL_TYPES.message && <Message />}
+          {type === MODAL_TYPES.add && <Add />}
         </div>
       </section>
     </article>

@@ -1,4 +1,4 @@
-@use '../../constants/constants.scss' as *;
+@use '../../constants/mixins.scss' as *;
 
 .currencies {
   font-weight: 300;
@@ -12,18 +12,18 @@
 }
 
 .title {
-  font-size: 32px;
+  font-size: 28px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--theme-color-10);
   width: 42%;
 }
 
 .cards {
-  display: flex;
-  gap: 56px 184px;
-  flex-wrap: wrap;
-  justify-content: space-between;
   margin-top: 48px;
+
+  @include flex(space-between, stretch, 32px 160px);
+  
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 1280px) {

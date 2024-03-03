@@ -1,3 +1,4 @@
+import { THEMES } from 'Constants/constants'
 import { createContext, useLayoutEffect, useState } from 'react'
 
 export const ThemeContext = createContext(null)
@@ -6,8 +7,8 @@ const getTheme = () => {
   let theme = localStorage.getItem('theme')
 
   if (!theme) {
-    localStorage.setItem('theme', 'dark')
-    theme = 'dark'
+    localStorage.setItem('theme', THEMES.dark)
+    theme = THEMES.dark
   }
 
   return theme
@@ -22,15 +23,10 @@ function Theme(props) {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
+  const contextValue = { theme, setTheme }
+
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        setTheme,
-      }}
-    >
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>
   )
 }
 

@@ -1,7 +1,8 @@
+import Footer from 'Components/Layout/Footer/Footer'
+import Header from 'Components/Layout/Header/Header'
 import { Component } from 'react'
 
-import Footer from '../../components/Footer/Footer'
-import Header from '../../components/Header/Header'
+import { REQUISITES } from './Contato.config'
 import styles from './Contato.module.scss'
 
 class Contato extends Component {
@@ -14,7 +15,6 @@ class Contato extends Component {
     return (
       <>
         <Header />
-
         <main className={styles.content}>
           <div className="container">
             <div className={styles.information}>
@@ -24,19 +24,14 @@ class Contato extends Component {
               <div className={styles.right}>
                 <div className={styles.inner}>
                   <div className={styles.contacts}>
-                    <span className={styles.inf}>
-                      <span className={styles.property}>City:</span> New York
-                    </span>
-                    <span className={styles.inf}>
-                      <span className={styles.property}>Phone:</span> (555) 555-1234
-                    </span>
-                    <span className={styles.inf}>
-                      <span className={styles.property}>CEO:</span> Gerry Weber
-                    </span>
-                    <span className={styles.inf}>
-                      <span className={styles.property}>Email:</span>{' '}
-                      modsencurrencytracker@gmail.com
-                    </span>
+                    {REQUISITES.map((prop) => (
+                      <p className={styles.inf} key={prop.id}>
+                        <span className={styles.informationPart}>
+                          {prop.informationPartName}:
+                        </span>{' '}
+                        {prop.informationPartValue}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>

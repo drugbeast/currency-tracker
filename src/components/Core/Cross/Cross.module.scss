@@ -1,3 +1,5 @@
+@use '../../../constants/mixins.scss' as *;
+
 .cross {
   cursor: pointer;
   width: 20px;
@@ -5,6 +7,9 @@
   position: absolute;
   right: 40px;
   top: 40px;
+
+  @include flex(stretch, center);
+
   .crossPart {
     width: 20px;
     height: 2px;
@@ -12,10 +17,12 @@
     display: block;
     position: absolute;
   }
+
   .toLeft {
-    transform: rotate(-45deg);
-  }
-  .toRight {
     transform: rotate(45deg);
+  }
+  
+  .toRight {
+    transform: rotate(-45deg);
   }
 }

@@ -1,9 +1,8 @@
 import axios from 'axios'
+import { ENVS } from 'Constants/constants'
 import { Component } from 'react'
 
 import TimelineObservable from '../../../utils/TimelineObservable'
-import Button from '../../Core/Button/Button'
-import Input from '../../Core/Input/Input'
 import styles from './Edit.module.scss'
 
 class Edit extends Component {
@@ -11,13 +10,13 @@ class Edit extends Component {
     super(props)
     this.state = {
       dataset: [],
-      day: 0,
+      day: '',
       currency: '',
+      error: {},
     }
   }
 
   componentDidMount() {
-    TimelineObservable.subscribe(this)
     this.setState({
       dataset: TimelineObservable.dataset,
       currency: TimelineObservable.currency,
@@ -37,112 +36,101 @@ class Edit extends Component {
     }
     axios
       .put(
-        `https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/${currency.toLowerCase()}/${day + 1}`,
+        `${ENVS.mockapi_request}${currency.toLowerCase()}/${day + 1}`,
         itemsToInsert,
       )
       .then((response) => response)
-      .catch((error) => error)
-      .finally(() => location.reload())
-      .catch((error) => error)
+      .catch((error) => this.setState({ error }))
+  }
+
+  handleChangeInput = (e) => {
+    const { day, dataset } = this.state
+    const itemToChange = {
+      ...dataset[day],
+      [e.target.name]: Number(e.target.value),
+    }
+    const newDataset = [
+      ...dataset.slice(0, day),
+      itemToChange,
+      ...dataset.slice(day + 1),
+    ]
+    this.setState({
+      dataset: newDataset,
+    })
+    TimelineObservable.notify(null, newDataset)
+  }
+
+  handleChangeDay = (e) => {
+    this.setState({ day: e.target.value - 1 })
   }
 
   render() {
-    const { day, dataset } = this.state
+    const { day, dataset, error } = this.state
+    if (error.message) {
+      throw new Error(`${error.message}. Please, try again later`)
+    }
     return (
       <>
         <p className={styles.title}>Edit</p>
         <form className={styles.form} onSubmit={this.handleEdit}>
           <label htmlFor="day">Day</label>
-          <Input
+          <input
+            required
             type="number"
-            min={1}
-            max={31}
+            min="1"
+            max="31"
             name="day"
-            onChange={(e) => this.setState({ day: e.target.value - 1 })}
-            value={day + 1}
-            className="edit-input"
+            onChange={this.handleChangeDay}
+            className={styles.input}
+            data-cy="timeline-edit-day-input"
           />
           <label htmlFor="open">Open</label>
-          <Input
+          <input
+            required
             type="number"
             name="open"
-            onChange={(e) => {
-              const itemToChange = {
-                ...dataset[day],
-                open: Number(e.target.value),
-              }
-              this.setState({
-                dataset: [
-                  ...dataset.slice(0, day),
-                  itemToChange,
-                  ...dataset.slice(day + 1),
-                ],
-              })
-            }}
+            onChange={this.handleChangeInput}
             value={dataset[day] ? dataset[day].open : ''}
-            className="edit-input"
+            className={styles.input}
+            data-cy="timeline-edit-open-input"
           />
           <label htmlFor="high">High</label>
-          <Input
+          <input
+            required
             type="number"
             name="high"
-            onChange={(e) => {
-              const itemToChange = {
-                ...dataset[day],
-                high: Number(e.target.value),
-              }
-              this.setState({
-                dataset: [
-                  ...dataset.slice(0, day),
-                  itemToChange,
-                  ...dataset.slice(day + 1),
-                ],
-              })
-            }}
+            onChange={this.handleChangeInput}
             value={dataset[day] ? dataset[day].high : ''}
-            className="edit-input"
+            className={styles.input}
+            data-cy="timeline-edit-high-input"
           />
           <label htmlFor="close">Close</label>
-          <Input
+          <input
+            required
             type="number"
             name="close"
-            onChange={(e) => {
-              const itemToChange = {
-                ...dataset[day],
-                close: Number(e.target.value),
-              }
-              this.setState({
-                dataset: [
-                  ...dataset.slice(0, day),
-                  itemToChange,
-                  ...dataset.slice(day + 1),
-                ],
-              })
-            }}
+            onChange={this.handleChangeInput}
             value={dataset[day] ? dataset[day].close : ''}
-            className="edit-input"
+            className={styles.input}
+            data-cy="timeline-edit-close-input"
           />
-          <label htmlFor="close">Low</label>
-          <Input
+          <label htmlFor="low">Low</label>
+          <input
+            required
             type="number"
             name="low"
-            onChange={(e) => {
-              const itemToChange = {
-                ...dataset[day],
-                low: Number(e.target.value),
-              }
-              this.setState({
-                dataset: [
-                  ...dataset.slice(0, day),
-                  itemToChange,
-                  ...dataset.slice(day + 1),
-                ],
-              })
-            }}
+            onChange={this.handleChangeInput}
             value={dataset[day] ? dataset[day].low : ''}
-            className="edit-input"
+            className={styles.input}
+            data-cy="timeline-edit-low-input"
           />
-          <Button className="edit-button">edit</Button>
+          <button
+            type="submit"
+            className={styles.button}
+            data-cy="timeline-edit-action"
+          >
+            edit
+          </button>
         </form>
       </>
     )
