@@ -1,6 +1,6 @@
 html[data-theme='dark'] {
   --background-color: #030304;
-  --theme-color-1: 	rgb(255, 255, 255, 1);
+  --theme-color-1: rgb(255, 255, 255, 1);
   --theme-color-2: rgba(217, 217, 217, 1);
   --theme-color-3: rgba(137, 137, 137, 1);
   --theme-color-4: rgba(158, 158, 158, 1);
@@ -20,7 +20,7 @@ html[data-theme='dark'] {
     rgba(25, 58, 36, 0.61) 38%,
     rgba(27, 70, 41, 0.5) 50%,
     rgba(29, 81, 46, 0.39) 61%,
-    rgba(31, 94, 52, 0.26) 74%, 
+    rgba(31, 94, 52, 0.26) 74%,
     rgba(36, 121, 64, 0) 100%
   );
   --biggest-updated-circle-color: rgba(0, 188, 79, 0.02);
@@ -41,10 +41,10 @@ html[data-theme='light'] {
   --theme-color-1: rgba(3, 3, 4, 1);
   --theme-color-2: rgba(13, 13, 18, 1);
   --theme-color-3: rgba(64, 64, 64, 1);
-  --theme-color-4: 	rgba(50, 50, 50, 1);
-  --theme-color-5: 	rgba(255, 151, 29, 1);
+  --theme-color-4: rgba(50, 50, 50, 1);
+  --theme-color-5: rgba(255, 151, 29, 1);
   --theme-color-6: rgba(22, 199, 130, 1);
-  --theme-color-7: 	rgba(234, 57, 67, 1);
+  --theme-color-7: rgba(234, 57, 67, 1);
   --logo-color: linear-gradient(
     91deg,
     rgba(0, 206, 44, 1) 0%,
@@ -67,9 +67,9 @@ html[data-theme='light'] {
   --theme-color-8: rgba(235, 235, 235, 1);
   --theme-color-9: rgba(195, 192, 192, 1);
   --theme-color-10: rgba(67, 75, 86, 1);
-  --theme-color-11: 	rgba(247, 247, 247, 1);
+  --theme-color-11: rgba(247, 247, 247, 1);
   --theme-color-12: rgba(3, 3, 4, 0.5);
   --error-message-color: rgba(224, 22, 36, 1);
-  --theme-color-13: 	rgba(96, 125, 148, 1);
+  --theme-color-13: rgba(96, 125, 148, 1);
   --theme-color-14: rgba(0, 0, 0, 0.5);
 }

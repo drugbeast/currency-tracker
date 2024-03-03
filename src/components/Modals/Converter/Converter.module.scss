@@ -8,7 +8,7 @@
 
 .content {
   margin-top: 48px;
-  
+
   @include flex(stretch, stretch, 16px, column);
 }
 
@@ -30,8 +30,7 @@
 
 .amount::-webkit-outer-spin-button,
 .edit-input::-webkit-outer-spin-button,
-.edit-input::-webkit-inner-spin-button
-.amount::-webkit-inner-spin-button {
+.edit-input::-webkit-inner-spin-button .amount::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

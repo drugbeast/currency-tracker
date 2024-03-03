@@ -24,7 +24,7 @@
   top: 98%;
   background-color: var(--theme-color-11);
   width: 100%;
-  
+
   @include flex(stretch, stretch, 0, column);
 
   z-index: 1000;

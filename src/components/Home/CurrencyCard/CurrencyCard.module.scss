@@ -13,7 +13,6 @@
 }
 .info {
   @include flex(center, stretch, 4px, column);
-
 }
 .title {
   font-size: 35px;

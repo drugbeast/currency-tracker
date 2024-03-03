@@ -26,7 +26,7 @@
 
 .form {
   @include form(16px, 16px);
-  
+
   overflow-y: scroll;
   height: 350px;
 }

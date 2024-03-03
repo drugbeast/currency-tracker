@@ -13,7 +13,7 @@
 
 .biggest {
   @include circle(50px, var(--biggest-updated-circle-color));
-  
+
   @include blinking(0.02, 0.22);
 }
 

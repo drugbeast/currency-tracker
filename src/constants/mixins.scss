@@ -57,7 +57,7 @@
   gap: $gap;
 }
 
-@mixin flex($justify:stretch, $align:stretch, $gap:0px, $direction:row) {
+@mixin flex($justify: stretch, $align: stretch, $gap: 0px, $direction: row) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
