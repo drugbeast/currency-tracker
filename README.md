@@ -11,3 +11,7 @@ Modsen Currency Tracker is the app for tracking and converting currencies. It ha
 - **_yarn install_** - download project dependencies
 - **_yarn run dev_** - run in development mode
 - **_yarn run prod_** - run in production mode
+- **_yarn run test_** - run unit tests
+- **_yarn run cypress_** - run e2e cypress tests
+- **_yarn run prettier_** - run prettier
+- **_yarn run lint_** - run linter
