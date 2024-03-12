@@ -77,62 +77,72 @@ class Edit extends Component {
           onSubmit={this.handleEdit}
           data-testid="timeline-edit-form"
         >
-          <label htmlFor="day">Day</label>
-          <input
-            required
-            type="number"
-            min="1"
-            max="31"
-            name="day"
-            onChange={this.handleChangeDay}
-            className={styles.input}
-            data-cy="timeline-edit-day-input"
-            data-testid="timeline-edit-day-input"
-          />
-          <label htmlFor="open">Open</label>
-          <input
-            required
-            type="number"
-            name="open"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].open : ''}
-            className={styles.input}
-            data-cy="timeline-edit-open-input"
-            data-testid="timeline-edit-open-input"
-          />
-          <label htmlFor="high">High</label>
-          <input
-            required
-            type="number"
-            name="high"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].high : ''}
-            className={styles.input}
-            data-cy="timeline-edit-high-input"
-            data-testid="timeline-edit-high-input"
-          />
-          <label htmlFor="close">Close</label>
-          <input
-            required
-            type="number"
-            name="close"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].close : ''}
-            className={styles.input}
-            data-cy="timeline-edit-close-input"
-            data-testid="timeline-edit-close-input"
-          />
-          <label htmlFor="low">Low</label>
-          <input
-            required
-            type="number"
-            name="low"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].low : ''}
-            className={styles.input}
-            data-cy="timeline-edit-low-input"
-            data-testid="timeline-edit-low-input"
-          />
+          <label htmlFor="day" className={styles.label}>
+            <p>Day</p>
+            <input
+              required
+              type="number"
+              min="1"
+              max="31"
+              name="day"
+              onChange={this.handleChangeDay}
+              className={styles.input}
+              data-cy="timeline-edit-day-input"
+              data-testid="timeline-edit-day-input"
+            />
+          </label>
+          <label htmlFor="open" className={styles.label}>
+            <p>Open</p>
+            <input
+              required
+              type="number"
+              name="open"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].open : ''}
+              className={styles.input}
+              data-cy="timeline-edit-open-input"
+              data-testid="timeline-edit-open-input"
+            />
+          </label>
+          <label htmlFor="high" className={styles.label}>
+            <p>High</p>
+            <input
+              required
+              type="number"
+              name="high"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].high : ''}
+              className={styles.input}
+              data-cy="timeline-edit-high-input"
+              data-testid="timeline-edit-high-input"
+            />
+          </label>
+          <label htmlFor="close" className={styles.label}>
+            <p>Close</p>
+            <input
+              required
+              type="number"
+              name="close"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].close : ''}
+              className={styles.input}
+              data-cy="timeline-edit-close-input"
+              data-testid="timeline-edit-close-input"
+            />
+          </label>
+          <label htmlFor="low" className={styles.label}>
+            <p>Low</p>
+            <input
+              required
+              type="number"
+              name="low"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].low : ''}
+              className={styles.input}
+              data-cy="timeline-edit-low-input"
+              data-testid="timeline-edit-low-input"
+            />
+          </label>
           <button
             type="submit"
             className={styles.button}

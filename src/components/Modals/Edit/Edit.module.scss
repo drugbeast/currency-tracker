@@ -30,3 +30,9 @@
   overflow-y: scroll;
   height: 350px;
 }
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

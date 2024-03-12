@@ -64,59 +64,71 @@ class Add extends Component {
       <>
         <p className={styles.title}>Add</p>
         <form className={styles.form} onSubmit={this.handleAdd}>
-          <label htmlFor="open">Open</label>
-          <input
-            required
-            id="open"
-            type="number"
-            name="open"
-            onChange={(e) => {
-              this.setState({ open: e.target.value })
-            }}
-            value={open}
-            className={styles.input}
-            data-cy="timeline-add-open-input"
-          />
-          <label htmlFor="high">High</label>
-          <input
-            required
-            id="high"
-            type="number"
-            name="high"
-            onChange={(e) => {
-              this.setState({ high: e.target.value })
-            }}
-            value={high}
-            className={styles.input}
-            data-cy="timeline-add-high-input"
-          />
-          <label htmlFor="close">Close</label>
-          <input
-            required
-            id="close"
-            type="number"
-            name="close"
-            onChange={(e) => {
-              this.setState({ close: e.target.value })
-            }}
-            value={close}
-            className={styles.input}
-            data-cy="timeline-add-close-input"
-          />
-          <label htmlFor="low">Low</label>
-          <input
-            required
-            id="low"
-            type="number"
-            name="low"
-            onChange={(e) => {
-              this.setState({ low: e.target.value })
-            }}
-            value={low}
-            className={styles.input}
-            data-cy="timeline-add-low-input"
-          />
-          <button type="submit" data-cy="timeline-add-modal-action">
+          <label htmlFor="open" className={styles.label}>
+            <p>Open</p>
+            <input
+              required
+              id="open"
+              type="number"
+              name="open"
+              onChange={(e) => {
+                this.setState({ open: e.target.value })
+              }}
+              value={open}
+              className={styles.input}
+              data-cy="timeline-add-open-input"
+            />
+          </label>
+          <label htmlFor="high" className={styles.label}>
+            <p>High</p>
+            <input
+              required
+              id="high"
+              type="number"
+              name="high"
+              onChange={(e) => {
+                this.setState({ high: e.target.value })
+              }}
+              value={high}
+              className={styles.input}
+              data-cy="timeline-add-high-input"
+            />
+          </label>
+          <label htmlFor="close" className={styles.label}>
+            <p>Close</p>
+            <input
+              required
+              id="close"
+              type="number"
+              name="close"
+              onChange={(e) => {
+                this.setState({ close: e.target.value })
+              }}
+              value={close}
+              className={styles.input}
+              data-cy="timeline-add-close-input"
+            />
+          </label>
+          <label htmlFor="low" className={styles.label}>
+            <p>Low</p>
+            <input
+              required
+              id="low"
+              type="number"
+              name="low"
+              onChange={(e) => {
+                this.setState({ low: e.target.value })
+              }}
+              value={low}
+              className={styles.input}
+              data-cy="timeline-add-low-input"
+            />
+          </label>
+          <button
+            type="submit"
+            className={styles.button}
+            data-cy="timeline-add-modal-action"
+          >
             add
           </button>
         </form>

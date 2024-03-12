@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import Logo from 'Assets/images/logo.svg'
 import { PATHS, SCROLL_VALUE, THEMES } from 'Constants/constants'
 import { useContext, useState } from 'react'
