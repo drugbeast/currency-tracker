@@ -37,7 +37,7 @@ function Home() {
   useEffect(() => {
     if (
       Date.now() - lastUpdatedFromLS > CACHING_PERIOD ||
-      (cardsCurrencies.length === 0 && !window.Cypress)
+      cardsCurrencies.length === 0
     ) {
       axios
         .get(`${ENVS.currencybeacon_request}`, {
