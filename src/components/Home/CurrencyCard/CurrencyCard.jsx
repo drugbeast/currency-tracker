@@ -11,7 +11,12 @@ const CurrencyCard = memo((props) => {
     setCardClicked({ rate: Number(rate), symbol })
   }
   return (
-    <section className={styles.card} onClick={onCardClick} data-cy="card">
+    <section
+      className={styles.card}
+      onClick={onCardClick}
+      data-cy="card"
+      role="presentation"
+    >
       <div className={styles.inner}>
         {icons[symbol]({ className: styles.icon })}
         <div className={styles.info}>

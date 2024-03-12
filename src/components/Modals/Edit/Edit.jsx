@@ -72,7 +72,11 @@ class Edit extends Component {
     return (
       <>
         <p className={styles.title}>Edit</p>
-        <form className={styles.form} onSubmit={this.handleEdit}>
+        <form
+          className={styles.form}
+          onSubmit={this.handleEdit}
+          data-testid="timeline-edit-form"
+        >
           <label htmlFor="day">Day</label>
           <input
             required
@@ -83,6 +87,7 @@ class Edit extends Component {
             onChange={this.handleChangeDay}
             className={styles.input}
             data-cy="timeline-edit-day-input"
+            data-testid="timeline-edit-day-input"
           />
           <label htmlFor="open">Open</label>
           <input
@@ -93,6 +98,7 @@ class Edit extends Component {
             value={dataset[day] ? dataset[day].open : ''}
             className={styles.input}
             data-cy="timeline-edit-open-input"
+            data-testid="timeline-edit-open-input"
           />
           <label htmlFor="high">High</label>
           <input
@@ -103,6 +109,7 @@ class Edit extends Component {
             value={dataset[day] ? dataset[day].high : ''}
             className={styles.input}
             data-cy="timeline-edit-high-input"
+            data-testid="timeline-edit-high-input"
           />
           <label htmlFor="close">Close</label>
           <input
@@ -113,6 +120,7 @@ class Edit extends Component {
             value={dataset[day] ? dataset[day].close : ''}
             className={styles.input}
             data-cy="timeline-edit-close-input"
+            data-testid="timeline-edit-close-input"
           />
           <label htmlFor="low">Low</label>
           <input
@@ -123,6 +131,7 @@ class Edit extends Component {
             value={dataset[day] ? dataset[day].low : ''}
             className={styles.input}
             data-cy="timeline-edit-low-input"
+            data-testid="timeline-edit-low-input"
           />
           <button
             type="submit"

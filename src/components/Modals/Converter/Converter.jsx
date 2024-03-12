@@ -34,7 +34,11 @@ function Converter(props) {
   return (
     <>
       <span className={styles.title}>Converter</span>
-      <section className={styles.content} data-cy="converter-modal-wrapper">
+      <section
+        className={styles.content}
+        data-cy="converter-modal-wrapper"
+        data-testid="converter-modal-wrapper"
+      >
         <section className={styles.user}>
           <span className={styles.symbol}>{currency.symbol}:</span>
           <input
@@ -43,6 +47,7 @@ function Converter(props) {
             onChange={handleSetAmount}
             value={amount}
             data-cy="converter-input"
+            data-testid="converter-input"
           />
         </section>
         <div className={styles.selectBlock}>
@@ -52,6 +57,7 @@ function Converter(props) {
             onChange={handleSelectedCurrency}
             className={styles.select}
             data-cy="converter-select"
+            data-testid="converter-select"
           >
             <option value="first">Select, please</option>
             {Object.entries(CURRENCIES_SECOND_FORM).map(

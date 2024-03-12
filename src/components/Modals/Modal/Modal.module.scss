@@ -1,4 +1,5 @@
 @use '../../../constants/mixins.scss' as *;
+@use '../../../constants/breakpoints';
 
 .wrapper {
   height: 100%;
@@ -33,7 +34,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: breakpoints.$desktop) {
   .container {
     top: 60px;
   }

@@ -1,3 +1,5 @@
+@use '../../../constants/breakpoints';
+
 .wrap {
   width: 100%;
   height: 800px;
@@ -9,7 +11,7 @@
   height: 100%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .wrap {
     height: 600px;
   }

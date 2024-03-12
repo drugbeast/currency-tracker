@@ -67,6 +67,7 @@ class Add extends Component {
           <label htmlFor="open">Open</label>
           <input
             required
+            id="open"
             type="number"
             name="open"
             onChange={(e) => {
@@ -79,6 +80,7 @@ class Add extends Component {
           <label htmlFor="high">High</label>
           <input
             required
+            id="high"
             type="number"
             name="high"
             onChange={(e) => {
@@ -91,6 +93,7 @@ class Add extends Component {
           <label htmlFor="close">Close</label>
           <input
             required
+            id="close"
             type="number"
             name="close"
             onChange={(e) => {
@@ -103,6 +106,7 @@ class Add extends Component {
           <label htmlFor="low">Low</label>
           <input
             required
+            id="low"
             type="number"
             name="low"
             onChange={(e) => {

@@ -1,4 +1,5 @@
 @use '../../constants/mixins.scss' as *;
+@use '../../constants/breakpoints';
 
 .content {
   background-color: var(--background-color);
@@ -28,14 +29,14 @@
   font-weight: 500;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .information {
     flex-direction: column;
     padding-bottom: 100px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: breakpoints.$mobile) {
   .title {
     font-size: 56px;
   }

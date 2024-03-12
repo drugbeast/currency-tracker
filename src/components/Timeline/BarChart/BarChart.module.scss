@@ -1,3 +1,5 @@
+@use '../../../constants/breakpoints';
+
 .chart {
   margin: auto;
   margin-top: 64px;
@@ -6,19 +8,19 @@
   width: 90%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .chart {
     height: 450px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: breakpoints.$tablet) {
   .chart {
     width: 95%;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: breakpoints.$mobile) {
   .chart {
     height: 300px;
     width: 100%;

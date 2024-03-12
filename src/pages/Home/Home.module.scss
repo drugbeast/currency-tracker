@@ -1,4 +1,5 @@
 @use '../../constants/mixins.scss' as *;
+@use '../../constants/breakpoints';
 
 .currencies {
   font-weight: 300;
@@ -26,7 +27,7 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: breakpoints.$desktop) {
   .title {
     font-size: 28px;
   }
@@ -35,7 +36,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .cards {
     gap: 32px 120px;
   }
@@ -44,7 +45,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: breakpoints.$tablet) {
   .title {
     width: 100%;
   }

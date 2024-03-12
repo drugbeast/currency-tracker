@@ -23,9 +23,9 @@ function Modal(props) {
 
   return (
     <article className={styles.wrapper}>
-      <section className={styles.window}>
+      <section className={styles.window} data-testid="modal-window">
         <Cross onModalClose={() => onModalClose()} />
-        <div className={styles.inner}>
+        <div className={styles.inner} data-testid={`${type}-component`}>
           {type === MODAL_TYPES.converter && <Converter currency={currency} />}
           {type === MODAL_TYPES.edit && <Edit />}
           {type === MODAL_TYPES.message && <Message />}

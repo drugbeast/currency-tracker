@@ -1,4 +1,5 @@
 @use '../../constants/mixins.scss' as *;
+@use '../../constants/breakpoints';
 
 .wrapper {
   background-color: var(--background-color);
@@ -17,13 +18,13 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .title {
     font-size: 32px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: breakpoints.$mobile) {
   .title {
     font-size: 26px;
   }

@@ -6,26 +6,15 @@ import {
   CURRENCIES_SECOND_FORM,
   ENVS,
   MODAL_TYPES,
-  RATES_FOR_TESTS,
 } from 'Constants/constants'
 import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
+import { getInitialValueForCardsCurrencies } from './Home.config'
 import styles from './Home.module.scss'
 
 function Home() {
-  const currenciesFromLS = localStorage.getItem('rates')
   const lastUpdatedFromLS = localStorage.getItem('lastUpdated')
-
-  const getInitialValueForCardsCurrencies = () => {
-    if (currenciesFromLS != null && !window.Cypress) {
-      return JSON.parse(currenciesFromLS)
-    }
-    if (window.Cypress) {
-      return RATES_FOR_TESTS
-    }
-    return []
-  }
 
   const [cardsCurrencies, setCardsCurrencies] = useState(
     getInitialValueForCardsCurrencies(),
@@ -99,7 +88,7 @@ function Home() {
       <div className="container">
         <div className={styles.inner}>
           <div className={styles.title}>Quotes</div>
-          <section className={styles.cards}>
+          <section className={styles.cards} role="grid">
             {cardsCurrencies.map((item, index) => (
               <CurrencyCard
                 setCardClicked={onCardClick}

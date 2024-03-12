@@ -1,8 +1,8 @@
 const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.jsx'),
@@ -31,25 +31,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
       favicon: './src/assets/images/logo.svg',
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        REACT_APP_CURRENCYBEACON_API_KEY: JSON.stringify(
-          process.env.REACT_APP_CURRENCYBEACON_API_KEY,
-        ),
-        REACT_APP_MAPTILER_API_KEY: JSON.stringify(
-          process.env.REACT_APP_MAPTILER_API_KEY,
-        ),
-        REACT_APP_CURRENCYBEACON_REQUEST: JSON.stringify(
-          process.env.REACT_APP_CURRENCYBEACON_REQUEST,
-        ),
-        REACT_APP_MOCKAPI_REQUEST: JSON.stringify(
-          process.env.REACT_APP_MOCKAPI_REQUEST,
-        ),
-      },
     }),
     new MiniCssExtractPlugin(),
   ],

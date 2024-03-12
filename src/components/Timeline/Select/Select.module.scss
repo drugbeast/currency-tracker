@@ -1,4 +1,5 @@
 @use '../../../constants/mixins.scss' as *;
+@use '../../../constants/breakpoints';
 
 .select {
   color: var(--theme-color-1);
@@ -62,21 +63,21 @@
   transform: scaleX(0);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .field.up,
   .field.down {
     font-size: 26px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: breakpoints.$tablet) {
   .field.up,
   .field.down {
     font-size: 24px;
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: breakpoints.$mobile) {
   .select {
     width: 100%;
     margin: 0 auto;

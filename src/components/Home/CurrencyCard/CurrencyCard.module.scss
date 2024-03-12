@@ -1,4 +1,5 @@
 @use '../../../constants/mixins.scss' as *;
+@use '../../../constants/breakpoints';
 
 .card {
   cursor: pointer;
@@ -8,27 +9,32 @@
   width: 42%;
   border-radius: 8px;
 }
+
 .inner {
   @include flex(stretch, stretch, 24px);
 }
+
 .info {
   @include flex(center, stretch, 4px, column);
 }
+
 .title {
   font-size: 35px;
   font-weight: 400;
   color: var(--card-text);
 }
+
 .rate {
   font-size: 32px;
   color: var(--theme-color-10);
 }
+
 .icon {
   height: 80px;
   width: 80px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: breakpoints.$desktop) {
   .title {
     font-size: 26px;
   }
@@ -41,7 +47,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .card {
     padding: 16px;
   }
@@ -57,7 +63,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: breakpoints.$tablet) {
   .card {
     width: 100%;
   }

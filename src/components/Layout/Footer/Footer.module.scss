@@ -1,4 +1,5 @@
 @use '../../../constants/mixins.scss' as *;
+@use '../../../constants/breakpoints';
 
 footer {
   background: var(--background-color);
@@ -70,7 +71,7 @@ footer {
   transition: background 0.3s ease-out;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: breakpoints.$desktop) {
   .inner {
     gap: 64px;
   }
@@ -100,7 +101,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .logo {
     height: 32px;
   }
@@ -126,7 +127,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: breakpoints.$tablet) {
   .inner {
     @include flex(stretch, stretch, 40px, column);
   }
@@ -154,7 +155,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: breakpoints.$mobile) {
   .inner {
     gap: 56px;
   }

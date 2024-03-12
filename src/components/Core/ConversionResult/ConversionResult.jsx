@@ -6,7 +6,12 @@ function ConversionResult({ result, currency }) {
     throw new Error(ERROR_MESSAGE)
   }
   return (
-    <span className={styles.result} data-cy="conversion-result">
+    <span
+      className={styles.result}
+      data-cy="conversion-result"
+      role="presentation"
+      data-testid="conversion-result"
+    >
       {result === 0 ? 0 : result.toFixed(currency === 'BTC' ? 8 : 3)} {currency}
     </span>
   )

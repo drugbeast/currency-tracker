@@ -1,4 +1,5 @@
 @use '../../../constants/mixins.scss' as *;
+@use '../../../constants/breakpoints';
 
 .updated {
   padding-top: 72px;
@@ -32,7 +33,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .updated {
     padding-top: 48px;
   }
@@ -42,7 +43,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: breakpoints.$tablet) {
   .updatedText {
     font-size: 24px;
   }

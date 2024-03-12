@@ -1,4 +1,5 @@
 @use '../../../constants/mixins.scss' as *;
+@use '../../../constants/breakpoints';
 
 .header {
   background: var(--background-color);
@@ -125,14 +126,14 @@
   transform: translateX(100%);
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: breakpoints.$desktop) {
   .nav {
     gap: 64px;
     margin-right: 196px;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: breakpoints.$desktop-mini) {
   .nav {
     font-size: 18px;
     margin-right: 96px;
@@ -146,7 +147,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: breakpoints.$tablet) {
   .header {
     padding: 24px 0;
   }
