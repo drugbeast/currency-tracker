@@ -2,6 +2,7 @@ const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
@@ -31,6 +32,20 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        REACT_APP_CURRENCYBEACON_API_KEY: JSON.stringify(
+          'UMBHqIhSJ08irV0mHLKF0CjIxrxvngdl',
+        ),
+        REACT_APP_CURRENCYBEACON_REQUEST: JSON.stringify(
+          'https://api.currencybeacon.com/v1/latest',
+        ),
+        REACT_APP_MAPTILER_API_KEY: JSON.stringify('VyOY3rI2tsepj8NNxxyg'),
+        REACT_APP_MOCKAPI_REQUEST: JSON.stringify(
+          'https://65cbe39eefec34d9ed883c24.mockapi.io/api/v1/',
+        ),
+      },
+    }),
     new Dotenv(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
