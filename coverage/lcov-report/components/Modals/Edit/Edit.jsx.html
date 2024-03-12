@@ -208,7 +208,21 @@
 <a name='L143'></a><a href='#L143'>143</a>
 <a name='L144'></a><a href='#L144'>144</a>
 <a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -280,6 +294,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -427,63 +455,77 @@ class Edit extends Component {
     return (
       &lt;&gt;
         &lt;p className={styles.title}&gt;Edit&lt;/p&gt;
-        &lt;form className={styles.form} onSubmit={this.handleEdit} data-testid="timeline-edit-form"&gt;
-          &lt;label htmlFor="day" &gt;Day&lt;/label&gt;
-          &lt;input
-            required
-            type="number"
-            min="1"
-            max="31"
-            name="day"
-            onChange={this.handleChangeDay}
-            className={styles.input}
-            data-cy="timeline-edit-day-input"
-            data-testid="timeline-edit-day-input"
-          /&gt;
-          &lt;label htmlFor="open"&gt;Open&lt;/label&gt;
-          &lt;input
-            required
-            type="number"
-            name="open"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].open : ''}
-            className={styles.input}
-            data-cy="timeline-edit-open-input"
-            data-testid="timeline-edit-open-input"
-          /&gt;
-          &lt;label htmlFor="high"&gt;High&lt;/label&gt;
-          &lt;input
-            required
-            type="number"
-            name="high"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].high : ''}
-            className={styles.input}
-            data-cy="timeline-edit-high-input"
-            data-testid="timeline-edit-high-input"
-          /&gt;
-          &lt;label htmlFor="close"&gt;Close&lt;/label&gt;
-          &lt;input
-            required
-            type="number"
-            name="close"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].close : ''}
-            className={styles.input}
-            data-cy="timeline-edit-close-input"
-            data-testid="timeline-edit-close-input"
-          /&gt;
-          &lt;label htmlFor="low"&gt;Low&lt;/label&gt;
-          &lt;input
-            required
-            type="number"
-            name="low"
-            onChange={this.handleChangeInput}
-            value={dataset[day] ? dataset[day].low : ''}
-            className={styles.input}
-            data-cy="timeline-edit-low-input"
-            data-testid="timeline-edit-low-input"
-          /&gt;
+        &lt;form
+          className={styles.form}
+          onSubmit={this.handleEdit}
+          data-testid="timeline-edit-form"
+        &gt;
+          &lt;label htmlFor="day" className={styles.label}&gt;
+            &lt;p&gt;Day&lt;/p&gt;
+            &lt;input
+              required
+              type="number"
+              min="1"
+              max="31"
+              name="day"
+              onChange={this.handleChangeDay}
+              className={styles.input}
+              data-cy="timeline-edit-day-input"
+              data-testid="timeline-edit-day-input"
+            /&gt;
+          &lt;/label&gt;
+          &lt;label htmlFor="open" className={styles.label}&gt;
+            &lt;p&gt;Open&lt;/p&gt;
+            &lt;input
+              required
+              type="number"
+              name="open"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].open : ''}
+              className={styles.input}
+              data-cy="timeline-edit-open-input"
+              data-testid="timeline-edit-open-input"
+            /&gt;
+          &lt;/label&gt;
+          &lt;label htmlFor="high" className={styles.label}&gt;
+            &lt;p&gt;High&lt;/p&gt;
+            &lt;input
+              required
+              type="number"
+              name="high"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].high : ''}
+              className={styles.input}
+              data-cy="timeline-edit-high-input"
+              data-testid="timeline-edit-high-input"
+            /&gt;
+          &lt;/label&gt;
+          &lt;label htmlFor="close" className={styles.label}&gt;
+            &lt;p&gt;Close&lt;/p&gt;
+            &lt;input
+              required
+              type="number"
+              name="close"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].close : ''}
+              className={styles.input}
+              data-cy="timeline-edit-close-input"
+              data-testid="timeline-edit-close-input"
+            /&gt;
+          &lt;/label&gt;
+          &lt;label htmlFor="low" className={styles.label}&gt;
+            &lt;p&gt;Low&lt;/p&gt;
+            &lt;input
+              required
+              type="number"
+              name="low"
+              onChange={this.handleChangeInput}
+              value={dataset[day] ? dataset[day].low : ''}
+              className={styles.input}
+              data-cy="timeline-edit-low-input"
+              data-testid="timeline-edit-low-input"
+            /&gt;
+          &lt;/label&gt;
           &lt;button
             type="submit"
             className={styles.button}
@@ -505,7 +547,7 @@ export default Edit
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-03-12T05:21:31.430Z
+                at 2024-03-12T13:09:46.884Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
