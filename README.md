@@ -1,8 +1,8 @@
-# Modsen Currency Tracker
+# Currency Tracker
 
 ## Description
 
-Modsen Currency Tracker is the app for tracking and converting currencies. It has possibities to convert currencies, check the dynamic of currencies via candlestick chart and check the banks of your city whether they have needed currency.
+Currency Tracker is the app for tracking and converting currencies. It has possibities to convert currencies, check the dynamic of currencies via candlestick chart and check the banks of your city whether they have needed currency.
 
 ## How to Work with project?
 
