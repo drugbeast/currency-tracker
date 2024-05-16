@@ -8,7 +8,7 @@ function Banner() {
       <div className={styles.inner}>
         <div className={styles.content}>
           <div className={styles.left}>
-            <p className={`${styles.title} ${styles.small}`}>Modsen Currency</p>
+            <p className={`${styles.title} ${styles.small}`}>Currency</p>
             <p className={`${styles.title} ${styles.big}`}>Tracker</p>
             <p className={styles.text}>
               Quotes for the dollar and other

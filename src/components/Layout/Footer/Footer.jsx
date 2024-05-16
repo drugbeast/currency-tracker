@@ -26,7 +26,7 @@ function Footer() {
           <section className={styles.left}>
             <div className={styles.logo}>
               <Logo width={40} height={45} className={styles.logo} />
-              <span className={styles.logoText}>Modsen Currency Tracker</span>
+              <span className={styles.logoText}>Currency Tracker</span>
             </div>
             <p className={styles.text}>{LEFT_BLOCK_TEXT}</p>
           </section>

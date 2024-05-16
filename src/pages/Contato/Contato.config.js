@@ -17,6 +17,6 @@ export const REQUISITES = [
   {
     id: 4,
     informationPartName: 'Email',
-    informationPartValue: 'modsencurrencytracker@gmail.com',
+    informationPartValue: 'currencytracker@gmail.com',
   },
 ]

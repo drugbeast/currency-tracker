@@ -15,12 +15,12 @@
 
 .left {
   position: relative;
-  left: -160px;
+  left: -30px;
 }
 
 .right {
   position: relative;
-  right: 80px;
+  right: -20px;
 }
 
 .title {
@@ -41,13 +41,10 @@
 .text {
   color: var(--theme-color-2);
   font-weight: 300;
-  font-size: 25px;
+  font-size: 23px;
   text-align: center;
   line-height: 48px;
-  position: absolute;
-  right: -48px;
   margin-top: 16px;
-  max-width: 100%;
 }
 
 @media screen and (max-width: breakpoints.$desktop) {
@@ -56,7 +53,7 @@
   }
 
   .left {
-    left: -96px;
+    left: -80px;
   }
 
   .right {
@@ -77,13 +74,13 @@
   }
 
   .text {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: breakpoints.$desktop-mini) {
   .inner {
-    padding: 64px 0 120px;
+    padding: 64px 0;
   }
 
   .right {
